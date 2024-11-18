@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yevgeniy Koshtenko - ML Research & Quantitative Trading - koshtenco@gmail.com</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #0a192f 0%, #172a45 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neural-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #64ffda 20%, #00bcd4 40%, #1e88e5 60%, #64ffda 80%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 4s linear infinite;
+            text-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+        }
+
+        .hero-subtitle {
+            color: #8892b0;
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 2rem auto;
+            line-height: 1.6;
+        }
+
+        .highlight-text {
+            color: #64ffda;
+            font-weight: 600;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .glowing-border {
+            position: relative;
+        }
+
+        .glowing-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #64ffda, #00bcd4, #1e88e5);
+            border-radius: inherit;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .position-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 4px;
+            color: #64ffda;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .position-tag:hover {
+            background: rgba(100, 255, 218, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <canvas id="neuralCanvas" class="neural-bg"></canvas>
+        <div class="content-wrapper">
+            <div class="text-center floating">
+                <h1 class="hero-title mb-4">Yevgeniy Koshtenko</h1>
+                <div class="hero-subtitle">
+                    <span class="position-tag">ML Researcher</span>
+                    <span class="position-tag">Quantitative Analyst</span>
+                    <span class="position-tag">Blockchain Developer</span>
+                </div>
+                <p class="hero-subtitle">
+                    Specializing in the development of <span class="highlight-text">ML-driven trading systems</span>, 
+                    <span class="highlight-text">quantitative research</span>, and 
+                    <span class="highlight-text">blockchain integration</span> with 8+ years of market experience.
+                </p>
+                <div class="flex justify-center gap-6 mt-8">
+                    <a href="#portfolio" class="glowing-border px-8 py-3 bg-[#0a192f] rounded-lg hover:transform hover:scale-105 transition-all duration-300">
+                        View Portfolio
+                    </a>
+                    <a href="#contact" class="glowing-border px-8 py-3 bg-[#0a192f] rounded-lg hover:transform hover:scale-105 transition-all duration-300">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    class AdvancedNeuralNetwork {
+        constructor() {
+            this.canvas = document.getElementById('neuralCanvas');
+            this.ctx = this.canvas.getContext('2d');
+            this.particles = [];
+            this.connections = [];
+            this.mouse = { x: null, y: null, radius: 150 };
+            this.hue = 180;
+            this.particleCount = 100;
+            
+            this.init();
+            this.animate();
+            this.addEventListeners();
+        }
+
+        init() {
+            this.resize();
+            this.createParticles();
+        }
+
+        resize() {
+            this.canvas.width = window.innerWidth;
+            this.canvas.height = window.innerHeight;
+            this.createParticles();
+        }
+
+        createParticles() {
+            this.particles = [];
+            for (let i = 0; i < this.particleCount; i++) {
+                this.particles.push({
+                    x: Math.random() * this.canvas.width,
+                    y: Math.random() * this.canvas.height,
+                    radius: Math.random() * 2 + 1,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    sinOffset: Math.random() * Math.PI * 2
+                });
+            }
+        }
+
+        drawParticles() {
+            this.particles.forEach(particle => {
+                particle.sinOffset += 0.01;
+                particle.radius = 1.5 + Math.sin(particle.sinOffset) * 0.5;
+
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+
+                if (particle.x < 0 || particle.x > this.canvas.width) particle.vx *= -1;
+                if (particle.y < 0 || particle.y > this.canvas.height) particle.vy *= -1;
+
+                this.ctx.beginPath();
+                const gradient = this.ctx.createRadialGradient(
+                    particle.x, particle.y, 0,
+                    particle.x, particle.y, particle.radius * 2
+                );
+                gradient.addColorStop(0, `hsla(${this.hue}, 100%, 70%, 0.8)`);
+                gradient.addColorStop(1, `hsla(${this.hue}, 100%, 70%, 0)`);
+                this.ctx.fillStyle = gradient;
+                this.ctx.arc(particle.x, particle.y, particle.radius * 2, 0, Math.PI * 2);
+                this.ctx.fill();
+            });
+        }
+
+        drawConnections() {
+            for (let i = 0; i < this.particles.length; i++) {
+                for (let j = i + 1; j < this.particles.length; j++) {
+                    const dx = this.particles[i].x - this.particles[j].x;
+                    const dy = this.particles[i].y - this.particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        this.ctx.beginPath();
+                        this.ctx.strokeStyle = `hsla(${this.hue}, 100%, 70%, ${0.2 * (1 - distance/100)})`;
+                        this.ctx.lineWidth = 0.5;
+                        this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+                        this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+                        this.ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        draw() {
+            this.ctx.fillStyle = 'rgba(10, 25, 47, 0.1)';
+            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            
+            this.hue = (this.hue + 0.1) % 360;
+            this.drawConnections();
+            this.drawParticles();
+        }
+
+        animate() {
+            this.draw();
+            requestAnimationFrame(this.animate.bind(this));
+        }
+
+        addEventListeners() {
+            window.addEventListener('resize', () => this.resize());
+            
+            this.canvas.addEventListener('mousemove', (e) => {
+                const rect = this.canvas.getBoundingClientRect();
+                this.mouse.x = e.clientX - rect.left;
+                this.mouse.y = e.clientY - rect.top;
+            });
+
+            this.canvas.addEventListener('mouseleave', () => {
+                this.mouse.x = null;
+                this.mouse.y = null;
+            });
+        }
+    }
+
+    window.addEventListener('load', () => {
+        new AdvancedNeuralNetwork();
+    });
+    </script>
+
+    <!-- Research & Experience Section -->
+    <section id="research" class="py-20 bg-[#172a45]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-16 text-center gradient-text">Research & Experience</h2>
+            
+            <!-- Current Positions -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- AFIF Position -->
+                <div class="card p-6 rounded-lg transform transition-all hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-chart-network text-2xl text-[#64ffda] mr-3"></i>
+                        <h3 class="text-xl font-bold text-[#64ffda]">Research Scientist at AFIF</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
+                            <span>Quantitative strategy development with ML integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
+                            <span>Market anomaly detection and analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
+                            <span>Advanced ML modeling for financial markets</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Independent Research -->
+                <div class="card p-6 rounded-lg transform transition-all hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-microscope text-2xl text-[#64ffda] mr-3"></i>
+                        <h3 class="text-xl font-bold text-[#64ffda]">Independent Researcher</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
+                            <span>Development of predictive ML models</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
+                            <span>Research publication and methodology development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
+                            <span>Advanced trading system design</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Algo Trading -->
+                <div class="card p-6 rounded-lg transform transition-all hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-robot text-2xl text-[#64ffda] mr-3"></i>
+                        <h3 class="text-xl font-bold text-[#64ffda]">Algo Trader</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
+                            <span>High-frequency trading system development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
+                            <span>ML-based strategy implementation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
+                            <span>Portfolio optimization and risk management</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Research Projects -->
+            <div class="mt-20">
+                <h3 class="text-3xl font-bold mb-12 text-center text-[#64ffda]">Research Portfolio 2024</h3>
+                
+                <!-- ML & AI Projects -->
+                <div class="grid md:grid-cols-2 gap-8 mb-16">
+                    <div class="card p-8 rounded-lg">
+                        <h4 class="text-2xl font-bold mb-6 text-[#64ffda]">Machine Learning & AI</h4>
+                        <div class="space-y-6">
+                            <!-- LSTM Project -->
+                            <div class="project-card transform transition-all hover:translate-x-2">
+                                <h5 class="text-xl font-bold text-[#64ffda] mb-3">
+                                    <i class="fas fa-brain mr-2"></i>
+                                    LSTM Neural Networks for Volume Analysis
+                                </h5>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Deep learning integration with technical analysis
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Anomalous volume pattern detection
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Advanced clustering algorithms
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Association Rules Project -->
+                            <div class="project-card transform transition-all hover:translate-x-2">
+                                <h5 class="text-xl font-bold text-[#64ffda] mb-3">
+                                    <i class="fas fa-project-diagram mr-2"></i>
+                                    Association Rules in Forex
+                                </h5>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Market pattern recognition systems
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Multi-timeframe validation
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Retail analytics adaptation
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quantitative Research -->
+                    <div class="card p-8 rounded-lg">
+                        <h4 class="text-2xl font-bold mb-6 text-[#64ffda]">Quantitative Research</h4>
+                        <div class="space-y-6">
+                            <!-- HFT Project -->
+                            <div class="project-card transform transition-all hover:translate-x-2">
+                                <h5 class="text-xl font-bold text-[#64ffda] mb-3">
+                                    <i class="fas fa-bolt mr-2"></i>
+                                    High-Frequency Trading Systems
+                                </h5>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Arbitrage strategy optimization
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Low-latency execution
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Risk management systems
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- VaR Models -->
+                            <div class="project-card transform transition-all hover:translate-x-2">
+                                <h5 class="text-xl font-bold text-[#64ffda] mb-3">
+                                    <i class="fas fa-chart-line mr-2"></i>
+                                    VaR Models for Portfolio Management
+                                </h5>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Dynamic risk modeling
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Capital allocation strategies
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
+                                        Performance validation
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Stack Section -->
+    <section id="tech-stack" class="py-20 bg-[#0a192f]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-16 text-center gradient-text">Technical Stack</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Programming & Integration -->
+                <div class="card p-8 rounded-lg transform hover:scale-105 transition-all">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-code text-3xl text-[#64ffda] mr-3"></i>
+                        <h3 class="text-2xl font-bold text-[#64ffda]">Programming & Integration</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fab fa-python text-[#64ffda] mr-3"></i>
+                            <span>Python Ecosystem</span>
+                        </li>
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fas fa-chart-line text-[#64ffda] mr-3"></i>
+                            <span>MetaTrader 5 API</span>
+                        </li>
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fab fa-ethereum text-[#64ffda] mr-3"></i>
+                            <span>Solidity / Smart Contracts</span>
+                        </li>
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fas fa-network-wired text-[#64ffda] mr-3"></i>
+                            <span>REST API Integration</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Machine Learning -->
+                <div class="card p-8 rounded-lg transform hover:scale-105 transition-all">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-brain text-3xl text-[#64ffda] mr-3"></i>
+                        <h3 class="text-2xl font-bold text-[#64ffda]">Machine Learning</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fas fa-project-diagram text-[#64ffda] mr-3"></i>
+                            <span>LSTM Neural Networks</span>
+                        </li>
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fas fa-tree text-[#64ffda] mr-3"></i>
+                            <span>Random Forest</span>
+                        </li>
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fas fa-cube text-[#64ffda] mr-3"></i>
+                            <span>ONNX Models</span>
+                        </li>
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fas fa-cogs text-[#64ffda] mr-3"></i>
+                            <span>Data Preprocessing</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quantitative Analysis -->
+                <div class="card p-8 rounded-lg transform hover:scale-105 transition-all">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-chart-bar text-3xl text-[#64ffda] mr-3"></i>
+                        <h3 class="text-2xl font-bold text-[#64ffda]">Quantitative Analysis</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fas fa-calculator text-[#64ffda] mr-3"></i>
+                            <span>Statistical Modeling</span>
+                        </li>
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fas fa-shield-alt text-[#64ffda] mr-3"></i>
+                            <span>Risk Management (VaR)</span>
+                        </li>
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fas fa-chart-pie text-[#64ffda] mr-3"></i>
+                            <span>Portfolio Optimization</span>
+                        </li>
+                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
+                            <i class="fas fa-tachometer-alt text-[#64ffda] mr-3"></i>
+                            <span>HFT Analysis</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Projects Showcase -->
+    <section id="showcase" class="py-20 bg-[#172a45]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-16 text-center gradient-text">Featured Research</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- LSTM Project -->
+                <div class="project-showcase-card">
+                    <div class="card p-8 rounded-lg transform hover:-translate-y-2 transition-all">
+                        <h3 class="text-2xl font-bold text-[#64ffda] mb-4">Neural Network Trading Systems</h3>
+                        <p class="text-gray-300 mb-6">Development of advanced LSTM architectures for market prediction and pattern recognition.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">Deep Learning</span>
+                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">Time Series</span>
+                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">Python</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-400">2024</span>
+                            <i class="fas fa-external-link-alt text-[#64ffda]"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- High-Frequency Trading -->
+                <div class="project-showcase-card">
+                    <div class="card p-8 rounded-lg transform hover:-translate-y-2 transition-all">
+                        <h3 class="text-2xl font-bold text-[#64ffda] mb-4">HFT Arbitrage Systems</h3>
+                        <p class="text-gray-300 mb-6">Implementation of low-latency arbitrage strategies with advanced risk management.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">HFT</span>
+                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">Arbitrage</span>
+                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">C++</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-400">2024</span>
+                            <i class="fas fa-external-link-alt text-[#64ffda]"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-[#0a192f]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-16 text-center gradient-text">Get in Touch</h2>
+            
+            <div class="max-w-2xl mx-auto card p-8 rounded-lg">
+                <p class="text-center text-gray-300 mb-8">
+                    I'm always interested in new research opportunities and collaborations in quantitative trading, ML development, and blockchain integration.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-[#64ffda] mb-4">Research Areas</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-brain text-[#64ffda] mr-2"></i>
+                                <span>ML in Finance</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-robot text-[#64ffda] mr-2"></i>
+                                <span>Algorithmic Trading</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-chart-line text-[#64ffda] mr-2"></i>
+                                <span>Quantitative Analysis</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold text-[#64ffda] mb-4">Collaboration Types</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-project-diagram text-[#64ffda] mr-2"></i>
+                                <span>Research Projects</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-code text-[#64ffda] mr-2"></i>
+                                <span>System Development</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-handshake text-[#64ffda] mr-2"></i>
+                                <span>Consulting</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="mailto:koshtenco@gmail.com" 
+                       class="inline-block px-8 py-3 bg-[#64ffda] bg-opacity-10 text-[#64ffda] rounded-lg
+                              border border-[#64ffda] hover:bg-opacity-20 transition-all duration-300
+                              transform hover:scale-105">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-[#0a192f] border-t border-[#64ffda] border-opacity-20">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2024 Yevgeniy Koshtenko. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
