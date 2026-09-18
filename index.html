@@ -1,647 +1,1110 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yevgeniy Koshtenko - ML Research & Quantitative Trading - koshtenco@gmail.com</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <style>
-        .hero-section {
-            min-height: 100vh;
-            background: linear-gradient(145deg, #0a192f 0%, #172a45 100%);
-            position: relative;
-            overflow: hidden;
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title data-en="Evgeniy Koshtenko — Quant · AI · Web3 · Blockchain" data-ru="Евгений Коштенко — Quant · AI · Web3 · Blockchain">Евгений Коштенко — Quant · AI · Web3 · Blockchain</title>
+<meta content="#00e664" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>:root{ --g:#00e664;--g2:#00c250;--g3:rgba(0,230,100,.12);--g4:rgba(0,230,100,.06); --blk:#000;--b1:#080808;--b2:#111;--b3:#191919;--b4:#242424; --w:#fff;--w2:rgba(255,255,255,.85);--w3:rgba(255,255,255,.58);--w4:rgba(255,255,255,.22);--w5:rgba(255,255,255,.08); --bdr:rgba(0,230,100,.18);--bdr2:rgba(255,255,255,.08); --serif:'Instrument Serif', Georgia, serif;--display:'Bebas Neue', sans-serif; --mono:'DM Mono', monospace;--body:'Manrope', sans-serif; --r1:10px;--r2:18px;--r3:28px;--shadow:0 30px 80px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{ font-family:var(--body);background:var(--blk);color:var(--w);overflow-x:hidden; -webkit-font-smoothing:antialiased; background-image: radial-gradient(circle at 10% 0%, rgba(0,230,100,.12), transparent 30%), radial-gradient(circle at 100% 10%, rgba(0,230,100,.08), transparent 30%), linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px); background-size:auto,auto,44px 44px,44px 44px;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1280px, calc(100vw - 32px)); margin:0 auto}
+#nav{ position:fixed;top:0;left:0;right:0;z-index:999;padding:10px 18px;background:rgba(0,0,0,.92); border-bottom:1px solid var(--bdr);backdrop-filter:blur(24px)
+}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px;font-family:var(--display);letter-spacing:.06em}
+.brand-mark{width:14px;height:14px;border-radius:2px;background:var(--g);box-shadow:0 0 18px rgba(0,230,100,.65)}
+.brand-name{font-size:30px;line-height:1;color:var(--g)}
+.brand-sub{font-family:var(--mono);font-size:11px;color:var(--w3);text-transform:uppercase;letter-spacing:.16em}
+.nav-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.nav-tab{ padding:9px 14px;border-radius:999px;border:1px solid var(--bdr2);background:rgba(255,255,255,.03); font-size:13px;color:var(--w2);transition:.2s ease
+}
+.nav-tab:hover{border-color:var(--bdr);color:var(--w);background:var(--g4);transform:translateY(-1px)}
+.main{padding:110px 0 80px}
+.hero{ position:relative;overflow:hidden;border:1px solid var(--bdr);border-radius:34px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)), linear-gradient(135deg, #060606, #0f1711 60%, #080808); box-shadow:var(--shadow);padding:40px
+}
+.hero:before{ content:"";position:absolute;right:26px;top:20px;font-family:var(--display); font-size:clamp(76px, 14vw, 220px);line-height:.88;color:transparent; -webkit-text-stroke:1px rgba(0,230,100,.16);pointer-events:none;user-select:none
+}
+.hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:24px;align-items:stretch}
+.hero-left{position:relative;z-index:1}
+.eyebrow{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;border:1px solid var(--bdr); border-radius:999px;background:var(--g4);font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--g)}
+.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 14px rgba(0,230,100,.75)}
+.hero h1{font-family:var(--display);font-size:clamp(66px, 11vw, 164px);line-height:.9;letter-spacing:.01em;margin:24px 0 10px}
+.hero h1 span{color:var(--g)}
+.hero .subtitle{font-family:var(--serif);font-size:clamp(24px, 3.2vw, 38px);line-height:1.07;color:var(--w2);max-width:920px}
+.hero .bio{margin-top:24px;font-size:18px;line-height:1.75;color:var(--w3);max-width:850px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{ display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:999px; border:1px solid var(--bdr);font-weight:700;transition:.2s ease
+}
+.btn-primary{background:var(--g);color:#000}
+.btn-secondary{background:rgba(255,255,255,.03);color:var(--w2)}
+.btn:hover{transform:translateY(-2px)}
+.hero-right{position:relative;z-index:1;display:grid;gap:16px}
+.panel{ border:1px solid var(--bdr);background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); border-radius:24px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)
+}
+.panel h3{font-size:14px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:16px}
+.stats-line{font-size:15px;color:var(--w2);line-height:1.8}
+.metrics-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.metric{border:1px solid var(--bdr2);border-radius:18px;padding:16px;background:rgba(255,255,255,.02)}
+.metric-num{font-family:var(--display);font-size:34px;line-height:1;color:var(--g)}
+.metric-label{font-size:12px;line-height:1.45;color:var(--w3);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+.section{padding:68px 0 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:22px}
+.section-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+.section-title{font-family:var(--display);font-size:clamp(42px, 6vw, 74px);line-height:.95}
+.section-sub{max-width:800px;color:var(--w3);font-size:16px;line-height:1.7}
+.content-card,.offer-card,.product-card,.timeline-card,.contact-card{ border:1px solid var(--bdr);border-radius:24px;background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.012)); padding:24px;box-shadow:var(--shadow)
+}
+.card-tag{display:inline-flex;padding:7px 12px;border-radius:999px;border:1px solid var(--bdr2);background:var(--g4);color:var(--g);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.offer-card p{color:var(--w2);line-height:1.8;margin-bottom:14px}
+.offer-card ul{padding-left:20px;color:var(--w2);display:grid;gap:10px}
+.offer-card li{line-height:1.75}
+.timeline{display:grid;gap:16px}
+.timeline-card{display:grid;grid-template-columns:92px 1fr;gap:20px;align-items:flex-start}
+.timeline-index{font-family:var(--display);font-size:54px;line-height:.9;color:var(--g)}
+.timeline-body h3,.content-card h3,.product-card h3,.contact-card h3{font-size:24px;line-height:1.15;margin-bottom:10px}
+.timeline-body p,.product-card p,.contact-card p{color:var(--w3);line-height:1.8}
+.dual-grid{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:18px}
+.article-list{list-style:none;display:grid;gap:14px;margin-top:6px}
+.article-list li{padding:14px 0;border-top:1px solid rgba(255,255,255,.06)}
+.article-list li:first-child{border-top:none;padding-top:0}
+.article-list a{color:var(--w);font-weight:700;display:inline-block;line-height:1.5}
+.article-list a:hover{color:var(--g)}
+.article-desc{color:var(--w3);font-size:14px;line-height:1.7;margin-top:6px}
+.links-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.link-chip{padding:12px 14px;border:1px solid var(--bdr2);border-radius:999px;background:rgba(255,255,255,.02);font-size:14px;color:var(--w2)}
+.products-grid{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:18px}
+.product-card .subtle{font-size:14px}
+.footer-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.note{margin-top:18px;color:var(--w4);font-size:12px;line-height:1.7}
+.small{font-size:14px;color:var(--w3);line-height:1.7}
+.anchor-space{position:relative;top:-90px}
+@media (max-width: 980px){ .hero-grid,.dual-grid,.products-grid,.footer-grid{grid-template-columns:1fr} .hero{padding:26px} .hero h1{font-size:86px} .timeline-card{grid-template-columns:1fr} .timeline-index{font-size:42px}
+}
+@media (max-width: 620px){ .brand-name{font-size:24px} .nav-tab{padding:8px 11px;font-size:12px} .main{padding-top:126px} .hero h1{font-size:62px} .section-title{font-size:42px} .hero .bio{font-size:16px}
+}</style>
+<style>
+/* ===== Portal motion layer ===== */
+#scroll-progress{
+  position:fixed;top:0;left:0;height:2px;width:0%;z-index:10002;
+  background:linear-gradient(90deg,#00e664,#86ffb5);
+  box-shadow:0 0 14px rgba(0,230,100,.6);
+}
+.scan-line{
+  position:fixed;left:0;right:0;height:1.5px;pointer-events:none;z-index:9998;top:0;
+  background:linear-gradient(90deg,transparent,rgba(0,230,100,.42),transparent);
+  animation:scan 6s linear infinite;
+  opacity:.72;
+}
+@keyframes scan{0%{top:0}100%{top:100vh}}
+#cursor-glow{
+  position:fixed;pointer-events:none;z-index:0;border-radius:50%;
+  width:340px;height:340px;
+  background:radial-gradient(circle,rgba(0,230,100,.07),transparent 70%);
+  transform:translate(-50%,-50%);
+  mix-blend-mode:screen;
+}
+#hex-bg{
+  position:fixed;inset:0;width:100%;height:100%;z-index:0;
+  pointer-events:none;opacity:.36;
+}
+#nav,.main{position:relative;z-index:2}
+#nav{position:fixed}
+.reveal{
+  opacity:0;transform:translateY(26px);
+  transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1);
+}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+.card-holo{position:relative;overflow:hidden}
+.card-holo::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(130deg,transparent 28%,rgba(255,255,255,.055) 50%,transparent 72%);
+  transform:translateX(-130%);transition:transform .62s cubic-bezier(.16,1,.3,1)
+}
+.card-holo:hover::after{transform:translateX(130%)}
+.depth-tile{
+  transform-style:preserve-3d;
+  transition:transform .45s cubic-bezier(.16,1,.3,1),border-color .25s,box-shadow .25s;
+}
+.depth-tile:hover{
+  transform:perspective(800px) rotateY(-2.2deg) rotateX(1.4deg) translateY(-4px);
+  border-color:rgba(0,230,100,.32);
+  box-shadow:0 22px 70px rgba(0,0,0,.4),0 0 26px rgba(0,230,100,.05);
+}
+.hero-left h1 span{
+  animation:neonPulse 4s ease-in-out infinite;
+}
+@keyframes neonPulse{
+  0%,100%{text-shadow:0 0 12px rgba(0,230,100,.28)}
+  50%{text-shadow:0 0 30px rgba(0,230,100,.70),0 0 70px rgba(0,230,100,.18)}
+}
+.metric-num{animation:metricGlow 5s ease-in-out infinite}
+@keyframes metricGlow{
+  0%,100%{filter:drop-shadow(0 0 0 rgba(0,230,100,0))}
+  50%{filter:drop-shadow(0 0 9px rgba(0,230,100,.28))}
+}
+.footer-grid.single{grid-template-columns:1fr}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .scan-line,.hero-left h1 span,.metric-num{animation:none!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  .depth-tile,.card-holo::after{transition:none}
+  #hex-bg,#cursor-glow{display:none}
+}
+</style><style>
+.nav-tab.active{color:var(--g);background:var(--g4);border-color:var(--bdr)}
+.brand-name{color:var(--g)}
+</style><style>
+.investor-status-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.investor-status-item{
+  border:1px solid rgba(0,230,100,.20);
+  border-radius:18px;
+  padding:16px;
+  background:linear-gradient(180deg,rgba(0,230,100,.075),rgba(255,255,255,.015));
+}
+.investor-status-year{
+  font-family:var(--display);
+  font-size:34px;
+  line-height:1;
+  color:var(--g);
+  letter-spacing:.03em;
+  margin-bottom:8px;
+}
+.investor-status-title{
+  font-size:12px;
+  line-height:1.5;
+  color:var(--w2);
+  text-transform:uppercase;
+  letter-spacing:.07em;
+}
+@media (max-width:620px){
+  .investor-status-grid{grid-template-columns:1fr}
+}
+</style><style>
+/* ===== HERO LAYOUT FIX ===== */
+
+/* Wider, more balanced desktop split */
+.hero-grid{
+  grid-template-columns:minmax(0,1.08fr) minmax(560px,.92fr);
+  gap:22px;
+  align-items:start;
+}
+
+/* Right side becomes a compact 2-column dashboard */
+.hero-right{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:12px;
+  align-content:start;
+}
+
+/* Positioning + investor status sit side-by-side */
+.hero-right > .panel{
+  min-width:0;
+  padding:17px 18px;
+  border-radius:20px;
+}
+
+/* Metrics panel takes the full width below */
+.hero-right > .panel:last-child{
+  grid-column:1 / -1;
+}
+
+.panel h3{
+  margin-bottom:11px;
+  font-size:11px;
+  letter-spacing:.12em;
+}
+
+.stats-line{
+  font-size:13px;
+  line-height:1.65;
+}
+
+/* Investor status made much denser */
+.investor-status-grid{
+  grid-template-columns:1fr;
+  gap:8px;
+}
+.investor-status-item{
+  display:grid;
+  grid-template-columns:66px 1fr;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:14px;
+}
+.investor-status-year{
+  font-size:29px;
+  margin:0;
+}
+.investor-status-title{
+  font-size:10px;
+  line-height:1.35;
+  letter-spacing:.055em;
+}
+
+/* Six metrics: 3 x 2 instead of 2 x 3 */
+.metrics-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+}
+.metric{
+  padding:11px 12px;
+  border-radius:14px;
+  min-height:67px;
+}
+.metric-num{
+  font-size:28px;
+}
+.metric-label{
+  font-size:9px;
+  line-height:1.3;
+  margin-top:4px;
+  letter-spacing:.06em;
+}
+
+/* Slightly compact the hero overall */
+.hero{
+  padding:34px;
+}
+.hero .bio{
+  font-size:16px;
+  line-height:1.62;
+  margin-top:20px;
+}
+.hero-actions{
+  margin-top:22px;
+}
+
+/* Large desktop: even more breathing room horizontally */
+@media (min-width:1440px){
+  .container{
+    width:min(1380px,calc(100vw - 48px));
+  }
+  .hero-grid{
+    grid-template-columns:minmax(0,1.12fr) minmax(610px,.88fr);
+  }
+}
+
+/* Medium desktop / small laptop */
+@media (max-width:1180px){
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+  .hero-right{
+    grid-template-columns:1fr 1fr;
+  }
+  .hero-right > .panel:last-child{
+    grid-column:1 / -1;
+  }
+}
+
+/* Tablet */
+@media (max-width:760px){
+  .hero-right{
+    grid-template-columns:1fr;
+  }
+  .hero-right > .panel:last-child{
+    grid-column:auto;
+  }
+  .metrics-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width:520px){
+  .hero{
+    padding:20px;
+  }
+  .metrics-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .investor-status-item{
+    grid-template-columns:58px 1fr;
+  }
+  .metric-num{
+    font-size:25px;
+  }
+}
+</style><style>
+/* ===== DEFINITIVE HERO FIX: dashboard physically below hero intro ===== */
+.hero{
+  padding:40px !important;
+}
+.hero-grid{
+  display:block !important;
+  grid-template-columns:none !important;
+  width:100% !important;
+}
+.hero-left{
+  width:100% !important;
+  max-width:none !important;
+}
+.hero-left .subtitle{max-width:1050px !important;}
+.hero-left .bio{max-width:1120px !important;}
+
+.hero-dashboard-below{
+  position:relative !important;
+  z-index:2 !important;
+  width:100% !important;
+  margin-top:34px !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+  gap:14px !important;
+  align-items:stretch !important;
+}
+.hero-dashboard-below > .panel{
+  min-width:0 !important;
+  width:100% !important;
+  padding:20px 22px !important;
+  margin:0 !important;
+  border-radius:20px !important;
+}
+.hero-dashboard-below > .panel:last-child{
+  grid-column:1 / -1 !important;
+}
+.hero-dashboard-below .panel h3{
+  margin:0 0 12px !important;
+  font-size:12px !important;
+  line-height:1.3 !important;
+}
+.hero-dashboard-below .stats-line{
+  font-size:14px !important;
+  line-height:1.7 !important;
+}
+
+/* Investor status: two horizontal cards inside its panel */
+.hero-dashboard-below .investor-status-grid{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:10px !important;
+}
+.hero-dashboard-below .investor-status-item{
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+  min-width:0 !important;
+  padding:12px 14px !important;
+  border-radius:14px !important;
+}
+.hero-dashboard-below .investor-status-year{
+  flex:0 0 auto !important;
+  font-size:30px !important;
+  line-height:1 !important;
+  margin:0 !important;
+}
+.hero-dashboard-below .investor-status-title{
+  min-width:0 !important;
+  font-size:11px !important;
+  line-height:1.35 !important;
+}
+
+/* Metrics: one compact row on desktop */
+.hero-dashboard-below .metrics-grid{
+  display:grid !important;
+  grid-template-columns:repeat(6,minmax(0,1fr)) !important;
+  gap:8px !important;
+}
+.hero-dashboard-below .metric{
+  min-width:0 !important;
+  min-height:74px !important;
+  padding:12px 12px !important;
+  border-radius:14px !important;
+}
+.hero-dashboard-below .metric-num{
+  font-size:29px !important;
+  line-height:1 !important;
+}
+.hero-dashboard-below .metric-label{
+  font-size:9px !important;
+  line-height:1.25 !important;
+  margin-top:5px !important;
+}
+
+@media (max-width:1050px){
+  .hero-dashboard-below{
+    grid-template-columns:1fr !important;
+  }
+  .hero-dashboard-below > .panel:last-child{
+    grid-column:auto !important;
+  }
+  .hero-dashboard-below .metrics-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+}
+@media (max-width:650px){
+  .hero{padding:22px !important;}
+  .hero-dashboard-below .investor-status-grid{
+    grid-template-columns:1fr !important;
+  }
+  .hero-dashboard-below .metrics-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+</style><style>
+.article-list a[href^="http"]{
+  position:relative;
+  transition:color .2s ease,text-shadow .2s ease;
+}
+.article-list a[href^="http"]:hover{
+  color:var(--g);
+  text-shadow:0 0 16px rgba(0,230,100,.18);
+}
+.article-list a[href^="http"]::after{
+  content:" ↗";
+  font-family:var(--mono);
+  font-size:.72em;
+  color:var(--g);
+  opacity:.62;
+}
+</style><style>
+.lang-switch{display:flex;gap:4px;align-items:center;padding:4px;border:1px solid var(--bdr);border-radius:999px;background:rgba(255,255,255,.025)}
+.lang-btn{appearance:none;border:0;background:transparent;color:var(--w3);font-family:var(--mono);font-size:11px;letter-spacing:.12em;font-weight:700;padding:7px 10px;border-radius:999px;cursor:pointer;transition:.2s ease}
+.lang-btn:hover{color:var(--w)}
+.lang-btn.active{background:var(--g);color:#000;box-shadow:0 0 18px rgba(0,230,100,.24)}
+@media(max-width:780px){.nav-row{gap:10px}.lang-switch{margin-left:auto}}
+</style><meta content="Evgeniy Koshtenko — qualified investor, algorithmic trader, AI/ML and blockchain developer. Portfolio, articles and technology projects." name="description"/><meta content="Evgeniy Koshtenko — Quant · AI · Web3 · Blockchain" property="og:title"/><meta content="Qualified investor, algorithmic trader, AI/ML and blockchain developer. 100+ articles and technology projects." property="og:description"/><meta content="website" property="og:type"/><meta content="https://shtenco.github.io/" property="og:url"/><meta content="summary" name="twitter:card"/></head>
+<body><canvas aria-hidden="true" id="hex-bg"></canvas><div aria-hidden="true" id="cursor-glow"></div><div aria-hidden="true" class="scan-line"></div><div aria-hidden="true" id="scroll-progress"></div>
+<nav id="nav">
+<div class="container nav-row">
+<div class="brand">
+<span class="brand-mark"></span>
+<div>
+<div class="brand-name">PORTFOLIO</div>
+<div class="brand-sub">Quant · AI · Web3 · Blockchain</div>
+</div>
+</div>
+<div class="nav-tabs">
+<a class="nav-tab" href="#intro"><span class="i18n-text" data-en="Intro" data-ru="Интро">Интро</span></a><a class="nav-tab" href="#proposal"><span class="i18n-text" data-en="Pitch" data-ru="Оффер">Оффер</span></a><a class="nav-tab" href="#evolution"><span class="i18n-text" data-en="Journey" data-ru="Путь">Путь</span></a><a class="nav-tab" href="#mql5">MQL5</a><a class="nav-tab" href="#invest"><span class="i18n-text" data-en="Investing" data-ru="Инвест">Инвест</span></a><a class="nav-tab" href="#products"><span class="i18n-text" data-en="Products" data-ru="Продукты">Продукты</span></a><a class="nav-tab" href="#contacts"><span class="i18n-text" data-en="Contacts" data-ru="Контакты">Контакты</span></a>
+</div>
+<div class="lang-switch"><button class="lang-btn active" data-lang="ru" type="button">RU</button><button class="lang-btn" data-lang="en" type="button">EN</button></div></div>
+</nav>
+<main class="main">
+<div class="container">
+<section class="hero" id="intro">
+<div class="hero-grid">
+<div class="hero-left reveal">
+<div class="eyebrow">Quant · AI · Web3 · Blockchain</div>
+<h1><span class="i18n-text" data-en="EVGENIY" data-ru="ЕВГЕНИЙ">ЕВГЕНИЙ</span><span><span class="i18n-text" data-en="KOSHTENKO" data-ru="КОШТЕНКО">КОШТЕНКО</span></span></h1>
+<div class="subtitle"><span class="i18n-text" data-en="Algorithmic trading · machine learning · AI systems · smart contracts · institutional AI" data-ru="Алготрейдинг · машинное обучение · ИИ-системы · смарт-контракты · институциональный ИИ">Алготрейдинг · машинное обучение · ИИ-системы · смарт-контракты · институциональный ИИ</span></div>
+<p class="bio"><span class="i18n-text" data-en="Qualified investor in Russia (2023). Qualified investor in Kazakhstan (2024). From discretionary trading to institutional AI systems for hedge funds and a proprietary AI blockchain. I build EAs, trading robots, indicators, smart contracts, tokens, AI models, and end-to-end business automation systems. Author of 100+ international articles." data-ru="Квалифицированный инвестор России (2023). Квалифицированный инвестор Казахстана (2024). Путь от ручной торговли до разработки институциональной ИИ-системы для хэдж-фонда и собственного ИИ-блокчейна. Создаю советников, торговых роботов, индикаторы, смарт-контракты, токены, ИИ-модели и системы автоматизации бизнеса под ключ. Автор 100+ международных статей.">Квалифицированный инвестор России (2023). Квалифицированный инвестор Казахстана (2024). Путь от ручной торговли до разработки институциональной ИИ-системы для хэдж-фонда и собственного ИИ-блокчейна. Создаю советников, торговых роботов, индикаторы, смарт-контракты, токены, ИИ-модели и системы автоматизации бизнеса под ключ. Автор 100+ международных статей.</span></p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#proposal"><span class="i18n-text" data-en="View editorial pitch" data-ru="Смотреть оффер">Смотреть оффер</span></a>
+<a class="btn btn-secondary" href="#products"><span class="i18n-text" data-en="View products" data-ru="Открыть продукты">Открыть продукты</span></a>
+</div>
+</div>
+</div><div class="hero-right reveal hero-dashboard-below">
+<div class="panel card-holo depth-tile">
+<h3><span class="i18n-text" data-en="Positioning" data-ru="Позиционирование">Позиционирование</span></h3>
+<div class="stats-line"><span class="i18n-text" data-en="Trading since 2016 · Algo trading since 2019 · ML &amp; code since 2021 · 100+ articles · 680K+ MQL5 · 1.2M+ Python" data-ru="2016 в трейдинге · 2019 алготрейдинг · 2021 ML и код · 100+ статей · 680K+ MQL5 · 1.2M+ Python">2016 в трейдинге · 2019 алготрейдинг · 2021 ML и код · 100+ статей · 680K+ MQL5 · 1.2M+ Python</span></div>
+</div><div class="panel card-holo depth-tile investor-status-panel"><h3><span class="i18n-text" data-en="Investor status" data-ru="Статус инвестора">Статус инвестора</span></h3><div class="investor-status-grid"><div class="investor-status-item"><div class="investor-status-year">2023</div><div class="investor-status-title"><span class="i18n-text" data-en="Qualified investor — Russia" data-ru="Квалифицированный инвестор — Россия">Квалифицированный инвестор — Россия</span></div></div><div class="investor-status-item"><div class="investor-status-year">2024</div><div class="investor-status-title"><span class="i18n-text" data-en="Qualified investor — Kazakhstan" data-ru="Квалифицированный инвестор — Казахстан">Квалифицированный инвестор — Казахстан</span></div></div></div></div>
+<div class="panel card-holo depth-tile">
+<h3><span class="i18n-text" data-en="Key metrics" data-ru="Ключевые метрики">Ключевые метрики</span></h3>
+<div class="metrics-grid">
+<div class="metric card-holo depth-tile"><div class="metric-num">2016</div><div class="metric-label"><span class="i18n-text" data-en="in trading" data-ru="в трейдинге">в трейдинге</span></div></div>
+<div class="metric card-holo depth-tile"><div class="metric-num">2019</div><div class="metric-label"><span class="i18n-text" data-en="algo trading" data-ru="алготрейдинг">алготрейдинг</span></div></div>
+<div class="metric card-holo depth-tile"><div class="metric-num">2021</div><div class="metric-label"><span class="i18n-text" data-en="ML &amp; code" data-ru="ML и код">ML и код</span></div></div>
+<div class="metric card-holo depth-tile"><div class="metric-num">100+</div><div class="metric-label"><span class="i18n-text" data-en="articles" data-ru="статей">статей</span></div></div>
+<div class="metric card-holo depth-tile"><div class="metric-num">680K+</div><div class="metric-label">MQL5</div></div>
+<div class="metric card-holo depth-tile"><div class="metric-num">1.2M+</div><div class="metric-label">Python</div></div>
+</div>
+</div>
+</div>
+</section>
+<div class="anchor-space" id="proposal"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 01</div>
+<h2 class="section-title"><span class="i18n-text" data-en="Editorial proposal" data-ru="Предложение для редакции">Предложение для редакции</span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text" data-en="A dark technology-first visual system with white typography, a signature green accent, and modular card-based layout." data-ru="Оформлено в стиле портала : тёмная технологичная эстетика, белая типографика, фирменный зелёный акцент и карточная система блоков.">Оформлено в стиле портала : тёмная технологичная эстетика, белая типографика, фирменный зелёный акцент и карточная система блоков.</span></div>
+</div>
+<article class="offer-card reveal card-holo depth-tile">
+<div class="card-tag">Editorial pitch</div>
+<p><span class="i18n-text" data-en="Hello! I am ready to write for your publication. Here is a concrete proposal:" data-ru="Здравствуйте! Я хочу и готов писать статьи для вашего издания. Предлагаю конкретно:">Здравствуйте! Я хочу и готов писать статьи для вашего издания. Предлагаю конкретно:</span></p>
+<p><span class="i18n-text" data-en="What: original technical and analytical pieces with working code, real cases, and exclusive topics at the intersection of algorithmic trading, machine learning, AI agents, quantum computing, and blockchain. Not news rewrites, but systems and ideas I have built and tested myself." data-ru="Что: авторские технические и аналитические материалы с рабочим кодом, реальными кейсами и эксклюзивными темами — на стыке алготрейдинга, машинного обучения, ИИ-агентов, квантовых вычислений и блокчейна. Не пересказ новостей, а то, что я сам разработал и проверил.">Что: авторские технические и аналитические материалы с рабочим кодом, реальными кейсами и эксклюзивными темами — на стыке алготрейдинга, машинного обучения, ИИ-агентов, квантовых вычислений и блокчейна. Не пересказ новостей, а то, что я сам разработал и проверил.</span></p>
+<p><span class="i18n-text" data-en="Formats: standalone articles, multi-part series, an expert column, and expert commentary." data-ru="Форматы: отдельные статьи, серии материалов, экспертная колонка, комментарии эксперта.">Форматы: отдельные статьи, серии материалов, экспертная колонка, комментарии эксперта.</span></p>
+<p><span class="i18n-text" data-en="Possible topics (adapted to your audience):" data-ru="Темы на выбор (адаптирую под вашу аудиторию):">Темы на выбор (адаптирую под вашу аудиторию):</span></p>
+<p><span class="i18n-text" data-en="Why me: qualified investor in Russia (2023), qualified investor in Kazakhstan (2024), author of 100+ international articles, with real working systems shown below." data-ru="Почему я: квалифицированный инвестор России (2023), квалифицированный инвестор Казахстана (2024), автор 100+ международных статей, реальные работающие системы (см. ниже).">Почему я: квалифицированный инвестор России (2023), квалифицированный инвестор Казахстана (2024), автор 100+ международных статей, реальные работающие системы (см. ниже).</span></p>
+<p><span class="i18n-text" data-en="What I need from you: a short “yes”, and I will send a detailed outline for the selected topic the same day. I can work to your editorial policy, target length, and rate." data-ru="Что нужно от вас: короткое «да» — и я пришлю детальные тезисы выбранной темы в тот же день. Готов работать под вашу редполитику, объём и ставку.">Что нужно от вас: короткое «да» — и я пришлю детальные тезисы выбранной темы в тот же день. Готов работать под вашу редполитику, объём и ставку.</span></p>
+<ul><li><span class="i18n-text" data-en="AI hedge fund: how 15 LLM agents make trading decisions" data-ru="ИИ-хедж-фонд: как 15 LLM-агентов принимают торговые решения">ИИ-хедж-фонд: как 15 LLM-агентов принимают торговые решения</span></li>
+<li><span class="i18n-text" data-en="Why 90% of AI traders overfit their models — and how to fix it (walk-forward, VaR)" data-ru="Почему 90% AI-трейдеров переобучают модели — и как это лечить (walk-forward, VaR)">Почему 90% AI-трейдеров переобучают модели — и как это лечить (walk-forward, VaR)</span></li>
+<li><span class="i18n-text" data-en="Inside a DeFi protocol audit: 7 smart-contract vulnerabilities" data-ru="Аудит DeFi-протокола изнутри: 7 уязвимостей смарт-контрактов">Аудит DeFi-протокола изнутри: 7 уязвимостей смарт-контрактов</span></li>
+<li><span class="i18n-text" data-en="The capital formula: how to build assets systematically (personal finance)" data-ru="Формула капитала: как системно строить активы (личные финансы)">Формула капитала: как системно строить активы (личные финансы)</span></li>
+<li><span class="i18n-text" data-en="Quantum computing in trading — explained simply" data-ru="Квантовые вычисления в трейдинге — простыми словами">Квантовые вычисления в трейдинге — простыми словами</span></li></ul>
+</article>
+</section>
+<div class="anchor-space" id="evolution"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 02</div>
+<h2 class="section-title"><span class="i18n-text" data-en="Evolution" data-ru="Эволюция">Эволюция</span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text" data-en="From discretionary trader to architect of institutional AI, smart contracts, and agent systems." data-ru="От ручного трейдера к архитектору институционального ИИ, смарт-контрактов и агентных систем.">От ручного трейдера к архитектору институционального ИИ, смарт-контрактов и агентных систем.</span></div>
+</div>
+<div class="timeline">
+<article class="timeline-card reveal d1 card-holo depth-tile">
+<div class="timeline-index">01</div>
+<div class="timeline-body">
+<h3><span class="i18n-text" data-en="Discretionary trader" data-ru="Ручной трейдер">Ручной трейдер</span></h3>
+<p><span class="i18n-text" data-en="Started trading in 2016: discretionary execution, market-structure reading, Smart Money concepts, and liquidity." data-ru="Старт в трейдинге с 2016 года — дискреционная торговля, чтение рыночной структуры, концепция Smart Money и ликвидности.">Старт в трейдинге с 2016 года — дискреционная торговля, чтение рыночной структуры, концепция Smart Money и ликвидности.</span></p>
+</div>
+</article>
+<article class="timeline-card reveal d2 card-holo depth-tile">
+<div class="timeline-index">02</div>
+<div class="timeline-body">
+<h3><span class="i18n-text" data-en="Investor" data-ru="Инвестор">Инвестор</span></h3>
+<p><span class="i18n-text" data-en="Qualified investor in Russia (2023). Qualified investor in Kazakhstan (2024). Portfolio thinking, risk management, market and crisis history, and capital preservation." data-ru="Квалифицированный инвестор России (2023). Квалифицированный инвестор Казахстана (2024). Портфельное мышление, риск-менеджмент, история рынков и кризисов, защита капитала.">Квалифицированный инвестор России (2023). Квалифицированный инвестор Казахстана (2024). Портфельное мышление, риск-менеджмент, история рынков и кризисов, защита капитала.</span></p>
+</div>
+</article>
+<article class="timeline-card reveal d3 card-holo depth-tile">
+<div class="timeline-index">03</div>
+<div class="timeline-body">
+<h3><span class="i18n-text" data-en="Algorithmic trader" data-ru="Алготрейдер">Алготрейдер</span></h3>
+<p><span class="i18n-text" data-en="Since 2019: strategy automation, EAs, indicators, arbitrage, multidimensional “3D bars”, and computer vision on charts." data-ru="С 2019 — автоматизация стратегий: советники, индикаторы, арбитраж, многомерные «3D-бары» и компьютерное зрение на графиках.">С 2019 — автоматизация стратегий: советники, индикаторы, арбитраж, многомерные «3D-бары» и компьютерное зрение на графиках.</span></p>
+</div>
+</article>
+<article class="timeline-card reveal d4 card-holo depth-tile">
+<div class="timeline-index">04</div>
+<div class="timeline-body">
+<h3><span class="i18n-text" data-en="Machine learning developer" data-ru="Разработчик машинного обучения">Разработчик машинного обучения</span></h3>
+<p><span class="i18n-text" data-en="Since 2021: Python + MQL5, CatBoost/LSTM, modern architectures (Mamba, PatchTST, N-BEATS, TimeGPT), walk-forward validation, and VaR." data-ru="С 2021 — Python+MQL5, CatBoost/LSTM, современные архитектуры (Mamba, PatchTST, N-BEATS, TimeGPT), walk-forward и VaR.">С 2021 — Python+MQL5, CatBoost/LSTM, современные архитектуры (Mamba, PatchTST, N-BEATS, TimeGPT), walk-forward и VaR.</span></p>
+</div>
+</article>
+<article class="timeline-card reveal d1 card-holo depth-tile">
+<div class="timeline-index">05</div>
+<div class="timeline-body">
+<h3><span class="i18n-text" data-en="AI systems developer for hedge funds" data-ru="Разработчик ИИ-систем для хэдж-фондов">Разработчик ИИ-систем для хэдж-фондов</span></h3>
+<p><span class="i18n-text" data-en="LLM agents, multi-agent “councils”, evolutionary strategy selection, and quantum computing — including first-of-their-kind implementations in MQL5." data-ru="LLM-агенты, мультиагентные «советы», эволюционный отбор стратегий, квантовые вычисления — впервые в среде MQL5.">LLM-агенты, мультиагентные «советы», эволюционный отбор стратегий, квантовые вычисления — впервые в среде MQL5.</span></p>
+</div>
+</article>
+<article class="timeline-card reveal d2 card-holo depth-tile">
+<div class="timeline-index">06</div>
+<div class="timeline-body">
+<h3><span class="i18n-text" data-en="Blockchain &amp; smart-contract developer" data-ru="Блокчейн- и смарт-контракт-разработчик">Блокчейн- и смарт-контракт-разработчик</span></h3>
+<p><span class="i18n-text" data-en="Post-quantum blockchain, smart contracts, tokens and tokenomics, DAO/DeFi, secure messaging, and payment systems." data-ru="Постквантовый блокчейн, смарт-контракты, токены и токеномика, DAO/DeFi, защищённый мессенджер и платёжные системы.">Постквантовый блокчейн, смарт-контракты, токены и токеномика, DAO/DeFi, защищённый мессенджер и платёжные системы.</span></p>
+</div>
+</article>
+<article class="timeline-card reveal d3 card-holo depth-tile">
+<div class="timeline-index">07</div>
+<div class="timeline-body">
+<h3><span class="i18n-text" data-en="Institutional AI architect" data-ru="Архитектор институционального ИИ">Архитектор институционального ИИ</span></h3>
+<p><span class="i18n-text" data-en="MIDAS (a modular AI hedge fund), proprietary OLGA_LLM, an AI token with an RL central bank, and an AGI autopilot for business." data-ru="Система MIDAS (модульный ИИ-хедж-фонд), собственная LLM OLGA_LLM, ИИ-токен с RL-центробанком и AGI-автопилот для бизнеса.">Система MIDAS (модульный ИИ-хедж-фонд), собственная LLM OLGA_LLM, ИИ-токен с RL-центробанком и AGI-автопилот для бизнеса.</span></p>
+</div>
+</article>
+</div>
+</section>
+<div class="anchor-space" id="mql5"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 03</div>
+<h2 class="section-title"><span class="i18n-text" data-en="Articles · MQL5" data-ru="Статьи · MQL5">Статьи · MQL5</span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text" data-en="Technical articles on algorithmic trading, risk management, ML, transformers, quantum computing, and institutional AI agents." data-ru="Подборка технических материалов: алготрейдинг, риск-менеджмент, ML, трансформеры, квантовые вычисления и институциональные ИИ-агенты.">Подборка технических материалов: алготрейдинг, риск-менеджмент, ML, трансформеры, квантовые вычисления и институциональные ИИ-агенты.</span></div>
+</div>
+<div class="dual-grid">
+<article class="content-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Category" data-ru="Категория">Категория</span></div>
+<h3><span class="i18n-text" data-en="Machine vision &amp; multidimensional markets · Stage 3 · algo trading → ML" data-ru="Машинное зрение и многомерный рынок · Этап 3 · алготрейдинг → ML">Машинное зрение и многомерный рынок · Этап 3 · алготрейдинг → ML</span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/ru/articles/16580" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Algorithmic trading based on 3D reversal patterns" data-ru="Алгоритмическая торговля на основе 3D-паттернов разворота">Алгоритмическая торговля на основе 3D-паттернов разворота</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Multidimensional “3D price bars” and reversal clusters." data-ru="Многомерные «3D-бары» цены и кластеры разворотов.">Многомерные «3D-бары» цены и кластеры разворотов.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/17981" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Computer vision for trading (Part 1)" data-ru="Компьютерное зрение для трейдинга (Часть 1)">Компьютерное зрение для трейдинга (Часть 1)</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Deep learning “sees” a chart like a human." data-ru="Глубокое обучение «видит» график как человек.">Глубокое обучение «видит» график как человек.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/18103" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Computer vision (Part 2): 2D RGB image analysis" data-ru="Компьютерное зрение (Часть 2): 2D-анализ RGB-изображений">Компьютерное зрение (Часть 2): 2D-анализ RGB-изображений</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Attention + bidirectional LSTM on RGB charts." data-ru="Attention + двунаправленный LSTM по RGB-графикам.">Attention + двунаправленный LSTM по RGB-графикам.</span></div>
+</li>
+</ul></article>
+<article class="content-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Category" data-ru="Категория">Категория</span></div>
+<h3><span class="i18n-text" data-en="Classical ML &amp; Python bridge · Stage 4 · machine learning" data-ru="Классический ML и Python-мост · Этап 4 · машинное обучение">Классический ML и Python-мост · Этап 4 · машинное обучение</span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/en/articles/14910" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Developing a robot in Python and MQL5 (Part 2): models and tester" data-ru="Developing a robot in Python and MQL5 (Part 2): модели и тестер">Developing a robot in Python and MQL5 (Part 2): модели и тестер</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="XGBoost, GMM, RFECV, and a custom Python tester." data-ru="XGBoost, GMM, RFECV и кастомный Python-тестер.">XGBoost, GMM, RFECV и кастомный Python-тестер.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/en/articles/16667" rel="noopener noreferrer" target="_blank">Multi-module trading robot in Python and MQL5 (Part I)</a>
+<div class="article-desc"><span class="i18n-text" data-en="Parallel architecture with four modules." data-ru="Параллельная архитектура из четырёх модулей.">Параллельная архитектура из четырёх модулей.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/en/articles/14959" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="MetaTrader → Python via sockets" data-ru="MetaTrader → Python через сокеты">MetaTrader → Python через сокеты</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Tick streaming into Python — the foundation of any AI integration." data-ru="Тиковый поток в Python — основа любой ИИ-интеграции.">Тиковый поток в Python — основа любой ИИ-интеграции.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/16960" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Volatility forecasting indicator with Python" data-ru="Индикатор прогноза волатильности с Python">Индикатор прогноза волатильности с Python</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Binary classification of volatility spikes." data-ru="Бинарная классификация всплесков волатильности.">Бинарная классификация всплесков волатильности.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/en/articles/17110" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Binary price code → BIP39 + GPT (“market language”)" data-ru="Бинарный код цены → BIP39 + GPT («язык рынка»)">Бинарный код цены → BIP39 + GPT («язык рынка»)</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Linguistic market analysis by training GPT." data-ru="Лингвистический анализ рынка обучением GPT.">Лингвистический анализ рынка обучением GPT.</span></div>
+</li>
+</ul></article>
+<article class="content-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Category" data-ru="Категория">Категория</span></div>
+<h3><span class="i18n-text" data-en="Risk management &amp; portfolio · Stage 2+4 · investor / ML" data-ru="Риск-менеджмент и портфель · Этап 2+4 · инвестор / ML">Риск-менеджмент и портфель · Этап 2+4 · инвестор / ML</span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/en/articles/16719" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Quantitative risk management: VaR (Python + MT5)" data-ru="Количественный риск-менеджмент: VaR (Python + MT5)">Количественный риск-менеджмент: VaR (Python + MT5)</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Value-at-Risk for a multi-currency portfolio." data-ru="Value-at-Risk для мультивалютного портфеля.">Value-at-Risk для мультивалютного портфеля.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/18918" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Risk manager for trading robots (Part I)" data-ru="Риск-менеджер для торговых роботов (Часть I)">Риск-менеджер для торговых роботов (Часть I)</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Daily limits, drawdowns, and protection from emotional trading." data-ru="Дневные лимиты, просадки, защита от эмоций.">Дневные лимиты, просадки, защита от эмоций.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/17410" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Remote Forex risk manager in Python" data-ru="Удалённый риск-менеджер Forex на Python">Удалённый риск-менеджер Forex на Python</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="No trade is executed without approval from the risk-management server." data-ru="Ни одна сделка без одобрения сервера-риск-менеджера.">Ни одна сделка без одобрения сервера-риск-менеджера.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/19797" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Market-neutral probabilistic portfolio" data-ru="Рыночно-нейтральный вероятностный портфель">Рыночно-нейтральный вероятностный портфель</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Extracting returns from the statistics of return distributions." data-ru="Заработок на статистике распределения доходностей.">Заработок на статистике распределения доходностей.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/22674" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="29-pair portfolio: L1 filter + CatBoost + VaR ★" data-ru="29-парный портфель: L1-фильтр + CatBoost + VaR ★">29-парный портфель: L1-фильтр + CatBoost + VaR ★</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Causal L1, walk-forward validation, and VaR-based lot allocation." data-ru="Каузальный L1, walk-forward, распределение лотов по VaR.">Каузальный L1, walk-forward, распределение лотов по VaR.</span></div>
+</li>
+</ul></article>
+<article class="content-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Category" data-ru="Категория">Категория</span></div>
+<h3><span class="i18n-text" data-en="Modern neural architectures · Stage 4 · machine learning" data-ru="Современные нейроархитектуры · Этап 4 · машинное обучение">Современные нейроархитектуры · Этап 4 · машинное обучение</span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/ru/articles/19047" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Mamba neural network with selective SSM" data-ru="Нейросеть Mamba с селективной SSM">Нейросеть Mamba с селективной SSM</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Accuracy 62%→71%, training time 45→8 minutes." data-ru="Точность 62%→71%, обучение 45→8 минут.">Точность 62%→71%, обучение 45→8 минут.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/19345" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Trading robot based on a GPT model (TimeGPT)" data-ru="Торговый робот на GPT-модели (TimeGPT)">Торговый робот на GPT-модели (TimeGPT)</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Transformer for financial time series." data-ru="Transformer для финансовых временных рядов.">Transformer для финансовых временных рядов.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/19292" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Expert Advisor based on the PatchTST transformer" data-ru="Советник на трансформере PatchTST">Советник на трансформере PatchTST</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="A modern transformer, implemented in MQL5." data-ru="Современный трансформер, впервые в MQL5.">Современный трансформер, впервые в MQL5.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/19317" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="N-BEATS Expert Advisor with quantile forecasting" data-ru="Советник на N-BEATS с квантильным прогнозом">Советник на N-BEATS с квантильным прогнозом</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Predicts not only “where”, but also “with what probability”." data-ru="Знает не только «куда», но и «с какой вероятностью».">Знает не только «куда», но и «с какой вероятностью».</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/18916" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="U-Transformer on AR-model residuals" data-ru="U-Transformer на остатках AR-модели">U-Transformer на остатках AR-модели</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Linear model + transformer on its residual errors." data-ru="Линейная модель + трансформер на её ошибках.">Линейная модель + трансформер на её ошибках.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/19958" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Kohonen self-organizing maps (SOM)" data-ru="Самоорганизующиеся карты Кохонена (SOM)">Самоорганизующиеся карты Кохонена (SOM)</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="400 neurons, continuous learning, BMU." data-ru="400 нейронов, непрерывное обучение, BMU.">400 нейронов, непрерывное обучение, BMU.</span></div>
+</li>
+</ul></article>
+<article class="content-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Category" data-ru="Категория">Категория</span></div>
+<h3><span class="i18n-text" data-en="Quantum computing in MQL5 · Stage 5 · AI for hedge funds" data-ru="Квантовые вычисления — впервые в MQL5 · Этап 5 · ИИ для хэдж-фондов">Квантовые вычисления — впервые в MQL5 · Этап 5 · ИИ для хэдж-фондов</span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/ru/articles/19043" rel="noopener noreferrer" target="_blank">Quantum Reservoir Computing (QRC) ★</a>
+<div class="article-desc"><span class="i18n-text" data-en="An early implementation of quantum computing in the MQL5 environment." data-ru="Первое в истории MQL5 применение квантовых вычислений.">Первое в истории MQL5 применение квантовых вычислений.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/18759" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Quantum neural network (Part I): include file" data-ru="Квантовая нейросеть (Часть I): включаемый файл">Квантовая нейросеть (Часть I): включаемый файл</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Foundation for hybrid classical-quantum models." data-ru="Фундамент гибридных классико-квантовых моделей.">Фундамент гибридных классико-квантовых моделей.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/18890" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Quantum neural network (Part III): virtual QPU" data-ru="Квантовая нейросеть (Часть III): виртуальный QPU">Квантовая нейросеть (Часть III): виртуальный QPU</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Emulation of qubits and gates directly in MQL5." data-ru="Эмуляция кубитов и гейтов прямо в MQL5.">Эмуляция кубитов и гейтов прямо в MQL5.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/20504" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Bidirectional LSTM + quantum computing" data-ru="Двунаправленная LSTM + квантовые вычисления">Двунаправленная LSTM + квантовые вычисления</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Quantum entanglement applied to directional forecasting." data-ru="Запутанность на службе прогноза направления.">Запутанность на службе прогноза направления.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/20535" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="LLM + CatBoost + quantum computing" data-ru="LLM + CatBoost + квантовые вычисления">LLM + CatBoost + квантовые вычисления</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="A synthesis of three technologies in one system." data-ru="Синтез трёх технологий в единой системе.">Синтез трёх технологий в единой системе.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/21182" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="RL agent with LLM and quantum encoding" data-ru="RL-агент с LLM и квантовым кодированием">RL-агент с LLM и квантовым кодированием</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Double DQN + quantum state encoding + LLM." data-ru="Double DQN + квантовое кодирование состояний + LLM.">Double DQN + квантовое кодирование состояний + LLM.</span></div>
+</li>
+</ul></article>
+<article class="content-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Category" data-ru="Категория">Категория</span></div>
+<h3><span class="i18n-text" data-en="AI agents &amp; institutional AI hedge fund · Stage 5+7 · institutional AI" data-ru="ИИ-агенты и институциональный ИИ-хедж-фонд · Этап 5+7 · институциональный ИИ">ИИ-агенты и институциональный ИИ-хедж-фонд · Этап 5+7 · институциональный ИИ</span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/ru/articles/22164" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="How to organize an AI hedge fund in MetaTrader 5 ★" data-ru="Как организовать ИИ-хедж-фонд в MetaTrader 5 ★">Как организовать ИИ-хедж-фонд в MetaTrader 5 ★</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="15 AI agents vote on trades in real time." data-ru="15 ИИ-агентов голосуют за сделки в реальном времени.">15 ИИ-агентов голосуют за сделки в реальном времени.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/21690" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Collective decision architecture for AI agents" data-ru="Архитектура коллективных решений ИИ-агентов">Архитектура коллективных решений ИИ-агентов</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Bull, bear, risk manager, arbitrator, and judge." data-ru="Бык, медведь, риск-менеджер и арбитр + судья.">Бык, медведь, риск-менеджер и арбитр + судья.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/21878" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Evolutionary selection of LLM agents" data-ru="Эволюционный отбор LLM-агентов">Эволюционный отбор LLM-агентов</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="A genetic algorithm removes weak agents and clones strong ones." data-ru="Генетический алгоритм убивает слабых, клонирует сильных.">Генетический алгоритм убивает слабых, клонирует сильных.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/22444" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="TradeMux REST: multi-broker execution" data-ru="TradeMux REST: мультиброкерное исполнение">TradeMux REST: мультиброкерное исполнение</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="SQLite reputations and signal distribution to N brokers." data-ru="Репутации в SQLite, рассылка сигналов на N брокеров.">Репутации в SQLite, рассылка сигналов на N брокеров.</span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/22211" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Grid Expert Advisor based on a cellular automaton (10,000 CA)" data-ru="Сеточный советник на клеточном автомате (10 000 CA)">Сеточный советник на клеточном автомате (10 000 CA)</span></a>
+<div class="article-desc"><span class="i18n-text" data-en="Three-level online learning in real time." data-ru="Трёхуровневое онлайн-обучение в реальном времени.">Трёхуровневое онлайн-обучение в реальном времени.</span></div>
+</li>
+</ul></article>
+</div>
+<div class="links-row">
+<a class="link-chip" href="https://www.mql5.com/ru/users/koshtenko" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="→ All 100+ articles on MQL5" data-ru="→ Все 100+ статей на MQL5">→ Все 100+ статей на MQL5</span></a>
+</div>
+</section>
+<div class="anchor-space" id="invest"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 04</div>
+<h2 class="section-title"><span class="i18n-text" data-en="Articles · Smart Investor" data-ru="Статьи · Умный инвестор">Статьи · Умный инвестор</span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text" data-en="Articles on Smart Money, market crises, investing, cryptocurrencies, and practical market topics." data-ru="Материалы по Smart Money, истории кризисов, инвестициям, криптовалютам и практическим вопросам рынка.">Материалы по Smart Money, истории кризисов, инвестициям, криптовалютам и практическим вопросам рынка.</span></div>
+</div>
+<div class="dual-grid">
+<article class="content-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Category" data-ru="Категория">Категория</span></div>
+<h3><span class="i18n-text" data-en="Smart Money concept (institutional trading) · Stage 1 · discretionary trader" data-ru="Концепция Smart Money (институциональная торговля) · Этап 1 · ручной трейдер">Концепция Smart Money (институциональная торговля) · Этап 1 · ручной трейдер</span></h3>
+<ul class="article-list">
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Smart Money concept in trading" data-ru="Концепция Smart Money в трейдинге">Концепция Smart Money в трейдинге</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/zona-poi" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="POI (Point of Interest) zone" data-ru="Зона POI (Point of Interest)">Зона POI (Point of Interest)</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/order-block/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Order block" data-ru="Ордер-блок">Ордер-блок</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/sell-to-buy" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Sell to buy and Buy to sell" data-ru="Sell to buy и Buy to sell">Sell to buy и Buy to sell</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/mitigation-block" rel="noopener noreferrer" target="_blank">Mitigation block</a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/optimal-trade-entry" rel="noopener noreferrer" target="_blank">Optimal Trade Entry</a>
+</li>
+</ul></article>
+<article class="content-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Category" data-ru="Категория">Категория</span></div>
+<h3><span class="i18n-text" data-en="Market &amp; crisis history · Stage 2 · investor" data-ru="История рынков и кризисов · Этап 2 · инвестор">История рынков и кризисов · Этап 2 · инвестор</span></h3>
+<ul class="article-list">
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%BA%D1%80%D0%B0%D1%85-%D0%B4%D0%BE%D1%82%D0%BA%D0%BE%D0%BC%D0%BE%D0%B2-2000-2002-%D0%B3%D0%BE%D0%B4%D0%BE%D0%B2/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="The dot-com crash of 2000–2002" data-ru="Крах доткомов 2000–2002 годов">Крах доткомов 2000–2002 годов</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-%D1%80%D1%8B%D0%BD%D0%BA%D0%B0-%D0%B0%D0%BA%D1%86%D0%B8%D0%B9-%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="History of the stock market. Who issued the first shares?" data-ru="История рынка акций. Кто выпустил первые акции?">История рынка акций. Кто выпустил первые акции?</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%81%D0%B0%D0%BC%D1%8B%D0%B5-%D0%B8%D0%B7%D0%B2%D0%B5%D1%81%D1%82%D0%BD%D1%8B%D0%B5-%D1%82%D1%80%D0%B5%D0%B9%D0%B4%D0%B5%D1%80%D1%8B-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B8/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="The most famous traders in Russia" data-ru="Самые известные трейдеры России">Самые известные трейдеры России</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B8-%D0%B2-%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%B9-%D0%BB%D0%BE%D0%BC/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Investing in scrap gold (gold as protection)" data-ru="Инвестиции в золотой лом (золото как защита)">Инвестиции в золотой лом (золото как защита)</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%BA%D0%BE%D0%B2%D0%B8%D0%B4%D0%BD%D1%8B%D0%B9-%D0%BA%D1%80%D0%B8%D0%B7%D0%B8%D1%81-2020-%D0%BC%D0%B0%D1%80%D1%82-%D0%BF%D0%B0%D0%BD%D0%B4%D0%B5%D0%BC%D0%B8%D1%8F/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="The 2020 COVID crisis: the day the world stopped" data-ru="Ковидный кризис 2020: день, когда мир остановился">Ковидный кризис 2020: день, когда мир остановился</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D1%84%D0%B8%D0%BD%D0%B0%D0%BD%D1%81%D0%BE%D0%B2%D1%8B%D0%B9-%D0%BA%D1%80%D0%B8%D0%B7%D0%B8%D1%81-1998-%D0%B3%D0%BE%D0%B4%D0%B0/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="The Russian financial crisis of 1998" data-ru="Российский финансовый кризис 1998 года">Российский финансовый кризис 1998 года</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D0%B2%D0%BE%D0%B9-%D0%BA%D1%80%D0%B8%D0%B7%D0%B8%D1%81-%D0%B2-%D0%B5%D0%B2%D1%80%D0%BE%D0%B7%D0%BE%D0%BD%D0%B5-2010-2012-%D0%B3%D0%BE%D0%B4%D0%BE%D0%B2/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="The Eurozone debt crisis of 2010–2012" data-ru="Долговой кризис в Еврозоне 2010–2012 годов">Долговой кризис в Еврозоне 2010–2012 годов</span></a>
+</li>
+</ul></article>
+<article class="content-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Category" data-ru="Категория">Категория</span></div>
+<h3><span class="i18n-text" data-en="Investing &amp; markets · Stage 2 · investor" data-ru="Инвестиции и рынок · Этап 2 · инвестор">Инвестиции и рынок · Этап 2 · инвестор</span></h3>
+<ul class="article-list">
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9-%D0%BF%D0%BE%D1%80%D1%82%D1%84%D0%B5%D0%BB%D1%8C-%D0%B1%D0%B0%D1%84%D1%84%D0%B5%D1%82/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Warren Buffett’s investment portfolio" data-ru="Инвестиционный портфель Уоррена Баффета">Инвестиционный портфель Уоррена Баффета</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B8-%D0%B2-%D0%BE%D0%B1%D0%BE%D1%80%D0%BE%D0%BD%D1%83/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Investing in Russia’s defense industry" data-ru="Инвестиции в оборонную промышленность РФ">Инвестиции в оборонную промышленность РФ</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%BB%D1%83%D1%87%D1%88%D0%B8%D0%B5-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8-%D0%B0%D0%B2%D0%B8%D0%B0%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B9" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Best airline stocks for 2023–2024" data-ru="Лучшие акции авиакомпаний на 2023–2024">Лучшие акции авиакомпаний на 2023–2024</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%82%D0%BE%D0%BF-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9-%D0%B4%D0%BB%D1%8F-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B9-2024-2025" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Top investment apps for 2024–2025" data-ru="Топ приложений для инвестиций 2024–2025">Топ приложений для инвестиций 2024–2025</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-%D1%84%D0%BB%D0%B8%D0%BF-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B8/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="What are flip investments?" data-ru="Что такое флип-инвестиции">Что такое флип-инвестиции</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%8B-%D0%BA%D0%B0%D0%BF%D0%B8%D1%82%D0%B0%D0%BB%D0%B0/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Assets for capital protection" data-ru="Активы для защиты капитала">Активы для защиты капитала</span></a>
+</li>
+</ul></article>
+<article class="content-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Category" data-ru="Категория">Категория</span></div>
+<h3><span class="i18n-text" data-en="Cryptocurrencies &amp; tokens · Stage 6 · blockchain" data-ru="Криптовалюты и токены · Этап 6 · блокчейн">Криптовалюты и токены · Этап 6 · блокчейн</span></h3>
+<ul class="article-list">
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD%D0%BD%D0%BE-%D0%BB%D0%B8-%D0%BF%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D1%8C-ico-%D0%B2-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B8/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Is it legal to conduct an ICO in Russia?" data-ru="Законно ли проводить ICO в России?">Законно ли проводить ICO в России?</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%B5%D0%B4%D0%BB%D0%B8%D0%B2%D0%B0%D1%8F-%D1%86%D0%B5%D0%BD%D0%B0-%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2%D0%B0%D0%BB%D1%8E%D1%82%D1%8B/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Fair value of a cryptocurrency" data-ru="Справедливая цена криптовалюты">Справедливая цена криптовалюты</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%82%D0%BE%D0%BF-%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2%D0%B0%D0%BB%D1%8E%D1%82-%D0%B4%D0%BB%D1%8F-%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D1%81%D1%80%D0%BE%D0%BA-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B9/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Top cryptocurrencies for long-term investing" data-ru="Топ криптовалют для долгосрочного инвестирования">Топ криптовалют для долгосрочного инвестирования</span></a>
+</li>
+</ul></article>
+<article class="content-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Category" data-ru="Категория">Категория</span></div>
+<h3><span class="i18n-text" data-en="Practice &amp; brokers · Stage 1–3" data-ru="Практика и брокеры · Этап 1–3">Практика и брокеры · Этап 1–3</span></h3>
+<ul class="article-list">
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8C-%D1%81%D1%87%D0%B5%D1%82-%D0%B2-%D1%84%D0%B8%D0%BD%D0%B0%D0%BC%D0%B5/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="How to open an account with Finam" data-ru="Как открыть счёт в Финаме">Как открыть счёт в Финаме</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%81%D0%BE%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D1%81%D0%B5%D1%82%D0%B8-%D1%82%D1%80%D0%B5%D0%B9%D0%B4%D0%B5%D1%80%D0%BE%D0%B2/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Social networks for traders" data-ru="Социальные сети трейдеров">Социальные сети трейдеров</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%BB%D1%83%D1%87%D1%88%D0%B8%D0%B5-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8-%D0%B4%D0%BB%D1%8F-%D1%81%D0%BA%D0%B0%D0%BB%D1%8C%D0%BF%D0%B8%D0%BD%D0%B3%D0%B0" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="Best stocks for scalping on the Moscow Exchange" data-ru="Лучшие акции для скальпинга на Мосбирже">Лучшие акции для скальпинга на Мосбирже</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-%D1%81%D0%BA%D0%B0%D0%BB%D1%8C%D0%BF%D0%B8%D0%BD%D0%B3-%D0%B2-%D1%82%D1%80%D0%B5%D0%B9%D0%B4%D0%B8%D0%BD%D0%B3%D0%B5/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="What is scalping in trading?" data-ru="Что такое скальпинг в трейдинге">Что такое скальпинг в трейдинге</span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D0%B7%D0%B0%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D1%8E%D1%82-%D1%81%D0%BA%D0%B0%D0%BB%D1%8C%D0%BF%D0%B5%D1%80%D1%8B/" rel="noopener noreferrer" target="_blank"><span class="i18n-text" data-en="How much do scalpers earn?" data-ru="Сколько зарабатывают скальперы">Сколько зарабатывают скальперы</span></a>
+</li>
+</ul></article>
+</div>
+</section>
+<div class="anchor-space" id="products"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 05</div>
+<h2 class="section-title"><span class="i18n-text" data-en="Products &amp; technologies" data-ru="Продукты и технологии">Продукты и технологии</span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text" data-en="Proprietary developments, architecture directions, and technology platforms within the ecosystem." data-ru="Собственные разработки, архитектурные направления и технологические платформы в составе экосистемы.">Собственные разработки, архитектурные направления и технологические платформы в составе экосистемы.</span></div>
+</div>
+<div class="products-grid">
+<article class="product-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Technology" data-ru="Технология">Технология</span></div>
+<h3><span class="i18n-text" data-en="MIDAS — Institutional AI trading system" data-ru="MIDAS — Институциональная ИИ-торговая система">MIDAS — Институциональная ИИ-торговая система</span></h3>
+<p><span class="i18n-text" data-en="A full-cycle modular platform for training, backtesting, forward testing, and live trading, with multi-terminal MT5 integration (RoboForex)." data-ru="Модульная платформа полного цикла: режимы обучения, бэктеста, форвард-теста и реальной торговли; мультитерминальная интеграция с MT5 (RoboForex).">Модульная платформа полного цикла: режимы обучения, бэктеста, форвард-теста и реальной торговли; мультитерминальная интеграция с MT5 (RoboForex).</span></p>
+<p class="subtle"><span class="i18n-text" data-en="Core: engine, risk manager, portfolio optimizer, signal combiner, trade executor · ML layer: matrix model, meta-classifier, VaR calculator · LLM layer: Grok strategist, ultra strategist, LLM hedge fund v5, Telegram bridge · 24+ analytics modules" data-ru="Ядро: движок, риск-менеджер, портфельный оптимизатор, комбайнер сигналов, исполнитель сделок · ML-слой: матричная модель, мета-классификатор, калькулятор VaR · LLM-слой: грок-стратег, ultra-стратег, LLM-хедж-фонд v5, Telegram-мост · 24+ аналитических модуля">Ядро: движок, риск-менеджер, портфельный оптимизатор, комбайнер сигналов, исполнитель сделок · ML-слой: матричная модель, мета-классификатор, калькулятор VaR · LLM-слой: грок-стратег, ultra-стратег, LLM-хедж-фонд v5, Telegram-мост · 24+ аналитических модуля</span></p>
+</article>
+<article class="product-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Technology" data-ru="Технология">Технология</span></div>
+<h3><span class="i18n-text" data-en="OLGA_LLM — Proprietary LLM built from scratch" data-ru="OLGA_LLM — Собственная LLM с нуля">OLGA_LLM — Собственная LLM с нуля</span></h3>
+<p><span class="i18n-text" data-en="A proprietary OLGA language model inside MIDAS: core, inference engine, and training pipeline — without third-party SDKs." data-ru="Авторская языковая модель OLGA внутри MIDAS: ядро, инференс-движок и обучение — без сторонних SDK.">Авторская языковая модель OLGA внутри MIDAS: ядро, инференс-движок и обучение — без сторонних SDK.</span></p>
+<p class="subtle"><span class="i18n-text" data-en="Architecture: Attention, Mamba2, Mixture-of-Experts, normalization · Inference: accelerator + speculative decoding · Checkpoints, proprietary tokenizer, benchmarks · DeepCompress Pro for model and data compression" data-ru="Архитектура: Attention, Mamba2, Mixture-of-Experts, нормализация · Инференс: акселератор + спекулятивное декодирование · Чекпойнты, собственный токенизатор, бенчмарки · DeepCompress Pro — сжатие моделей и данных">Архитектура: Attention, Mamba2, Mixture-of-Experts, нормализация · Инференс: акселератор + спекулятивное декодирование · Чекпойнты, собственный токенизатор, бенчмарки · DeepCompress Pro — сжатие моделей и данных</span></p>
+</article>
+<article class="product-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Technology" data-ru="Технология">Технология</span></div>
+<h3><span class="i18n-text" data-en="AI Blockchain — a blockchain where every node is an Autopilot" data-ru="AI Blockchain — Блокчейн, где каждый узел — Автопилот">AI Blockchain — Блокчейн, где каждый узел — Автопилот</span></h3>
+<p><span class="i18n-text" data-en="A next-generation post-quantum blockchain where every network node is a SYNERGYCHAIN Autopilot and the network jointly performs distributed inference for one shared large AI model." data-ru="Постквантовый блокчейн нового поколения, в котором каждый узел сети является Автопилотом SYNERGYCHAIN, а вся сеть совместно выполняет распределённый инференс одной общей большой ИИ-модели.">Постквантовый блокчейн нового поколения, в котором каждый узел сети является Автопилотом SYNERGYCHAIN, а вся сеть совместно выполняет распределённый инференс одной общей большой ИИ-модели.</span></p>
+<p class="subtle"><span class="i18n-text" data-en="Every node = SYNERGYCHAIN Autopilot · Distributed inference of one shared large AI model across all nodes · Mobile and desktop nodes operate in one network · Node-side storage with DeepCompress · Fiat-payment processing via integrations with banks and payment systems in Russia, the CIS, and globally · Post-quantum cryptography" data-ru="Каждый узел сети = Автопилот SYNERGYCHAIN · Распределённый инференс единой большой ИИ-модели всеми узлами · Мобильные ноды и ноды на ПК работают в одной сети · Хранение информации на узлах через архиватор DeepCompress · Обработка фиат-платежей: интеграция с банками и платёжными системами России, СНГ и мира · Постквантовая криптография">Каждый узел сети = Автопилот SYNERGYCHAIN · Распределённый инференс единой большой ИИ-модели всеми узлами · Мобильные ноды и ноды на ПК работают в одной сети · Хранение информации на узлах через архиватор DeepCompress · Обработка фиат-платежей: интеграция с банками и платёжными системами России, СНГ и мира · Постквантовая криптография</span></p>
+</article>
+<article class="product-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Technology" data-ru="Технология">Технология</span></div>
+<h3><span class="i18n-text" data-en="DeepCompress Pro — Data and AI-model archiver" data-ru="DeepCompress Pro — Архиватор данных и ИИ-моделей">DeepCompress Pro — Архиватор данных и ИИ-моделей</span></h3>
+<p><span class="i18n-text" data-en="Deep compression technology for data and neural-network weights. It enables blockchain nodes to store large volumes of information and fragments of a shared AI model compactly — a foundation for distributed network storage." data-ru="Технология глубокого сжатия данных и весов нейросетей. Даёт узлам блокчейна хранить большие объёмы информации и фрагменты общей ИИ-модели компактно — основа распределённого хранения сети.">Технология глубокого сжатия данных и весов нейросетей. Даёт узлам блокчейна хранить большие объёмы информации и фрагменты общей ИИ-модели компактно — основа распределённого хранения сети.</span></p>
+<p class="subtle"><span class="i18n-text" data-en="Compression of data and neural-model weights · Storage on mobile and desktop network nodes · Optimization for distributed inference of the shared model · Cryptographic compression foundation" data-ru="Сжатие данных и весов нейромоделей · Хранение на узлах сети — мобильных и ПК · Оптимизация под распределённый инференс общей модели · Криптографическая основа сжатия">Сжатие данных и весов нейромоделей · Хранение на узлах сети — мобильных и ПК · Оптимизация под распределённый инференс общей модели · Криптографическая основа сжатия</span></p>
+</article>
+<article class="product-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Technology" data-ru="Технология">Технология</span></div>
+<h3><span class="i18n-text" data-en="SYNERGYCHAIN Smart Contracts — AI token &amp; monetary system" data-ru="SYNERGYCHAIN Smart Contracts — ИИ-токен и монетарная система">SYNERGYCHAIN Smart Contracts — ИИ-токен и монетарная система</span></h3>
+<p><span class="i18n-text" data-en="A proprietary AI token for the SYNERGYCHAIN ecosystem with a managed monetary system and an RL central bank that uses reinforcement learning to regulate issuance and stability." data-ru="Собственный ИИ-токен экосистемы SYNERGYCHAIN с управляемой монетарной системой и RL-центробанком, который обучением с подкреплением регулирует эмиссию и стабильность.">Собственный ИИ-токен экосистемы SYNERGYCHAIN с управляемой монетарной системой и RL-центробанком, который обучением с подкреплением регулирует эмиссию и стабильность.</span></p>
+<p class="subtle"><span class="i18n-text" data-en="Proprietary AI token with monetary policy · RL central bank: issuance, rates, and reserves managed by reinforcement learning · Smart contracts for tokenomics, staking, and reserves · Auditing and vulnerability protection" data-ru="Собственный ИИ-токен с монетарной политикой · RL-центробанк: эмиссия, ставки и резервы под управлением обучения с подкреплением · Смарт-контракты токеномики, стейкинга и резервов · Аудит и защита от уязвимостей">Собственный ИИ-токен с монетарной политикой · RL-центробанк: эмиссия, ставки и резервы под управлением обучения с подкреплением · Смарт-контракты токеномики, стейкинга и резервов · Аудит и защита от уязвимостей</span></p>
+</article>
+<article class="product-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Technology" data-ru="Технология">Технология</span></div>
+<h3><span class="i18n-text" data-en="SYNERGYCHAIN Rebate — up to 85% spread and commission rebate" data-ru="SYNERGYCHAIN Rebate — Возврат до 85% спреда и комиссии">SYNERGYCHAIN Rebate — Возврат до 85% спреда и комиссии</span></h3>
+<p><span class="i18n-text" data-en="Broker rebate platform returning up to 85% of spreads and commissions from offshore forex brokers to traders." data-ru="Брокерская ребейт-платформа: возврат трейдерам до 85% от спреда и комиссии оффшорных форекс-брокеров.">Брокерская ребейт-платформа: возврат трейдерам до 85% от спреда и комиссии оффшорных форекс-брокеров.</span></p>
+<p class="subtle"><span class="i18n-text" data-en="Up to 85% spread and commission rebate · Partner network of offshore forex brokers · Automated turnover and accrual accounting · Integration with the SYNERGYCHAIN ecosystem and token" data-ru="Возврат до 85% от спреда и комиссии · Партнёрская сеть оффшорных форекс-брокеров · Автоматический учёт оборота и начислений · Связка с экосистемой и токеном SYNERGYCHAIN">Возврат до 85% от спреда и комиссии · Партнёрская сеть оффшорных форекс-брокеров · Автоматический учёт оборота и начислений · Связка с экосистемой и токеном SYNERGYCHAIN</span></p>
+</article>
+<article class="product-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Technology" data-ru="Технология">Технология</span></div>
+<h3><span class="i18n-text" data-en="SYNERGYCHAIN Autopilot — AGI autopilot for business" data-ru="SYNERGYCHAIN Autopilot — AGI-автопилот для бизнеса">SYNERGYCHAIN Autopilot — AGI-автопилот для бизнеса</span></h3>
+<p><span class="i18n-text" data-en="A local Python AGI autopilot that accepts a natural-language goal and runs it through GOAL → PLAN → EXECUTION with checkpoints and logging. It combines SMM, sales, coding, and an AGI brain in one system (V5 + V3)." data-ru="Локальный AGI-автопилот на Python: принимает цель на естественном языке и проводит её по циклу GOAL → PLAN → EXECUTION с контрольными точками и журналом. Объединяет SMM, продажи, код и AGI-мозг в единую систему (V5 + V3).">Локальный AGI-автопилот на Python: принимает цель на естественном языке и проводит её по циклу GOAL → PLAN → EXECUTION с контрольными точками и журналом. Объединяет SMM, продажи, код и AGI-мозг в единую систему (V5 + V3).</span></p>
+<p class="subtle"><span class="i18n-text" data-en="Engine: goal queue, worker pool, preset pipelines, retries and auto-rollback, action limits, cockpit metrics, daily reports (md/html/pdf) · V3 agents: Cline (code writing/refactoring) and OpenClaw (agent tasks, MCP) · V5: Premium UI (14 sections) + unified System API (107 methods) + key manager · CRM: Bitrix24, 1C, AmoCRM, RetailCRM, Yandex Business · Ads: Yandex Direct, VK Ads, Facebook Ads, MyTarget · Messengers: Telegram, VK, WhatsApp, Discord; email, PC control, documents · Safe dry_run mode by default" data-ru="Движок: очередь целей, пул воркеров, пресеты-пайплайны, ретраи и авто-rollback, лимиты действий, кокпит-метрики, дневные отчёты (md/html/pdf) · Агенты V3: Cline (написание/рефакторинг кода) и OpenClaw (агентные задачи, MCP) · V5: Premium UI (14 секций) + единый System API (107 методов) + менеджер ключей · CRM: Bitrix24, 1С, AmoCRM, RetailCRM, Yandex Business · Реклама: Yandex Direct, VK Ads, Facebook Ads, MyTarget · Мессенджеры: Telegram, VK, WhatsApp, Discord; Email, управление ПК, документы · Безопасный режим dry_run по умолчанию">Движок: очередь целей, пул воркеров, пресеты-пайплайны, ретраи и авто-rollback, лимиты действий, кокпит-метрики, дневные отчёты (md/html/pdf) · Агенты V3: Cline (написание/рефакторинг кода) и OpenClaw (агентные задачи, MCP) · V5: Premium UI (14 секций) + единый System API (107 методов) + менеджер ключей · CRM: Bitrix24, 1С, AmoCRM, RetailCRM, Yandex Business · Реклама: Yandex Direct, VK Ads, Facebook Ads, MyTarget · Мессенджеры: Telegram, VK, WhatsApp, Discord; Email, управление ПК, документы · Безопасный режим dry_run по умолчанию</span></p>
+</article>
+<article class="product-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text" data-en="Technology" data-ru="Технология">Технология</span></div>
+<h3><span class="i18n-text" data-en="SYNERGYCHAIN Ecosystem — Post-quantum AI/Web3 ecosystem" data-ru="SYNERGYCHAIN Ecosystem — Постквантовая ИИ-Web3 экосистема">SYNERGYCHAIN Ecosystem — Постквантовая ИИ-Web3 экосистема</span></h3>
+<p><span class="i18n-text" data-en="Dozens of interconnected products in a unified portal." data-ru="Десятки взаимосвязанных продуктов в едином портале.">Десятки взаимосвязанных продуктов в едином портале.</span></p>
+<p class="subtle"><span class="i18n-text" data-en="MetaPay · MetaBroker · MetaShield · Meta API · PQ Messenger — secure messenger · DAO · DeGov · DeSoci — decentralized governance and social network · AICode · DeepCompress · NavMax Dashboard · SMM" data-ru="MetaPay · MetaBroker · MetaShield · Meta API · PQ Messenger — защищённый мессенджер · DAO · DeGov · DeSoci — децентрализованное управление и соцсеть · AICode · DeepCompress · NavMax Dashboard · SMM">MetaPay · MetaBroker · MetaShield · Meta API · PQ Messenger — защищённый мессенджер · DAO · DeGov · DeSoci — децентрализованное управление и соцсеть · AICode · DeepCompress · NavMax Dashboard · SMM</span></p>
+</article>
+</div>
+</section>
+<div class="anchor-space" id="contacts"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 06</div>
+<h2 class="section-title"><span class="i18n-text" data-en="Contacts" data-ru="Контакты">Контакты</span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text" data-en="A final contact section in the same black, white, and green visual language, with precise typography and an emphasis on trust." data-ru="Финальный блок в том же визуальном языке, что и основной портал: чёрный, белый, зелёный, чёткая типографика и акцент на доверии.">Финальный блок в том же визуальном языке, что и основной портал: чёрный, белый, зелёный, чёткая типографика и акцент на доверии.</span></div>
+</div>
+<div class="footer-grid single">
+<article class="contact-card reveal card-holo depth-tile">
+<div class="card-tag">Contacts</div>
+<h3><span class="i18n-text" data-en="EVGENIY KOSHTENKO" data-ru="ЕВГЕНИЙ КОШТЕНКО">ЕВГЕНИЙ КОШТЕНКО</span></h3>
+<p><span class="i18n-text" data-en="koshtenco@gmail.com · Kostanay, Kazakhstan · Qualified investor in Russia (2023) · Qualified investor in Kazakhstan (2024)" data-ru="koshtenco@gmail.com · Костанай, Казахстан · Квалифицированный инвестор России (2023) · Квалифицированный инвестор Казахстана (2024)">koshtenco@gmail.com · Костанай, Казахстан · Квалифицированный инвестор России (2023) · Квалифицированный инвестор Казахстана (2024)</span></p>
+<div class="links-row">
+<a class="link-chip" href="mailto:koshtenco@gmail.com">koshtenco@gmail.com</a>
+<a class="link-chip" href="https://www.mql5.com" rel="noopener" target="_blank">MQL5</a>
+<a class="link-chip" href="https://github.com" rel="noopener" target="_blank">GitHub</a>
+<a class="link-chip" href="https://vk.com" rel="noopener" target="_blank">VK</a>
+</div>
+</article>
+</div>
+</section>
+</div>
+</main>
+<script>
+(function(){
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveal blocks on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  if (!reduced && 'IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
         }
+      });
+    }, {threshold:.06, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(el=>obs.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
 
-        .neural-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
+  // Scroll progress
+  const sp = document.getElementById('scroll-progress');
+  function progress(){
+    const h = document.documentElement;
+    const max = Math.max(1, h.scrollHeight - h.clientHeight);
+    sp.style.width = Math.min(100, (h.scrollTop / max) * 100) + '%';
+  }
+  progress();
+  addEventListener('scroll', progress, {passive:true});
 
-        .content-wrapper {
-            position: relative;
-            z-index: 2;
-            padding: 2rem;
-        }
+  // Cursor glow
+  const cg = document.getElementById('cursor-glow');
+  if(cg && !reduced){
+    document.addEventListener('mousemove', e=>{
+      cg.style.left=e.clientX+'px';
+      cg.style.top=e.clientY+'px';
+    }, {passive:true});
+  }
 
-        .hero-title {
-            font-size: 3rem; /* Уменьшен размер шрифта для мобильных */
-            font-weight: 800;
-            background: linear-gradient(to right, #64ffda 20%, #00bcd4 40%, #1e88e5 60%, #64ffda 80%);
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: shine 4s linear infinite;
-            text-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
-        }
-
-        .hero-subtitle {
-            color: #8892b0;
-            font-size: 1.25rem; /* Уменьшен размер шрифта для мобильных */
-            max-width: 800px;
-            margin: 2rem auto;
-            line-height: 1.6;
-        }
-
-        .highlight-text {
-            color: #64ffda;
-            font-weight: 600;
-        }
-
-        @keyframes shine {
-            to {
-                background-position: 200% center;
-            }
-        }
-
-        .glowing-border {
-            position: relative;
-        }
-
-        .glowing-border::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #64ffda, #00bcd4, #1e88e5);
-            border-radius: inherit;
-            z-index: -1;
-            animation: borderGlow 3s ease-in-out infinite;
-            opacity: 0.5;
-        }
-
-        @keyframes borderGlow {
-            0%, 100% {
-                opacity: 0.5;
-            }
-            50% {
-                opacity: 0.8;
-            }
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .position-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(100, 255, 218, 0.1);
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            border-radius: 4px;
-            color: #64ffda;
-            margin: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .position-tag:hover {
-            background: rgba(100, 255, 218, 0.2);
-            transform: translateY(-2px);
-        }
-    </style>
-</head>
-<body>
-    <div class="hero-section">
-        <canvas id="neuralCanvas" class="neural-bg"></canvas>
-        <div class="content-wrapper">
-            <div class="text-center floating">
-                <h1 class="hero-title mb-4">Yevgeniy Koshtenko</h1>
-                <div class="hero-subtitle">
-                    <span class="position-tag">ML Researcher</span>
-                    <span class="position-tag">Quantitative Analyst</span>
-                    <span class="position-tag">Blockchain Developer</span>
-                </div>
-                <p class="hero-subtitle">
-                    Specializing in the development of <span class="highlight-text">ML-driven trading systems</span>, 
-                    <span class="highlight-text">quantitative research</span>, and 
-                    <span class="highlight-text">blockchain integration</span> with 8+ years of market experience.
-                </p>
-                <div class="flex justify-center gap-6 mt-8">
-                    <a href="#portfolio" class="glowing-border px-6 py-3 bg-[#0a192f] rounded-lg hover:transform hover:scale-105 transition-all duration-300">
-                        View Portfolio
-                    </a>
-                    <a href="#contact" class="glowing-border px-6 py-3 bg-[#0a192f] rounded-lg hover:transform hover:scale-105 transition-all duration-300">
-                        Contact Me
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-    class AdvancedNeuralNetwork {
-        constructor() {
-            this.canvas = document.getElementById('neuralCanvas');
-            this.ctx = this.canvas.getContext('2d');
-            this.particles = [];
-            this.connections = [];
-            this.mouse = { x: null, y: null, radius: 150 };
-            this.hue = 180;
-            this.particleCount = 100;
-            
-            this.init();
-            this.animate();
-            this.addEventListeners();
-        }
-
-        init() {
-            this.resize();
-            this.createParticles();
-        }
-
-        resize() {
-            this.canvas.width = window.innerWidth;
-            this.canvas.height = window.innerHeight;
-            this.createParticles();
-        }
-
-        createParticles() {
-            this.particles = [];
-            for (let i = 0; i < this.particleCount; i++) {
-                this.particles.push({
-                    x: Math.random() * this.canvas.width,
-                    y: Math.random() * this.canvas.height,
-                    radius: Math.random() * 2 + 1,
-                    vx: (Math.random() - 0.5) * 0.5,
-                    vy: (Math.random() - 0.5) * 0.5,
-                    sinOffset: Math.random() * Math.PI * 2
-                });
-            }
-        }
-
-        drawParticles() {
-            this.particles.forEach(particle => {
-                particle.sinOffset += 0.01;
-                particle.radius = 1.5 + Math.sin(particle.sinOffset) * 0.5;
-
-                particle.x += particle.vx;
-                particle.y += particle.vy;
-
-                if (particle.x < 0 || particle.x > this.canvas.width) particle.vx *= -1;
-                if (particle.y < 0 || particle.y > this.canvas.height) particle.vy *= -1;
-
-                this.ctx.beginPath();
-                const gradient = this.ctx.createRadialGradient(
-                    particle.x, particle.y, 0,
-                    particle.x, particle.y, particle.radius * 2
-                );
-                gradient.addColorStop(0, `hsla(${this.hue}, 100%, 70%, 0.8)`);
-                gradient.addColorStop(1, `hsla(${this.hue}, 100%, 70%, 0)`);
-                this.ctx.fillStyle = gradient;
-                this.ctx.arc(particle.x, particle.y, particle.radius * 2, 0, Math.PI * 2);
-                this.ctx.fill();
-            });
-        }
-
-        drawConnections() {
-            for (let i = 0; i < this.particles.length; i++) {
-                for (let j = i + 1; j < this.particles.length; j++) {
-                    const dx = this.particles[i].x - this.particles[j].x;
-                    const dy = this.particles[i].y - this.particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 100) {
-                        this.ctx.beginPath();
-                        this.ctx.strokeStyle = `hsla(${this.hue}, 100%, 70%, ${0.2 * (1 - distance/100)})`;
-                        this.ctx.lineWidth = 0.5;
-                        this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
-                        this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
-                        this.ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        draw() {
-            this.ctx.fillStyle = 'rgba(10, 25, 47, 0.1)';
-            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-            
-            this.hue = (this.hue + 0.1) % 360;
-            this.drawConnections();
-            this.drawParticles();
-        }
-
-        animate() {
-            this.draw();
-            requestAnimationFrame(this.animate.bind(this));
-        }
-
-        addEventListeners() {
-            window.addEventListener('resize', () => this.resize());
-            
-            this.canvas.addEventListener('mousemove', (e) => {
-                const rect = this.canvas.getBoundingClientRect();
-                this.mouse.x = e.clientX - rect.left;
-                this.mouse.y = e.clientY - rect.top;
-            });
-
-            this.canvas.addEventListener('mouseleave', () => {
-                this.mouse.x = null;
-                this.mouse.y = null;
-            });
-        }
+  // Active navigation state
+  const navLinks=[...document.querySelectorAll('.nav-tab')];
+  const targets=navLinks
+    .map(a=>document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+  const updateNav=()=>{
+    let current=targets[0];
+    for(const t of targets){
+      if(t.getBoundingClientRect().top <= 150) current=t;
     }
+    navLinks.forEach(a=>a.classList.toggle('active', current && a.getAttribute('href')==='#'+current.id));
+  };
+  updateNav();
+  addEventListener('scroll', updateNav, {passive:true});
 
-    window.addEventListener('load', () => {
-        new AdvancedNeuralNetwork();
+  // Animated hexagonal background inspired by the portal
+  const c=document.getElementById('hex-bg');
+  if(!c || reduced) return;
+  const ctx=c.getContext('2d');
+  let W=0,H=0,t=0,dpr=1;
+
+  function resize(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    W=innerWidth; H=innerHeight;
+    c.width=Math.floor(W*dpr);
+    c.height=Math.floor(H*dpr);
+    c.style.width=W+'px'; c.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  resize();
+  addEventListener('resize',resize,{passive:true});
+
+  function hex(x,y,r,a){
+    ctx.beginPath();
+    for(let i=0;i<6;i++){
+      const ag=Math.PI/3*i-Math.PI/6;
+      const px=x+r*Math.cos(ag), py=y+r*Math.sin(ag);
+      i?ctx.lineTo(px,py):ctx.moveTo(px,py);
+    }
+    ctx.closePath();
+    ctx.strokeStyle=`rgba(0,230,100,${a})`;
+    ctx.lineWidth=.75;
+    ctx.stroke();
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const sz=52;
+    const rows=Math.ceil(H/(sz*1.73))+2;
+    const cols=Math.ceil(W/(sz*1.5))+2;
+    for(let row=-1;row<rows;row++){
+      for(let col=-1;col<cols;col++){
+        const x=col*sz*1.5;
+        const y=row*sz*1.73+(col%2?sz*.865:0);
+        const d=Math.hypot(x-W/2,y-H/2);
+        const wave=Math.sin(d/82-t*.62);
+        const alpha=Math.max(0,(wave+1)/2*.055);
+        if(alpha>.003) hex(x,y,sz*.43+wave*1.8,alpha);
+      }
+    }
+    t+=.027;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script><script>
+(function(){
+  const titles={
+    ru:'Евгений Коштенко — Quant · AI · Web3 · Blockchain',
+    en:'Evgeniy Koshtenko — Quant · AI · Web3 · Blockchain'
+  };
+  function setLang(lang){
+    if(lang!=='ru' && lang!=='en') lang='ru';
+    document.documentElement.lang=lang;
+    document.querySelectorAll('.i18n-text').forEach(el=>{
+      const val=el.dataset[lang];
+      if(val!==undefined) el.textContent=val;
     });
-    </script>
-
-    <!-- Research & Experience Section -->
-    <section id="research" class="py-20 bg-[#172a45]">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-16 text-center gradient-text">Research & Experience</h2>
-            
-            <!-- Current Positions -->
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <!-- AFIF Position -->
-                <div class="card p-6 rounded-lg transform transition-all hover:scale-105">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-chart-network text-2xl text-[#64ffda] mr-3"></i>
-                        <h3 class="text-xl font-bold text-[#64ffda]">Research Scientist at AFIF</h3>
-                    </div>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
-                            <span>Quantitative strategy development with ML integration</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
-                            <span>Market anomaly detection and analysis</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
-                            <span>Advanced ML modeling for financial markets</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Independent Research -->
-                <div class="card p-6 rounded-lg transform transition-all hover:scale-105">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-microscope text-2xl text-[#64ffda] mr-3"></i>
-                        <h3 class="text-xl font-bold text-[#64ffda]">Independent Researcher</h3>
-                    </div>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
-                            <span>Development of predictive ML models</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
-                            <span>Research publication and methodology development</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
-                            <span>Advanced trading system design</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Algo Trading -->
-                <div class="card p-6 rounded-lg transform transition-all hover:scale-105">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-robot text-2xl text-[#64ffda] mr-3"></i>
-                        <h3 class="text-xl font-bold text-[#64ffda]">Algo Trader</h3>
-                    </div>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
-                            <span>High-frequency trading system development</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
-                            <span>ML-based strategy implementation</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-[#64ffda] mt-1 mr-2"></i>
-                            <span>Portfolio optimization and risk management</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Research Projects -->
-            <div class="mt-20">
-                <h3 class="text-3xl font-bold mb-12 text-center text-[#64ffda]">Research Portfolio 2024</h3>
-                
-                <!-- ML & AI Projects -->
-                <div class="grid md:grid-cols-2 gap-8 mb-16">
-                    <div class="card p-8 rounded-lg">
-                        <h4 class="text-2xl font-bold mb-6 text-[#64ffda]">Machine Learning & AI</h4>
-                        <div class="space-y-6">
-                            <!-- LSTM Project -->
-                            <div class="project-card transform transition-all hover:translate-x-2">
-                                <h5 class="text-xl font-bold text-[#64ffda] mb-3">
-                                    <i class="fas fa-brain mr-2"></i>
-                                    LSTM Neural Networks for Volume Analysis
-                                </h5>
-                                <ul class="space-y-2 text-gray-300">
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Deep learning integration with technical analysis
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Anomalous volume pattern detection
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Advanced clustering algorithms
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Association Rules Project -->
-                            <div class="project-card transform transition-all hover:translate-x-2">
-                                <h5 class="text-xl font-bold text-[#64ffda] mb-3">
-                                    <i class="fas fa-project-diagram mr-2"></i>
-                                    Association Rules in Forex
-                                </h5>
-                                <ul class="space-y-2 text-gray-300">
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Market pattern recognition systems
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Multi-timeframe validation
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Retail analytics adaptation
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Quantitative Research -->
-                    <div class="card p-8 rounded-lg">
-                        <h4 class="text-2xl font-bold mb-6 text-[#64ffda]">Quantitative Research</h4>
-                        <div class="space-y-6">
-                            <!-- HFT Project -->
-                            <div class="project-card transform transition-all hover:translate-x-2">
-                                <h5 class="text-xl font-bold text-[#64ffda] mb-3">
-                                    <i class="fas fa-bolt mr-2"></i>
-                                    High-Frequency Trading Systems
-                                </h5>
-                                <ul class="space-y-2 text-gray-300">
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Arbitrage strategy optimization
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Low-latency execution
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Risk management systems
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- VaR Models -->
-                            <div class="project-card transform transition-all hover:translate-x-2">
-                                <h5 class="text-xl font-bold text-[#64ffda] mb-3">
-                                    <i class="fas fa-chart-line mr-2"></i>
-                                    VaR Models for Portfolio Management
-                                </h5>
-                                <ul class="space-y-2 text-gray-300">
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Dynamic risk modeling
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Capital allocation strategies
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="fas fa-angle-right text-[#64ffda] mr-2"></i>
-                                        Performance validation
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technical Stack Section -->
-    <section id="tech-stack" class="py-20 bg-[#0a192f]">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-16 text-center gradient-text">Technical Stack</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Programming & Integration -->
-                <div class="card p-8 rounded-lg transform hover:scale-105 transition-all">
-                    <div class="flex items-center mb-6">
-                        <i class="fas fa-code text-3xl text-[#64ffda] mr-3"></i>
-                        <h3 class="text-2xl font-bold text-[#64ffda]">Programming & Integration</h3>
-                    </div>
-                    <ul class="space-y-4">
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fab fa-python text-[#64ffda] mr-3"></i>
-                            <span>Python Ecosystem</span>
-                        </li>
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fas fa-chart-line text-[#64ffda] mr-3"></i>
-                            <span>MetaTrader 5 API</span>
-                        </li>
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fab fa-ethereum text-[#64ffda] mr-3"></i>
-                            <span>Solidity / Smart Contracts</span>
-                        </li>
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fas fa-network-wired text-[#64ffda] mr-3"></i>
-                            <span>REST API Integration</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Machine Learning -->
-                <div class="card p-8 rounded-lg transform hover:scale-105 transition-all">
-                    <div class="flex items-center mb-6">
-                        <i class="fas fa-brain text-3xl text-[#64ffda] mr-3"></i>
-                        <h3 class="text-2xl font-bold text-[#64ffda]">Machine Learning</h3>
-                    </div>
-                    <ul class="space-y-4">
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fas fa-project-diagram text-[#64ffda] mr-3"></i>
-                            <span>LSTM Neural Networks</span>
-                        </li>
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fas fa-tree text-[#64ffda] mr-3"></i>
-                            <span>Random Forest</span>
-                        </li>
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fas fa-cube text-[#64ffda] mr-3"></i>
-                            <span>ONNX Models</span>
-                        </li>
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fas fa-cogs text-[#64ffda] mr-3"></i>
-                            <span>Data Preprocessing</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Quantitative Analysis -->
-                <div class="card p-8 rounded-lg transform hover:scale-105 transition-all">
-                    <div class="flex items-center mb-6">
-                        <i class="fas fa-chart-bar text-3xl text-[#64ffda] mr-3"></i>
-                        <h3 class="text-2xl font-bold text-[#64ffda]">Quantitative Analysis</h3>
-                    </div>
-                    <ul class="space-y-4">
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fas fa-calculator text-[#64ffda] mr-3"></i>
-                            <span>Statistical Modeling</span>
-                        </li>
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fas fa-shield-alt text-[#64ffda] mr-3"></i>
-                            <span>Risk Management (VaR)</span>
-                        </li>
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fas fa-chart-pie text-[#64ffda] mr-3"></i>
-                            <span>Portfolio Optimization</span>
-                        </li>
-                        <li class="flex items-center p-2 bg-opacity-20 bg-[#64ffda] rounded">
-                            <i class="fas fa-tachometer-alt text-[#64ffda] mr-3"></i>
-                            <span>HFT Analysis</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Projects Showcase -->
-    <section id="showcase" class="py-20 bg-[#172a45]">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-16 text-center gradient-text">Featured Research</h2>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- LSTM Project -->
-                <div class="project-showcase-card">
-                    <div class="card p-8 rounded-lg transform hover:-translate-y-2 transition-all">
-                        <h3 class="text-2xl font-bold text-[#64ffda] mb-4">Neural Network Trading Systems</h3>
-                        <p class="text-gray-300 mb-6">Development of advanced LSTM architectures for market prediction and pattern recognition.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">Deep Learning</span>
-                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">Time Series</span>
-                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">Python</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-400">2024</span>
-                            <i class="fas fa-external-link-alt text-[#64ffda]"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- High-Frequency Trading -->
-                <div class="project-showcase-card">
-                    <div class="card p-8 rounded-lg transform hover:-translate-y-2 transition-all">
-                        <h3 class="text-2xl font-bold text-[#64ffda] mb-4">HFT Arbitrage Systems</h3>
-                        <p class="text-gray-300 mb-6">Implementation of low-latency arbitrage strategies with advanced risk management.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">HFT</span>
-                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">Arbitrage</span>
-                            <span class="px-3 py-1 rounded-full bg-[#64ffda] bg-opacity-10 text-[#64ffda]">C++</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-400">2024</span>
-                            <i class="fas fa-external-link-alt text-[#64ffda]"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-[#0a192f]">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-16 text-center gradient-text">Get in Touch</h2>
-            
-            <div class="max-w-2xl mx-auto card p-8 rounded-lg">
-                <p class="text-center text-gray-300 mb-8">
-                    I'm always interested in new research opportunities and collaborations in quantitative trading, ML development, and blockchain integration.
-                </p>
-                
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div>
-                        <h3 class="text-xl font-bold text-[#64ffda] mb-4">Research Areas</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-center">
-                                <i class="fas fa-brain text-[#64ffda] mr-2"></i>
-                                <span>ML in Finance</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-robot text-[#64ffda] mr-2"></i>
-                                <span>Algorithmic Trading</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-chart-line text-[#64ffda] mr-2"></i>
-                                <span>Quantitative Analysis</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-bold text-[#64ffda] mb-4">Collaboration Types</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-center">
-                                <i class="fas fa-project-diagram text-[#64ffda] mr-2"></i>
-                                <span>Research Projects</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-code text-[#64ffda] mr-2"></i>
-                                <span>System Development</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-handshake text-[#64ffda] mr-2"></i>
-                                <span>Consulting</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="text-center">
-                    <a href="mailto:koshtenco@gmail.com" 
-                       class="inline-block px-8 py-3 bg-[#64ffda] bg-opacity-10 text-[#64ffda] rounded-lg
-                              border border-[#64ffda] hover:bg-opacity-20 transition-all duration-300
-                              transform hover:scale-105">
-                        <i class="fas fa-envelope mr-2"></i>
-                        Contact Me
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 bg-[#0a192f] border-t border-[#64ffda] border-opacity-20">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-400">© 2024 Yevgeniy Koshtenko. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+    document.title=titles[lang];
+    try{localStorage.setItem('portfolio-lang',lang)}catch(e){}
+  }
+  document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  let saved='ru';
+  try{saved=localStorage.getItem('portfolio-lang')||((navigator.language||'').toLowerCase().startsWith('ru')?'ru':'en')}catch(e){}
+  setLang(saved);
+})();
+</script></body>
 </html>
