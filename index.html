@@ -1,236 +1,1288 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Евгений Коштенко — System Architect · Quant · AI · Fintech · Distributed Systems</title>
-  <meta name="description" content="Портфолио Евгения Коштенко: архитектура SYNERGY, количественные системы, AI-агенты, финансовая инфраструктура, распределённые системы, post-quantum trust и исследовательские проекты.">
-  <meta name="theme-color" content="#00e664">
-  <link rel="canonical" href="https://shtenco.github.io/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Evgeniy Koshtenko — System Architect · Quant · AI · Fintech">
-  <meta property="og:description" content="Creator portfolio for the Shtenco system-of-systems: quantitative research, AI agents, financial infrastructure, distributed systems and cryptographic trust.">
-  <meta property="og:url" content="https://shtenco.github.io/">
-  <meta name="twitter:card" content="summary">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/portfolio.css">
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Evgeniy Koshtenko",
-    "alternateName":"Евгений Коштенко",
-    "url":"https://shtenco.github.io/",
-    "sameAs":["https://github.com/Shtenco","https://vk.com/altradinger"],
-    "knowsAbout":["Quantitative trading systems","AI agents","Financial infrastructure","Distributed systems","Blockchain","Post-quantum security","Algorithmic trading"]
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title data-en="Evgeniy Koshtenko — Quant · AI · Web3 · Blockchain" data-ru="Евгений Коштенко — Quant · AI · Web3 · Blockchain">Евгений Коштенко — Quant · AI · Web3 · Blockchain</title>
+<meta content="#00e664" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>:root{ --g:#00e664;--g2:#00c250;--g3:rgba(0,230,100,.12);--g4:rgba(0,230,100,.06); --blk:#000;--b1:#080808;--b2:#111;--b3:#191919;--b4:#242424; --w:#fff;--w2:rgba(255,255,255,.85);--w3:rgba(255,255,255,.58);--w4:rgba(255,255,255,.22);--w5:rgba(255,255,255,.08); --bdr:rgba(0,230,100,.18);--bdr2:rgba(255,255,255,.08); --serif:'Instrument Serif', Georgia, serif;--display:'Bebas Neue', sans-serif; --mono:'DM Mono', monospace;--body:'Manrope', sans-serif; --r1:10px;--r2:18px;--r3:28px;--shadow:0 30px 80px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{ font-family:var(--body);background:var(--blk);color:var(--w);overflow-x:hidden; -webkit-font-smoothing:antialiased; background-image: radial-gradient(circle at 10% 0%, rgba(0,230,100,.12), transparent 30%), radial-gradient(circle at 100% 10%, rgba(0,230,100,.08), transparent 30%), linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px); background-size:auto,auto,44px 44px,44px 44px;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1280px, calc(100vw - 32px)); margin:0 auto}
+#nav{ position:fixed;top:0;left:0;right:0;z-index:999;padding:10px 18px;background:rgba(0,0,0,.92); border-bottom:1px solid var(--bdr);backdrop-filter:blur(24px)
+}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px;font-family:var(--display);letter-spacing:.06em}
+.brand-mark{width:14px;height:14px;border-radius:2px;background:var(--g);box-shadow:0 0 18px rgba(0,230,100,.65)}
+.brand-name{font-size:30px;line-height:1;color:var(--g)}
+.brand-sub{font-family:var(--mono);font-size:11px;color:var(--w3);text-transform:uppercase;letter-spacing:.16em}
+.nav-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.nav-tab{ padding:9px 14px;border-radius:999px;border:1px solid var(--bdr2);background:rgba(255,255,255,.03); font-size:13px;color:var(--w2);transition:.2s ease
+}
+.nav-tab:hover{border-color:var(--bdr);color:var(--w);background:var(--g4);transform:translateY(-1px)}
+.main{padding:110px 0 80px}
+.hero{ position:relative;overflow:hidden;border:1px solid var(--bdr);border-radius:34px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)), linear-gradient(135deg, #060606, #0f1711 60%, #080808); box-shadow:var(--shadow);padding:40px
+}
+.hero:before{ content:"";position:absolute;right:26px;top:20px;font-family:var(--display); font-size:clamp(76px, 14vw, 220px);line-height:.88;color:transparent; -webkit-text-stroke:1px rgba(0,230,100,.16);pointer-events:none;user-select:none
+}
+.hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:24px;align-items:stretch}
+.hero-left{position:relative;z-index:1}
+.eyebrow{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;border:1px solid var(--bdr); border-radius:999px;background:var(--g4);font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--g)}
+.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 14px rgba(0,230,100,.75)}
+.hero h1{font-family:var(--display);font-size:clamp(66px, 11vw, 164px);line-height:.9;letter-spacing:.01em;margin:24px 0 10px}
+.hero h1 span{color:var(--g)}
+.hero .subtitle{font-family:var(--serif);font-size:clamp(24px, 3.2vw, 38px);line-height:1.07;color:var(--w2);max-width:920px}
+.hero .bio{margin-top:24px;font-size:18px;line-height:1.75;color:var(--w3);max-width:850px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{ display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:999px; border:1px solid var(--bdr);font-weight:700;transition:.2s ease
+}
+.btn-primary{background:var(--g);color:#000}
+.btn-secondary{background:rgba(255,255,255,.03);color:var(--w2)}
+.btn:hover{transform:translateY(-2px)}
+.hero-right{position:relative;z-index:1;display:grid;gap:16px}
+.panel{ border:1px solid var(--bdr);background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); border-radius:24px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)
+}
+.panel h3{font-size:14px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:16px}
+.stats-line{font-size:15px;color:var(--w2);line-height:1.8}
+.metrics-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.metric{border:1px solid var(--bdr2);border-radius:18px;padding:16px;background:rgba(255,255,255,.02)}
+.metric-num{font-family:var(--display);font-size:34px;line-height:1;color:var(--g)}
+.metric-label{font-size:12px;line-height:1.45;color:var(--w3);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+.section{padding:68px 0 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:22px}
+.section-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+.section-title{font-family:var(--display);font-size:clamp(42px, 6vw, 74px);line-height:.95}
+.section-sub{max-width:800px;color:var(--w3);font-size:16px;line-height:1.7}
+.content-card,.offer-card,.product-card,.timeline-card,.contact-card{ border:1px solid var(--bdr);border-radius:24px;background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.012)); padding:24px;box-shadow:var(--shadow)
+}
+.card-tag{display:inline-flex;padding:7px 12px;border-radius:999px;border:1px solid var(--bdr2);background:var(--g4);color:var(--g);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.offer-card p{color:var(--w2);line-height:1.8;margin-bottom:14px}
+.offer-card ul{padding-left:20px;color:var(--w2);display:grid;gap:10px}
+.offer-card li{line-height:1.75}
+.timeline{display:grid;gap:16px}
+.timeline-card{display:grid;grid-template-columns:92px 1fr;gap:20px;align-items:flex-start}
+.timeline-index{font-family:var(--display);font-size:54px;line-height:.9;color:var(--g)}
+.timeline-body h3,.content-card h3,.product-card h3,.contact-card h3{font-size:24px;line-height:1.15;margin-bottom:10px}
+.timeline-body p,.product-card p,.contact-card p{color:var(--w3);line-height:1.8}
+.dual-grid{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:18px}
+.article-list{list-style:none;display:grid;gap:14px;margin-top:6px}
+.article-list li{padding:14px 0;border-top:1px solid rgba(255,255,255,.06)}
+.article-list li:first-child{border-top:none;padding-top:0}
+.article-list a{color:var(--w);font-weight:700;display:inline-block;line-height:1.5}
+.article-list a:hover{color:var(--g)}
+.article-desc{color:var(--w3);font-size:14px;line-height:1.7;margin-top:6px}
+.links-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.link-chip{padding:12px 14px;border:1px solid var(--bdr2);border-radius:999px;background:rgba(255,255,255,.02);font-size:14px;color:var(--w2)}
+.products-grid{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:18px}
+.product-card .subtle{font-size:14px}
+.footer-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.note{margin-top:18px;color:var(--w4);font-size:12px;line-height:1.7}
+.small{font-size:14px;color:var(--w3);line-height:1.7}
+.anchor-space{position:relative;top:-90px}
+@media (max-width: 980px){ .hero-grid,.dual-grid,.products-grid,.footer-grid{grid-template-columns:1fr} .hero{padding:26px} .hero h1{font-size:86px} .timeline-card{grid-template-columns:1fr} .timeline-index{font-size:42px}
+}
+@media (max-width: 620px){ .brand-name{font-size:24px} .nav-tab{padding:8px 11px;font-size:12px} .main{padding-top:126px} .hero h1{font-size:62px} .section-title{font-size:42px} .hero .bio{font-size:16px}
+}</style>
+<style>
+/* ===== Portal motion layer ===== */
+#scroll-progress{
+  position:fixed;top:0;left:0;height:2px;width:0%;z-index:10002;
+  background:linear-gradient(90deg,#00e664,#86ffb5);
+  box-shadow:0 0 14px rgba(0,230,100,.6);
+}
+.scan-line{
+  position:fixed;left:0;right:0;height:1.5px;pointer-events:none;z-index:9998;top:0;
+  background:linear-gradient(90deg,transparent,rgba(0,230,100,.42),transparent);
+  animation:scan 6s linear infinite;
+  opacity:.72;
+}
+@keyframes scan{0%{top:0}100%{top:100vh}}
+#cursor-glow{
+  position:fixed;pointer-events:none;z-index:0;border-radius:50%;
+  width:340px;height:340px;
+  background:radial-gradient(circle,rgba(0,230,100,.07),transparent 70%);
+  transform:translate(-50%,-50%);
+  mix-blend-mode:screen;
+}
+#hex-bg{
+  position:fixed;inset:0;width:100%;height:100%;z-index:0;
+  pointer-events:none;opacity:.36;
+}
+#nav,.main{position:relative;z-index:2}
+#nav{position:fixed}
+.reveal{
+  opacity:0;transform:translateY(26px);
+  transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1);
+}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+.card-holo{position:relative;overflow:hidden}
+.card-holo::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(130deg,transparent 28%,rgba(255,255,255,.055) 50%,transparent 72%);
+  transform:translateX(-130%);transition:transform .62s cubic-bezier(.16,1,.3,1)
+}
+.card-holo:hover::after{transform:translateX(130%)}
+.depth-tile{
+  transform-style:preserve-3d;
+  transition:transform .45s cubic-bezier(.16,1,.3,1),border-color .25s,box-shadow .25s;
+}
+.depth-tile:hover{
+  transform:perspective(800px) rotateY(-2.2deg) rotateX(1.4deg) translateY(-4px);
+  border-color:rgba(0,230,100,.32);
+  box-shadow:0 22px 70px rgba(0,0,0,.4),0 0 26px rgba(0,230,100,.05);
+}
+.hero-left h1 span{
+  animation:neonPulse 4s ease-in-out infinite;
+}
+@keyframes neonPulse{
+  0%,100%{text-shadow:0 0 12px rgba(0,230,100,.28)}
+  50%{text-shadow:0 0 30px rgba(0,230,100,.70),0 0 70px rgba(0,230,100,.18)}
+}
+.metric-num{animation:metricGlow 5s ease-in-out infinite}
+@keyframes metricGlow{
+  0%,100%{filter:drop-shadow(0 0 0 rgba(0,230,100,0))}
+  50%{filter:drop-shadow(0 0 9px rgba(0,230,100,.28))}
+}
+.footer-grid.single{grid-template-columns:1fr}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .scan-line,.hero-left h1 span,.metric-num{animation:none!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  .depth-tile,.card-holo::after{transition:none}
+  #hex-bg,#cursor-glow{display:none}
+}
+</style><style>
+.nav-tab.active{color:var(--g);background:var(--g4);border-color:var(--bdr)}
+.brand-name{color:var(--g)}
+</style><style>
+.investor-status-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.investor-status-item{
+  border:1px solid rgba(0,230,100,.20);
+  border-radius:18px;
+  padding:16px;
+  background:linear-gradient(180deg,rgba(0,230,100,.075),rgba(255,255,255,.015));
+}
+.investor-status-year{
+  font-family:var(--display);
+  font-size:34px;
+  line-height:1;
+  color:var(--g);
+  letter-spacing:.03em;
+  margin-bottom:8px;
+}
+.investor-status-title{
+  font-size:12px;
+  line-height:1.5;
+  color:var(--w2);
+  text-transform:uppercase;
+  letter-spacing:.07em;
+}
+@media (max-width:620px){
+  .investor-status-grid{grid-template-columns:1fr}
+}
+</style><style>
+/* ===== HERO LAYOUT FIX ===== */
+
+/* Wider, more balanced desktop split */
+.hero-grid{
+  grid-template-columns:minmax(0,1.08fr) minmax(560px,.92fr);
+  gap:22px;
+  align-items:start;
+}
+
+/* Right side becomes a compact 2-column dashboard */
+.hero-right{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:12px;
+  align-content:start;
+}
+
+/* Positioning + investor status sit side-by-side */
+.hero-right > .panel{
+  min-width:0;
+  padding:17px 18px;
+  border-radius:20px;
+}
+
+/* Metrics panel takes the full width below */
+.hero-right > .panel:last-child{
+  grid-column:1 / -1;
+}
+
+.panel h3{
+  margin-bottom:11px;
+  font-size:11px;
+  letter-spacing:.12em;
+}
+
+.stats-line{
+  font-size:13px;
+  line-height:1.65;
+}
+
+/* Investor status made much denser */
+.investor-status-grid{
+  grid-template-columns:1fr;
+  gap:8px;
+}
+.investor-status-item{
+  display:grid;
+  grid-template-columns:66px 1fr;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:14px;
+}
+.investor-status-year{
+  font-size:29px;
+  margin:0;
+}
+.investor-status-title{
+  font-size:10px;
+  line-height:1.35;
+  letter-spacing:.055em;
+}
+
+/* Six metrics: 3 x 2 instead of 2 x 3 */
+.metrics-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+}
+.metric{
+  padding:11px 12px;
+  border-radius:14px;
+  min-height:67px;
+}
+.metric-num{
+  font-size:28px;
+}
+.metric-label{
+  font-size:9px;
+  line-height:1.3;
+  margin-top:4px;
+  letter-spacing:.06em;
+}
+
+/* Slightly compact the hero overall */
+.hero{
+  padding:34px;
+}
+.hero .bio{
+  font-size:16px;
+  line-height:1.62;
+  margin-top:20px;
+}
+.hero-actions{
+  margin-top:22px;
+}
+
+/* Large desktop: even more breathing room horizontally */
+@media (min-width:1440px){
+  .container{
+    width:min(1380px,calc(100vw - 48px));
   }
-  </script>
+  .hero-grid{
+    grid-template-columns:minmax(0,1.12fr) minmax(610px,.88fr);
+  }
+}
+
+/* Medium desktop / small laptop */
+@media (max-width:1180px){
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+  .hero-right{
+    grid-template-columns:1fr 1fr;
+  }
+  .hero-right > .panel:last-child{
+    grid-column:1 / -1;
+  }
+}
+
+/* Tablet */
+@media (max-width:760px){
+  .hero-right{
+    grid-template-columns:1fr;
+  }
+  .hero-right > .panel:last-child{
+    grid-column:auto;
+  }
+  .metrics-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width:520px){
+  .hero{
+    padding:20px;
+  }
+  .metrics-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .investor-status-item{
+    grid-template-columns:58px 1fr;
+  }
+  .metric-num{
+    font-size:25px;
+  }
+}
+</style><style>
+/* ===== DEFINITIVE HERO FIX: dashboard physically below hero intro ===== */
+.hero{
+  padding:40px !important;
+}
+.hero-grid{
+  display:block !important;
+  grid-template-columns:none !important;
+  width:100% !important;
+}
+.hero-left{
+  width:100% !important;
+  max-width:none !important;
+}
+.hero-left .subtitle{max-width:1050px !important;}
+.hero-left .bio{max-width:1120px !important;}
+
+.hero-dashboard-below{
+  position:relative !important;
+  z-index:2 !important;
+  width:100% !important;
+  margin-top:34px !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+  gap:14px !important;
+  align-items:stretch !important;
+}
+.hero-dashboard-below > .panel{
+  min-width:0 !important;
+  width:100% !important;
+  padding:20px 22px !important;
+  margin:0 !important;
+  border-radius:20px !important;
+}
+.hero-dashboard-below > .panel:last-child{
+  grid-column:1 / -1 !important;
+}
+.hero-dashboard-below .panel h3{
+  margin:0 0 12px !important;
+  font-size:12px !important;
+  line-height:1.3 !important;
+}
+.hero-dashboard-below .stats-line{
+  font-size:14px !important;
+  line-height:1.7 !important;
+}
+
+/* Investor status: two horizontal cards inside its panel */
+.hero-dashboard-below .investor-status-grid{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:10px !important;
+}
+.hero-dashboard-below .investor-status-item{
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+  min-width:0 !important;
+  padding:12px 14px !important;
+  border-radius:14px !important;
+}
+.hero-dashboard-below .investor-status-year{
+  flex:0 0 auto !important;
+  font-size:30px !important;
+  line-height:1 !important;
+  margin:0 !important;
+}
+.hero-dashboard-below .investor-status-title{
+  min-width:0 !important;
+  font-size:11px !important;
+  line-height:1.35 !important;
+}
+
+/* Metrics: one compact row on desktop */
+.hero-dashboard-below .metrics-grid{
+  display:grid !important;
+  grid-template-columns:repeat(6,minmax(0,1fr)) !important;
+  gap:8px !important;
+}
+.hero-dashboard-below .metric{
+  min-width:0 !important;
+  min-height:74px !important;
+  padding:12px 12px !important;
+  border-radius:14px !important;
+}
+.hero-dashboard-below .metric-num{
+  font-size:29px !important;
+  line-height:1 !important;
+}
+.hero-dashboard-below .metric-label{
+  font-size:9px !important;
+  line-height:1.25 !important;
+  margin-top:5px !important;
+}
+
+@media (max-width:1050px){
+  .hero-dashboard-below{
+    grid-template-columns:1fr !important;
+  }
+  .hero-dashboard-below > .panel:last-child{
+    grid-column:auto !important;
+  }
+  .hero-dashboard-below .metrics-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+}
+@media (max-width:650px){
+  .hero{padding:22px !important;}
+  .hero-dashboard-below .investor-status-grid{
+    grid-template-columns:1fr !important;
+  }
+  .hero-dashboard-below .metrics-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+</style><style>
+.article-list a[href^="http"]{
+  position:relative;
+  transition:color .2s ease,text-shadow .2s ease;
+}
+.article-list a[href^="http"]:hover{
+  color:var(--g);
+  text-shadow:0 0 16px rgba(0,230,100,.18);
+}
+.article-list a[href^="http"]::after{
+  content:" ↗";
+  font-family:var(--mono);
+  font-size:.72em;
+  color:var(--g);
+  opacity:.62;
+}
+</style><style>
+.lang-switch{display:flex;gap:4px;align-items:center;padding:4px;border:1px solid var(--bdr);border-radius:999px;background:rgba(255,255,255,.025)}
+.lang-btn{appearance:none;border:0;background:transparent;color:var(--w3);font-family:var(--mono);font-size:11px;letter-spacing:.12em;font-weight:700;padding:7px 10px;border-radius:999px;cursor:pointer;transition:.2s ease}
+.lang-btn:hover{color:var(--w)}
+.lang-btn.active{background:var(--g);color:#000;box-shadow:0 0 18px rgba(0,230,100,.24)}
+@media(max-width:780px){.nav-row{gap:10px}.lang-switch{margin-left:auto}}
+</style><meta content="Evgeniy Koshtenko — qualified investor, algorithmic trader, AI/ML and blockchain developer. Portfolio, articles and technology projects." name="description"/><meta content="Evgeniy Koshtenko — Quant · AI · Web3 · Blockchain" property="og:title"/><meta content="Qualified investor, algorithmic trader, AI/ML and blockchain developer. 100+ articles and technology projects." property="og:description"/><meta content="website" property="og:type"/><meta content="https://shtenco.github.io/" property="og:url"/><meta content="summary" name="twitter:card"/><style id="css-language-switch">
+/* ===== CSS-ONLY RU / EN SWITCH: works without JavaScript ===== */
+.lang-radio{
+  position:fixed!important;
+  width:1px!important;height:1px!important;
+  opacity:0!important;
+  pointer-events:none!important;
+  left:-9999px!important;
+}
+.lang-switch{position:relative;z-index:10010;pointer-events:auto!important}
+.lang-btn{display:inline-flex;align-items:center;justify-content:center;user-select:none;pointer-events:auto!important}
+.lang-copy-en{display:none!important}
+.lang-copy-ru{display:inline!important}
+
+#portfolio-lang-en:checked ~ #nav .lang-copy-ru,
+#portfolio-lang-en:checked ~ .main .lang-copy-ru{display:none!important}
+#portfolio-lang-en:checked ~ #nav .lang-copy-en,
+#portfolio-lang-en:checked ~ .main .lang-copy-en{display:inline!important}
+
+#portfolio-lang-ru:checked ~ #nav .lang-copy-ru,
+#portfolio-lang-ru:checked ~ .main .lang-copy-ru{display:inline!important}
+#portfolio-lang-ru:checked ~ #nav .lang-copy-en,
+#portfolio-lang-ru:checked ~ .main .lang-copy-en{display:none!important}
+
+.lang-btn{background:transparent!important;color:var(--w3)!important;box-shadow:none!important}
+#portfolio-lang-ru:checked ~ #nav .lang-ru-label,
+#portfolio-lang-en:checked ~ #nav .lang-en-label{
+  background:var(--g)!important;
+  color:#000!important;
+  box-shadow:0 0 18px rgba(0,230,100,.24)!important;
+}
+</style><style id="hero-name-fit-fix-css-only">
+.hero h1.hero-name{
+  display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+  width:100%!important;max-width:100%!important;margin:22px 0 14px!important;
+  font-family:var(--display)!important;font-size:clamp(54px,8.4vw,124px)!important;
+  line-height:.82!important;letter-spacing:.01em!important;overflow:visible!important;
+}
+.hero h1.hero-name > span{display:block!important;width:auto!important;max-width:100%!important;white-space:nowrap!important}
+.hero h1.hero-name .hero-name-first{color:var(--w)!important}
+.hero h1.hero-name .hero-name-last{color:var(--g)!important;margin-top:.055em!important}
+@media(min-width:1440px){.hero h1.hero-name{font-size:124px!important}}
+@media(max-width:700px){.hero h1.hero-name{font-size:clamp(48px,16vw,82px)!important;line-height:.84!important;margin-top:18px!important}}
+@media(max-width:390px){.hero h1.hero-name{font-size:47px!important}}
+</style>
+<style id="nav-click-fix">
+/* ===== DEFINITIVE CLICKABILITY FIX ===== */
+#nav{
+  position:fixed !important;
+  top:0 !important;
+  left:0 !important;
+  right:0 !important;
+  z-index:50000 !important;
+  pointer-events:auto !important;
+  isolation:isolate;
+}
+#nav .container,
+#nav .nav-row,
+#nav .nav-tabs,
+#nav .nav-tab,
+#nav .lang-switch,
+#nav .lang-btn,
+#nav label{
+  position:relative;
+  z-index:50001 !important;
+  pointer-events:auto !important;
+}
+.main{
+  position:relative !important;
+  z-index:1 !important;
+}
+#hex-bg,
+#cursor-glow,
+.scan-line,
+#scroll-progress{
+  pointer-events:none !important;
+}
+.nav-tab,
+.lang-btn{
+  cursor:pointer !important;
+  touch-action:manipulation;
+}
+</style>
+
 </head>
-<body data-lang="ru">
-  <nav class="site-nav" aria-label="Primary navigation">
-    <div class="container nav-row">
-      <a class="brand" href="#hero" aria-label="Evgeniy Koshtenko home">
-        <span class="brand-dot"></span>
-        <span>EVGENIY KOSHTENKO<small>system architect · quant · ai</small></span>
-      </a>
-      <div class="nav-links">
-        <a href="#architecture"><span data-lang-copy="ru">Архитектура</span><span data-lang-copy="en">Architecture</span></a>
-        <a href="#flagships">Flagships</a>
-        <a href="#registry"><span data-lang-copy="ru">Репозитории</span><span data-lang-copy="en">Repositories</span></a>
-        <a href="#contacts"><span data-lang-copy="ru">Контакты</span><span data-lang-copy="en">Contact</span></a>
-        <div class="lang-switch" aria-label="Language">
-          <button class="lang-btn" type="button" data-lang-btn="ru" aria-pressed="true">RU</button>
-          <button class="lang-btn" type="button" data-lang-btn="en" aria-pressed="false">EN</button>
-        </div>
-      </div>
-    </div>
-  </nav>
+<body><input checked="checked" class="lang-radio" id="portfolio-lang-ru" name="portfolio-language" type="radio" value="ru"/><input class="lang-radio" id="portfolio-lang-en" name="portfolio-language" type="radio" value="en"/><canvas aria-hidden="true" id="hex-bg"></canvas><div aria-hidden="true" id="cursor-glow"></div><div aria-hidden="true" class="scan-line"></div><div aria-hidden="true" id="scroll-progress"></div>
+<nav id="nav">
+<div class="container nav-row">
+<div class="brand">
+<span class="brand-mark"></span>
+<div>
+<div class="brand-name">PORTFOLIO</div>
+<div class="brand-sub">Quant · AI · Web3 · Blockchain</div>
+</div>
+</div>
+<div class="nav-tabs">
+<a class="nav-tab" href="#intro"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Интро</span><span class="lang-copy lang-copy-en">Intro</span></span></a><a class="nav-tab" href="#proposal"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Оффер</span><span class="lang-copy lang-copy-en">Pitch</span></span></a><a class="nav-tab" href="#evolution"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Путь</span><span class="lang-copy lang-copy-en">Journey</span></span></a><a class="nav-tab" href="#mql5">MQL5</a><a class="nav-tab" href="#invest"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Инвест</span><span class="lang-copy lang-copy-en">Investing</span></span></a><a class="nav-tab" href="#products"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Продукты</span><span class="lang-copy lang-copy-en">Products</span></span></a><a class="nav-tab" href="#contacts"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Контакты</span><span class="lang-copy lang-copy-en">Contacts</span></span></a>
+</div>
+<div class="lang-switch"><label class="lang-btn lang-ru-label" for="portfolio-lang-ru">RU</label><label class="lang-btn lang-en-label" for="portfolio-lang-en">EN</label></div></div>
+</nav>
+<main class="main">
+<div class="container">
+<section class="hero" id="intro">
+<div class="hero-grid">
+<div class="hero-left reveal">
+<div class="eyebrow">Quant · AI · Web3 · Blockchain</div>
+<h1 class="hero-name"><span class="i18n-text hero-name-first"><span class="lang-copy lang-copy-ru">ЕВГЕНИЙ</span><span class="lang-copy lang-copy-en">EVGENIY</span></span><span><span class="i18n-text hero-name-last"><span class="lang-copy lang-copy-ru">КОШТЕНКО</span><span class="lang-copy lang-copy-en">KOSHTENKO</span></span></span></h1>
+<div class="subtitle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Алготрейдинг · машинное обучение · ИИ-системы · смарт-контракты · институциональный ИИ</span><span class="lang-copy lang-copy-en">Algorithmic trading · machine learning · AI systems · smart contracts · institutional AI</span></span></div>
+<p class="bio"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Квалифицированный инвестор России (2023). Квалифицированный инвестор Казахстана (2024). Путь от ручной торговли до разработки институциональной ИИ-системы для хэдж-фонда и собственного ИИ-блокчейна. Создаю советников, торговых роботов, индикаторы, смарт-контракты, токены, ИИ-модели и системы автоматизации бизнеса под ключ. Автор 100+ международных статей.</span><span class="lang-copy lang-copy-en">Qualified investor in Russia (2023). Qualified investor in Kazakhstan (2024). From discretionary trading to institutional AI systems for hedge funds and a proprietary AI blockchain. I build EAs, trading robots, indicators, smart contracts, tokens, AI models, and end-to-end business automation systems. Author of 100+ international articles.</span></span></p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#proposal"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Смотреть оффер</span><span class="lang-copy lang-copy-en">View editorial pitch</span></span></a>
+<a class="btn btn-secondary" href="#products"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Открыть продукты</span><span class="lang-copy lang-copy-en">View products</span></span></a>
+</div>
+</div>
+</div><div class="hero-right reveal hero-dashboard-below">
+<div class="panel card-holo depth-tile">
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Позиционирование</span><span class="lang-copy lang-copy-en">Positioning</span></span></h3>
+<div class="stats-line"><span class="i18n-text"><span class="lang-copy lang-copy-ru">2016 в трейдинге · 2019 алготрейдинг · 2021 ML и код · 100+ статей · 680K+ MQL5 · 1.2M+ Python</span><span class="lang-copy lang-copy-en">Trading since 2016 · Algo trading since 2019 · ML &amp; code since 2021 · 100+ articles · 680K+ MQL5 · 1.2M+ Python</span></span></div>
+</div><div class="panel card-holo depth-tile investor-status-panel"><h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Статус инвестора</span><span class="lang-copy lang-copy-en">Investor status</span></span></h3><div class="investor-status-grid"><div class="investor-status-item"><div class="investor-status-year">2023</div><div class="investor-status-title"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Квалифицированный инвестор — Россия</span><span class="lang-copy lang-copy-en">Qualified investor — Russia</span></span></div></div><div class="investor-status-item"><div class="investor-status-year">2024</div><div class="investor-status-title"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Квалифицированный инвестор — Казахстан</span><span class="lang-copy lang-copy-en">Qualified investor — Kazakhstan</span></span></div></div></div></div>
+<div class="panel card-holo depth-tile">
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Ключевые метрики</span><span class="lang-copy lang-copy-en">Key metrics</span></span></h3>
+<div class="metrics-grid">
+<div class="metric card-holo depth-tile"><div class="metric-num">2016</div><div class="metric-label"><span class="i18n-text"><span class="lang-copy lang-copy-ru">в трейдинге</span><span class="lang-copy lang-copy-en">in trading</span></span></div></div>
+<div class="metric card-holo depth-tile"><div class="metric-num">2019</div><div class="metric-label"><span class="i18n-text"><span class="lang-copy lang-copy-ru">алготрейдинг</span><span class="lang-copy lang-copy-en">algo trading</span></span></div></div>
+<div class="metric card-holo depth-tile"><div class="metric-num">2021</div><div class="metric-label"><span class="i18n-text"><span class="lang-copy lang-copy-ru">ML и код</span><span class="lang-copy lang-copy-en">ML &amp; code</span></span></div></div>
+<div class="metric card-holo depth-tile"><div class="metric-num">100+</div><div class="metric-label"><span class="i18n-text"><span class="lang-copy lang-copy-ru">статей</span><span class="lang-copy lang-copy-en">articles</span></span></div></div>
+<div class="metric card-holo depth-tile"><div class="metric-num">680K+</div><div class="metric-label">MQL5</div></div>
+<div class="metric card-holo depth-tile"><div class="metric-num">1.2M+</div><div class="metric-label">Python</div></div>
+</div>
+</div>
+</div>
+</section>
+<div class="anchor-space" id="proposal"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 01</div>
+<h2 class="section-title"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Предложение для редакции</span><span class="lang-copy lang-copy-en">Editorial proposal</span></span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Оформлено в стиле портала : тёмная технологичная эстетика, белая типографика, фирменный зелёный акцент и карточная система блоков.</span><span class="lang-copy lang-copy-en">A dark technology-first visual system with white typography, a signature green accent, and modular card-based layout.</span></span></div>
+</div>
+<article class="offer-card reveal card-holo depth-tile">
+<div class="card-tag">Editorial pitch</div>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Здравствуйте! Я хочу и готов писать статьи для вашего издания. Предлагаю конкретно:</span><span class="lang-copy lang-copy-en">Hello! I am ready to write for your publication. Here is a concrete proposal:</span></span></p>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Что: авторские технические и аналитические материалы с рабочим кодом, реальными кейсами и эксклюзивными темами — на стыке алготрейдинга, машинного обучения, ИИ-агентов, квантовых вычислений и блокчейна. Не пересказ новостей, а то, что я сам разработал и проверил.</span><span class="lang-copy lang-copy-en">What: original technical and analytical pieces with working code, real cases, and exclusive topics at the intersection of algorithmic trading, machine learning, AI agents, quantum computing, and blockchain. Not news rewrites, but systems and ideas I have built and tested myself.</span></span></p>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Форматы: отдельные статьи, серии материалов, экспертная колонка, комментарии эксперта.</span><span class="lang-copy lang-copy-en">Formats: standalone articles, multi-part series, an expert column, and expert commentary.</span></span></p>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Темы на выбор (адаптирую под вашу аудиторию):</span><span class="lang-copy lang-copy-en">Possible topics (adapted to your audience):</span></span></p>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Почему я: квалифицированный инвестор России (2023), квалифицированный инвестор Казахстана (2024), автор 100+ международных статей, реальные работающие системы (см. ниже).</span><span class="lang-copy lang-copy-en">Why me: qualified investor in Russia (2023), qualified investor in Kazakhstan (2024), author of 100+ international articles, with real working systems shown below.</span></span></p>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Что нужно от вас: короткое «да» — и я пришлю детальные тезисы выбранной темы в тот же день. Готов работать под вашу редполитику, объём и ставку.</span><span class="lang-copy lang-copy-en">What I need from you: a short “yes”, and I will send a detailed outline for the selected topic the same day. I can work to your editorial policy, target length, and rate.</span></span></p>
+<ul><li><span class="i18n-text"><span class="lang-copy lang-copy-ru">ИИ-хедж-фонд: как 15 LLM-агентов принимают торговые решения</span><span class="lang-copy lang-copy-en">AI hedge fund: how 15 LLM agents make trading decisions</span></span></li>
+<li><span class="i18n-text"><span class="lang-copy lang-copy-ru">Почему 90% AI-трейдеров переобучают модели — и как это лечить (walk-forward, VaR)</span><span class="lang-copy lang-copy-en">Why 90% of AI traders overfit their models — and how to fix it (walk-forward, VaR)</span></span></li>
+<li><span class="i18n-text"><span class="lang-copy lang-copy-ru">Аудит DeFi-протокола изнутри: 7 уязвимостей смарт-контрактов</span><span class="lang-copy lang-copy-en">Inside a DeFi protocol audit: 7 smart-contract vulnerabilities</span></span></li>
+<li><span class="i18n-text"><span class="lang-copy lang-copy-ru">Формула капитала: как системно строить активы (личные финансы)</span><span class="lang-copy lang-copy-en">The capital formula: how to build assets systematically (personal finance)</span></span></li>
+<li><span class="i18n-text"><span class="lang-copy lang-copy-ru">Квантовые вычисления в трейдинге — простыми словами</span><span class="lang-copy lang-copy-en">Quantum computing in trading — explained simply</span></span></li></ul>
+</article>
+</section>
+<div class="anchor-space" id="evolution"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 02</div>
+<h2 class="section-title"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Эволюция</span><span class="lang-copy lang-copy-en">Evolution</span></span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text"><span class="lang-copy lang-copy-ru">От ручного трейдера к архитектору институционального ИИ, смарт-контрактов и агентных систем.</span><span class="lang-copy lang-copy-en">From discretionary trader to architect of institutional AI, smart contracts, and agent systems.</span></span></div>
+</div>
+<div class="timeline">
+<article class="timeline-card reveal d1 card-holo depth-tile">
+<div class="timeline-index">01</div>
+<div class="timeline-body">
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Ручной трейдер</span><span class="lang-copy lang-copy-en">Discretionary trader</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Старт в трейдинге с 2016 года — дискреционная торговля, чтение рыночной структуры, концепция Smart Money и ликвидности.</span><span class="lang-copy lang-copy-en">Started trading in 2016: discretionary execution, market-structure reading, Smart Money concepts, and liquidity.</span></span></p>
+</div>
+</article>
+<article class="timeline-card reveal d2 card-holo depth-tile">
+<div class="timeline-index">02</div>
+<div class="timeline-body">
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Инвестор</span><span class="lang-copy lang-copy-en">Investor</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Квалифицированный инвестор России (2023). Квалифицированный инвестор Казахстана (2024). Портфельное мышление, риск-менеджмент, история рынков и кризисов, защита капитала.</span><span class="lang-copy lang-copy-en">Qualified investor in Russia (2023). Qualified investor in Kazakhstan (2024). Portfolio thinking, risk management, market and crisis history, and capital preservation.</span></span></p>
+</div>
+</article>
+<article class="timeline-card reveal d3 card-holo depth-tile">
+<div class="timeline-index">03</div>
+<div class="timeline-body">
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Алготрейдер</span><span class="lang-copy lang-copy-en">Algorithmic trader</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">С 2019 — автоматизация стратегий: советники, индикаторы, арбитраж, многомерные «3D-бары» и компьютерное зрение на графиках.</span><span class="lang-copy lang-copy-en">Since 2019: strategy automation, EAs, indicators, arbitrage, multidimensional “3D bars”, and computer vision on charts.</span></span></p>
+</div>
+</article>
+<article class="timeline-card reveal d4 card-holo depth-tile">
+<div class="timeline-index">04</div>
+<div class="timeline-body">
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Разработчик машинного обучения</span><span class="lang-copy lang-copy-en">Machine learning developer</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">С 2021 — Python+MQL5, CatBoost/LSTM, современные архитектуры (Mamba, PatchTST, N-BEATS, TimeGPT), walk-forward и VaR.</span><span class="lang-copy lang-copy-en">Since 2021: Python + MQL5, CatBoost/LSTM, modern architectures (Mamba, PatchTST, N-BEATS, TimeGPT), walk-forward validation, and VaR.</span></span></p>
+</div>
+</article>
+<article class="timeline-card reveal d1 card-holo depth-tile">
+<div class="timeline-index">05</div>
+<div class="timeline-body">
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Разработчик ИИ-систем для хэдж-фондов</span><span class="lang-copy lang-copy-en">AI systems developer for hedge funds</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">LLM-агенты, мультиагентные «советы», эволюционный отбор стратегий, квантовые вычисления — впервые в среде MQL5.</span><span class="lang-copy lang-copy-en">LLM agents, multi-agent “councils”, evolutionary strategy selection, and quantum computing — including first-of-their-kind implementations in MQL5.</span></span></p>
+</div>
+</article>
+<article class="timeline-card reveal d2 card-holo depth-tile">
+<div class="timeline-index">06</div>
+<div class="timeline-body">
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Блокчейн- и смарт-контракт-разработчик</span><span class="lang-copy lang-copy-en">Blockchain &amp; smart-contract developer</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Постквантовый блокчейн, смарт-контракты, токены и токеномика, DAO/DeFi, защищённый мессенджер и платёжные системы.</span><span class="lang-copy lang-copy-en">Post-quantum blockchain, smart contracts, tokens and tokenomics, DAO/DeFi, secure messaging, and payment systems.</span></span></p>
+</div>
+</article>
+<article class="timeline-card reveal d3 card-holo depth-tile">
+<div class="timeline-index">07</div>
+<div class="timeline-body">
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Архитектор институционального ИИ</span><span class="lang-copy lang-copy-en">Institutional AI architect</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Система MIDAS (модульный ИИ-хедж-фонд), собственная LLM OLGA_LLM, ИИ-токен с RL-центробанком и AGI-автопилот для бизнеса.</span><span class="lang-copy lang-copy-en">MIDAS (a modular AI hedge fund), proprietary OLGA_LLM, an AI token with an RL central bank, and an AGI autopilot for business.</span></span></p>
+</div>
+</article>
+</div>
+</section>
+<div class="anchor-space" id="mql5"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 03</div>
+<h2 class="section-title"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Статьи · MQL5</span><span class="lang-copy lang-copy-en">Articles · MQL5</span></span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Подборка технических материалов: алготрейдинг, риск-менеджмент, ML, трансформеры, квантовые вычисления и институциональные ИИ-агенты.</span><span class="lang-copy lang-copy-en">Technical articles on algorithmic trading, risk management, ML, transformers, quantum computing, and institutional AI agents.</span></span></div>
+</div>
+<div class="dual-grid">
+<article class="content-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Категория</span><span class="lang-copy lang-copy-en">Category</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Машинное зрение и многомерный рынок · Этап 3 · алготрейдинг → ML</span><span class="lang-copy lang-copy-en">Machine vision &amp; multidimensional markets · Stage 3 · algo trading → ML</span></span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/ru/articles/16580" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Алгоритмическая торговля на основе 3D-паттернов разворота</span><span class="lang-copy lang-copy-en">Algorithmic trading based on 3D reversal patterns</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Многомерные «3D-бары» цены и кластеры разворотов.</span><span class="lang-copy lang-copy-en">Multidimensional “3D price bars” and reversal clusters.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/17981" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Компьютерное зрение для трейдинга (Часть 1)</span><span class="lang-copy lang-copy-en">Computer vision for trading (Part 1)</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Глубокое обучение «видит» график как человек.</span><span class="lang-copy lang-copy-en">Deep learning “sees” a chart like a human.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/18103" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Компьютерное зрение (Часть 2): 2D-анализ RGB-изображений</span><span class="lang-copy lang-copy-en">Computer vision (Part 2): 2D RGB image analysis</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Attention + двунаправленный LSTM по RGB-графикам.</span><span class="lang-copy lang-copy-en">Attention + bidirectional LSTM on RGB charts.</span></span></div>
+</li>
+</ul></article>
+<article class="content-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Категория</span><span class="lang-copy lang-copy-en">Category</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Классический ML и Python-мост · Этап 4 · машинное обучение</span><span class="lang-copy lang-copy-en">Classical ML &amp; Python bridge · Stage 4 · machine learning</span></span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/en/articles/14910" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Developing a robot in Python and MQL5 (Part 2): модели и тестер</span><span class="lang-copy lang-copy-en">Developing a robot in Python and MQL5 (Part 2): models and tester</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">XGBoost, GMM, RFECV и кастомный Python-тестер.</span><span class="lang-copy lang-copy-en">XGBoost, GMM, RFECV, and a custom Python tester.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/en/articles/16667" rel="noopener noreferrer" target="_blank">Multi-module trading robot in Python and MQL5 (Part I)</a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Параллельная архитектура из четырёх модулей.</span><span class="lang-copy lang-copy-en">Parallel architecture with four modules.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/en/articles/14959" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">MetaTrader → Python через сокеты</span><span class="lang-copy lang-copy-en">MetaTrader → Python via sockets</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Тиковый поток в Python — основа любой ИИ-интеграции.</span><span class="lang-copy lang-copy-en">Tick streaming into Python — the foundation of any AI integration.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/16960" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Индикатор прогноза волатильности с Python</span><span class="lang-copy lang-copy-en">Volatility forecasting indicator with Python</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Бинарная классификация всплесков волатильности.</span><span class="lang-copy lang-copy-en">Binary classification of volatility spikes.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/en/articles/17110" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Бинарный код цены → BIP39 + GPT («язык рынка»)</span><span class="lang-copy lang-copy-en">Binary price code → BIP39 + GPT (“market language”)</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Лингвистический анализ рынка обучением GPT.</span><span class="lang-copy lang-copy-en">Linguistic market analysis by training GPT.</span></span></div>
+</li>
+</ul></article>
+<article class="content-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Категория</span><span class="lang-copy lang-copy-en">Category</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Риск-менеджмент и портфель · Этап 2+4 · инвестор / ML</span><span class="lang-copy lang-copy-en">Risk management &amp; portfolio · Stage 2+4 · investor / ML</span></span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/en/articles/16719" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Количественный риск-менеджмент: VaR (Python + MT5)</span><span class="lang-copy lang-copy-en">Quantitative risk management: VaR (Python + MT5)</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Value-at-Risk для мультивалютного портфеля.</span><span class="lang-copy lang-copy-en">Value-at-Risk for a multi-currency portfolio.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/18918" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Риск-менеджер для торговых роботов (Часть I)</span><span class="lang-copy lang-copy-en">Risk manager for trading robots (Part I)</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Дневные лимиты, просадки, защита от эмоций.</span><span class="lang-copy lang-copy-en">Daily limits, drawdowns, and protection from emotional trading.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/17410" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Удалённый риск-менеджер Forex на Python</span><span class="lang-copy lang-copy-en">Remote Forex risk manager in Python</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Ни одна сделка без одобрения сервера-риск-менеджера.</span><span class="lang-copy lang-copy-en">No trade is executed without approval from the risk-management server.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/19797" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Рыночно-нейтральный вероятностный портфель</span><span class="lang-copy lang-copy-en">Market-neutral probabilistic portfolio</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Заработок на статистике распределения доходностей.</span><span class="lang-copy lang-copy-en">Extracting returns from the statistics of return distributions.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/22674" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">29-парный портфель: L1-фильтр + CatBoost + VaR ★</span><span class="lang-copy lang-copy-en">29-pair portfolio: L1 filter + CatBoost + VaR ★</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Каузальный L1, walk-forward, распределение лотов по VaR.</span><span class="lang-copy lang-copy-en">Causal L1, walk-forward validation, and VaR-based lot allocation.</span></span></div>
+</li>
+</ul></article>
+<article class="content-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Категория</span><span class="lang-copy lang-copy-en">Category</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Современные нейроархитектуры · Этап 4 · машинное обучение</span><span class="lang-copy lang-copy-en">Modern neural architectures · Stage 4 · machine learning</span></span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/ru/articles/19047" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Нейросеть Mamba с селективной SSM</span><span class="lang-copy lang-copy-en">Mamba neural network with selective SSM</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Точность 62%→71%, обучение 45→8 минут.</span><span class="lang-copy lang-copy-en">Accuracy 62%→71%, training time 45→8 minutes.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/19345" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Торговый робот на GPT-модели (TimeGPT)</span><span class="lang-copy lang-copy-en">Trading robot based on a GPT model (TimeGPT)</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Transformer для финансовых временных рядов.</span><span class="lang-copy lang-copy-en">Transformer for financial time series.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/19292" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Советник на трансформере PatchTST</span><span class="lang-copy lang-copy-en">Expert Advisor based on the PatchTST transformer</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Современный трансформер, впервые в MQL5.</span><span class="lang-copy lang-copy-en">A modern transformer, implemented in MQL5.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/19317" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Советник на N-BEATS с квантильным прогнозом</span><span class="lang-copy lang-copy-en">N-BEATS Expert Advisor with quantile forecasting</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Знает не только «куда», но и «с какой вероятностью».</span><span class="lang-copy lang-copy-en">Predicts not only “where”, but also “with what probability”.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/18916" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">U-Transformer на остатках AR-модели</span><span class="lang-copy lang-copy-en">U-Transformer on AR-model residuals</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Линейная модель + трансформер на её ошибках.</span><span class="lang-copy lang-copy-en">Linear model + transformer on its residual errors.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/19958" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Самоорганизующиеся карты Кохонена (SOM)</span><span class="lang-copy lang-copy-en">Kohonen self-organizing maps (SOM)</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">400 нейронов, непрерывное обучение, BMU.</span><span class="lang-copy lang-copy-en">400 neurons, continuous learning, BMU.</span></span></div>
+</li>
+</ul></article>
+<article class="content-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Категория</span><span class="lang-copy lang-copy-en">Category</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Квантовые вычисления — впервые в MQL5 · Этап 5 · ИИ для хэдж-фондов</span><span class="lang-copy lang-copy-en">Quantum computing in MQL5 · Stage 5 · AI for hedge funds</span></span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/ru/articles/19043" rel="noopener noreferrer" target="_blank">Quantum Reservoir Computing (QRC) ★</a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Первое в истории MQL5 применение квантовых вычислений.</span><span class="lang-copy lang-copy-en">An early implementation of quantum computing in the MQL5 environment.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/18759" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Квантовая нейросеть (Часть I): включаемый файл</span><span class="lang-copy lang-copy-en">Quantum neural network (Part I): include file</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Фундамент гибридных классико-квантовых моделей.</span><span class="lang-copy lang-copy-en">Foundation for hybrid classical-quantum models.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/18890" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Квантовая нейросеть (Часть III): виртуальный QPU</span><span class="lang-copy lang-copy-en">Quantum neural network (Part III): virtual QPU</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Эмуляция кубитов и гейтов прямо в MQL5.</span><span class="lang-copy lang-copy-en">Emulation of qubits and gates directly in MQL5.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/20504" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Двунаправленная LSTM + квантовые вычисления</span><span class="lang-copy lang-copy-en">Bidirectional LSTM + quantum computing</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Запутанность на службе прогноза направления.</span><span class="lang-copy lang-copy-en">Quantum entanglement applied to directional forecasting.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/20535" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">LLM + CatBoost + квантовые вычисления</span><span class="lang-copy lang-copy-en">LLM + CatBoost + quantum computing</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Синтез трёх технологий в единой системе.</span><span class="lang-copy lang-copy-en">A synthesis of three technologies in one system.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/21182" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">RL-агент с LLM и квантовым кодированием</span><span class="lang-copy lang-copy-en">RL agent with LLM and quantum encoding</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Double DQN + квантовое кодирование состояний + LLM.</span><span class="lang-copy lang-copy-en">Double DQN + quantum state encoding + LLM.</span></span></div>
+</li>
+</ul></article>
+<article class="content-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Категория</span><span class="lang-copy lang-copy-en">Category</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">ИИ-агенты и институциональный ИИ-хедж-фонд · Этап 5+7 · институциональный ИИ</span><span class="lang-copy lang-copy-en">AI agents &amp; institutional AI hedge fund · Stage 5+7 · institutional AI</span></span></h3>
+<ul class="article-list">
+<li>
+<a href="https://www.mql5.com/ru/articles/22164" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Как организовать ИИ-хедж-фонд в MetaTrader 5 ★</span><span class="lang-copy lang-copy-en">How to organize an AI hedge fund in MetaTrader 5 ★</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">15 ИИ-агентов голосуют за сделки в реальном времени.</span><span class="lang-copy lang-copy-en">15 AI agents vote on trades in real time.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/21690" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Архитектура коллективных решений ИИ-агентов</span><span class="lang-copy lang-copy-en">Collective decision architecture for AI agents</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Бык, медведь, риск-менеджер и арбитр + судья.</span><span class="lang-copy lang-copy-en">Bull, bear, risk manager, arbitrator, and judge.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/21878" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Эволюционный отбор LLM-агентов</span><span class="lang-copy lang-copy-en">Evolutionary selection of LLM agents</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Генетический алгоритм убивает слабых, клонирует сильных.</span><span class="lang-copy lang-copy-en">A genetic algorithm removes weak agents and clones strong ones.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/22444" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">TradeMux REST: мультиброкерное исполнение</span><span class="lang-copy lang-copy-en">TradeMux REST: multi-broker execution</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Репутации в SQLite, рассылка сигналов на N брокеров.</span><span class="lang-copy lang-copy-en">SQLite reputations and signal distribution to N brokers.</span></span></div>
+</li>
+<li>
+<a href="https://www.mql5.com/ru/articles/22211" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Сеточный советник на клеточном автомате (10 000 CA)</span><span class="lang-copy lang-copy-en">Grid Expert Advisor based on a cellular automaton (10,000 CA)</span></span></a>
+<div class="article-desc"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Трёхуровневое онлайн-обучение в реальном времени.</span><span class="lang-copy lang-copy-en">Three-level online learning in real time.</span></span></div>
+</li>
+</ul></article>
+</div>
+<div class="links-row">
+<a class="link-chip" href="https://www.mql5.com/ru/users/koshtenko" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">→ Все 100+ статей на MQL5</span><span class="lang-copy lang-copy-en">→ All 100+ articles on MQL5</span></span></a>
+</div>
+</section>
+<div class="anchor-space" id="invest"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 04</div>
+<h2 class="section-title"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Статьи · Умный инвестор</span><span class="lang-copy lang-copy-en">Articles · Smart Investor</span></span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Материалы по Smart Money, истории кризисов, инвестициям, криптовалютам и практическим вопросам рынка.</span><span class="lang-copy lang-copy-en">Articles on Smart Money, market crises, investing, cryptocurrencies, and practical market topics.</span></span></div>
+</div>
+<div class="dual-grid">
+<article class="content-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Категория</span><span class="lang-copy lang-copy-en">Category</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Концепция Smart Money (институциональная торговля) · Этап 1 · ручной трейдер</span><span class="lang-copy lang-copy-en">Smart Money concept (institutional trading) · Stage 1 · discretionary trader</span></span></h3>
+<ul class="article-list">
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Концепция Smart Money в трейдинге</span><span class="lang-copy lang-copy-en">Smart Money concept in trading</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/zona-poi" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Зона POI (Point of Interest)</span><span class="lang-copy lang-copy-en">POI (Point of Interest) zone</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/order-block/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Ордер-блок</span><span class="lang-copy lang-copy-en">Order block</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/sell-to-buy" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Sell to buy и Buy to sell</span><span class="lang-copy lang-copy-en">Sell to buy and Buy to sell</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/mitigation-block" rel="noopener noreferrer" target="_blank">Mitigation block</a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/smart-money/optimal-trade-entry" rel="noopener noreferrer" target="_blank">Optimal Trade Entry</a>
+</li>
+</ul></article>
+<article class="content-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Категория</span><span class="lang-copy lang-copy-en">Category</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">История рынков и кризисов · Этап 2 · инвестор</span><span class="lang-copy lang-copy-en">Market &amp; crisis history · Stage 2 · investor</span></span></h3>
+<ul class="article-list">
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%BA%D1%80%D0%B0%D1%85-%D0%B4%D0%BE%D1%82%D0%BA%D0%BE%D0%BC%D0%BE%D0%B2-2000-2002-%D0%B3%D0%BE%D0%B4%D0%BE%D0%B2/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Крах доткомов 2000–2002 годов</span><span class="lang-copy lang-copy-en">The dot-com crash of 2000–2002</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-%D1%80%D1%8B%D0%BD%D0%BA%D0%B0-%D0%B0%D0%BA%D1%86%D0%B8%D0%B9-%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">История рынка акций. Кто выпустил первые акции?</span><span class="lang-copy lang-copy-en">History of the stock market. Who issued the first shares?</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%81%D0%B0%D0%BC%D1%8B%D0%B5-%D0%B8%D0%B7%D0%B2%D0%B5%D1%81%D1%82%D0%BD%D1%8B%D0%B5-%D1%82%D1%80%D0%B5%D0%B9%D0%B4%D0%B5%D1%80%D1%8B-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B8/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Самые известные трейдеры России</span><span class="lang-copy lang-copy-en">The most famous traders in Russia</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B8-%D0%B2-%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%B9-%D0%BB%D0%BE%D0%BC/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Инвестиции в золотой лом (золото как защита)</span><span class="lang-copy lang-copy-en">Investing in scrap gold (gold as protection)</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%BA%D0%BE%D0%B2%D0%B8%D0%B4%D0%BD%D1%8B%D0%B9-%D0%BA%D1%80%D0%B8%D0%B7%D0%B8%D1%81-2020-%D0%BC%D0%B0%D1%80%D1%82-%D0%BF%D0%B0%D0%BD%D0%B4%D0%B5%D0%BC%D0%B8%D1%8F/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Ковидный кризис 2020: день, когда мир остановился</span><span class="lang-copy lang-copy-en">The 2020 COVID crisis: the day the world stopped</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D1%84%D0%B8%D0%BD%D0%B0%D0%BD%D1%81%D0%BE%D0%B2%D1%8B%D0%B9-%D0%BA%D1%80%D0%B8%D0%B7%D0%B8%D1%81-1998-%D0%B3%D0%BE%D0%B4%D0%B0/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Российский финансовый кризис 1998 года</span><span class="lang-copy lang-copy-en">The Russian financial crisis of 1998</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D0%B2%D0%BE%D0%B9-%D0%BA%D1%80%D0%B8%D0%B7%D0%B8%D1%81-%D0%B2-%D0%B5%D0%B2%D1%80%D0%BE%D0%B7%D0%BE%D0%BD%D0%B5-2010-2012-%D0%B3%D0%BE%D0%B4%D0%BE%D0%B2/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Долговой кризис в Еврозоне 2010–2012 годов</span><span class="lang-copy lang-copy-en">The Eurozone debt crisis of 2010–2012</span></span></a>
+</li>
+</ul></article>
+<article class="content-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Категория</span><span class="lang-copy lang-copy-en">Category</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Инвестиции и рынок · Этап 2 · инвестор</span><span class="lang-copy lang-copy-en">Investing &amp; markets · Stage 2 · investor</span></span></h3>
+<ul class="article-list">
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9-%D0%BF%D0%BE%D1%80%D1%82%D1%84%D0%B5%D0%BB%D1%8C-%D0%B1%D0%B0%D1%84%D1%84%D0%B5%D1%82/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Инвестиционный портфель Уоррена Баффета</span><span class="lang-copy lang-copy-en">Warren Buffett’s investment portfolio</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B8-%D0%B2-%D0%BE%D0%B1%D0%BE%D1%80%D0%BE%D0%BD%D1%83/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Инвестиции в оборонную промышленность РФ</span><span class="lang-copy lang-copy-en">Investing in Russia’s defense industry</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%BB%D1%83%D1%87%D1%88%D0%B8%D0%B5-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8-%D0%B0%D0%B2%D0%B8%D0%B0%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B9" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Лучшие акции авиакомпаний на 2023–2024</span><span class="lang-copy lang-copy-en">Best airline stocks for 2023–2024</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%82%D0%BE%D0%BF-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9-%D0%B4%D0%BB%D1%8F-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B9-2024-2025" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Топ приложений для инвестиций 2024–2025</span><span class="lang-copy lang-copy-en">Top investment apps for 2024–2025</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-%D1%84%D0%BB%D0%B8%D0%BF-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B8/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Что такое флип-инвестиции</span><span class="lang-copy lang-copy-en">What are flip investments?</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%8B-%D0%BA%D0%B0%D0%BF%D0%B8%D1%82%D0%B0%D0%BB%D0%B0/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Активы для защиты капитала</span><span class="lang-copy lang-copy-en">Assets for capital protection</span></span></a>
+</li>
+</ul></article>
+<article class="content-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Категория</span><span class="lang-copy lang-copy-en">Category</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Криптовалюты и токены · Этап 6 · блокчейн</span><span class="lang-copy lang-copy-en">Cryptocurrencies &amp; tokens · Stage 6 · blockchain</span></span></h3>
+<ul class="article-list">
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD%D0%BD%D0%BE-%D0%BB%D0%B8-%D0%BF%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D1%8C-ico-%D0%B2-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B8/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Законно ли проводить ICO в России?</span><span class="lang-copy lang-copy-en">Is it legal to conduct an ICO in Russia?</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%B5%D0%B4%D0%BB%D0%B8%D0%B2%D0%B0%D1%8F-%D1%86%D0%B5%D0%BD%D0%B0-%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2%D0%B0%D0%BB%D1%8E%D1%82%D1%8B/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Справедливая цена криптовалюты</span><span class="lang-copy lang-copy-en">Fair value of a cryptocurrency</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%82%D0%BE%D0%BF-%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2%D0%B0%D0%BB%D1%8E%D1%82-%D0%B4%D0%BB%D1%8F-%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D1%81%D1%80%D0%BE%D0%BA-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B9/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Топ криптовалют для долгосрочного инвестирования</span><span class="lang-copy lang-copy-en">Top cryptocurrencies for long-term investing</span></span></a>
+</li>
+</ul></article>
+<article class="content-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Категория</span><span class="lang-copy lang-copy-en">Category</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Практика и брокеры · Этап 1–3</span><span class="lang-copy lang-copy-en">Practice &amp; brokers · Stage 1–3</span></span></h3>
+<ul class="article-list">
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8C-%D1%81%D1%87%D0%B5%D1%82-%D0%B2-%D1%84%D0%B8%D0%BD%D0%B0%D0%BC%D0%B5/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Как открыть счёт в Финаме</span><span class="lang-copy lang-copy-en">How to open an account with Finam</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%81%D0%BE%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D1%81%D0%B5%D1%82%D0%B8-%D1%82%D1%80%D0%B5%D0%B9%D0%B4%D0%B5%D1%80%D0%BE%D0%B2/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Социальные сети трейдеров</span><span class="lang-copy lang-copy-en">Social networks for traders</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D0%BB%D1%83%D1%87%D1%88%D0%B8%D0%B5-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8-%D0%B4%D0%BB%D1%8F-%D1%81%D0%BA%D0%B0%D0%BB%D1%8C%D0%BF%D0%B8%D0%BD%D0%B3%D0%B0" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Лучшие акции для скальпинга на Мосбирже</span><span class="lang-copy lang-copy-en">Best stocks for scalping on the Moscow Exchange</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-%D1%81%D0%BA%D0%B0%D0%BB%D1%8C%D0%BF%D0%B8%D0%BD%D0%B3-%D0%B2-%D1%82%D1%80%D0%B5%D0%B9%D0%B4%D0%B8%D0%BD%D0%B3%D0%B5/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Что такое скальпинг в трейдинге</span><span class="lang-copy lang-copy-en">What is scalping in trading?</span></span></a>
+</li>
+<li>
+<a href="https://xn----dtbjkdrhdlujmd8i.xn--p1ai/%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D0%B7%D0%B0%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D1%8E%D1%82-%D1%81%D0%BA%D0%B0%D0%BB%D1%8C%D0%BF%D0%B5%D1%80%D1%8B/" rel="noopener noreferrer" target="_blank"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Сколько зарабатывают скальперы</span><span class="lang-copy lang-copy-en">How much do scalpers earn?</span></span></a>
+</li>
+</ul></article>
+</div>
+</section>
+<div class="anchor-space" id="products"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 05</div>
+<h2 class="section-title"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Продукты и технологии</span><span class="lang-copy lang-copy-en">Products &amp; technologies</span></span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Собственные разработки, приложения, AI-системы, финансовые платформы, инфраструктура и исследовательские технологии экосистемы — подробно в одном каталоге.</span><span class="lang-copy lang-copy-en">Proprietary applications, AI systems, financial platforms, infrastructure and research technologies of the ecosystem — presented in one detailed catalog.</span></span></div>
+</div>
+<div class="products-grid">
+<article class="product-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Технология</span><span class="lang-copy lang-copy-en">Technology</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">MIDAS — Институциональная ИИ-торговая система</span><span class="lang-copy lang-copy-en">MIDAS — Institutional AI trading system</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Модульная платформа полного цикла: режимы обучения, бэктеста, форвард-теста и реальной торговли; мультитерминальная интеграция с MT5 (RoboForex).</span><span class="lang-copy lang-copy-en">A full-cycle modular platform for training, backtesting, forward testing, and live trading, with multi-terminal MT5 integration (RoboForex).</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Ядро: движок, риск-менеджер, портфельный оптимизатор, комбайнер сигналов, исполнитель сделок · ML-слой: матричная модель, мета-классификатор, калькулятор VaR · LLM-слой: грок-стратег, ultra-стратег, LLM-хедж-фонд v5, Telegram-мост · 24+ аналитических модуля</span><span class="lang-copy lang-copy-en">Core: engine, risk manager, portfolio optimizer, signal combiner, trade executor · ML layer: matrix model, meta-classifier, VaR calculator · LLM layer: Grok strategist, ultra strategist, LLM hedge fund v5, Telegram bridge · 24+ analytics modules</span></span></p>
+</article>
+<article class="product-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Технология</span><span class="lang-copy lang-copy-en">Technology</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">OLGA_LLM — Собственная LLM с нуля</span><span class="lang-copy lang-copy-en">OLGA_LLM — Proprietary LLM built from scratch</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Авторская языковая модель OLGA внутри MIDAS: ядро, инференс-движок и обучение — без сторонних SDK.</span><span class="lang-copy lang-copy-en">A proprietary OLGA language model inside MIDAS: core, inference engine, and training pipeline — without third-party SDKs.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Архитектура: Attention, Mamba2, Mixture-of-Experts, нормализация · Инференс: акселератор + спекулятивное декодирование · Чекпойнты, собственный токенизатор, бенчмарки · DeepCompress Pro — сжатие моделей и данных</span><span class="lang-copy lang-copy-en">Architecture: Attention, Mamba2, Mixture-of-Experts, normalization · Inference: accelerator + speculative decoding · Checkpoints, proprietary tokenizer, benchmarks · DeepCompress Pro for model and data compression</span></span></p>
+</article>
+<article class="product-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Технология</span><span class="lang-copy lang-copy-en">Technology</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">AI Blockchain — Блокчейн, где каждый узел — Автопилот</span><span class="lang-copy lang-copy-en">AI Blockchain — a blockchain where every node is an Autopilot</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Постквантовый блокчейн нового поколения, в котором каждый узел сети является Автопилотом SYNERGYCHAIN, а вся сеть совместно выполняет распределённый инференс одной общей большой ИИ-модели.</span><span class="lang-copy lang-copy-en">A next-generation post-quantum blockchain where every network node is a SYNERGYCHAIN Autopilot and the network jointly performs distributed inference for one shared large AI model.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Каждый узел сети = Автопилот SYNERGYCHAIN · Распределённый инференс единой большой ИИ-модели всеми узлами · Мобильные ноды и ноды на ПК работают в одной сети · Хранение информации на узлах через архиватор DeepCompress · Обработка фиат-платежей: интеграция с банками и платёжными системами России, СНГ и мира · Постквантовая криптография</span><span class="lang-copy lang-copy-en">Every node = SYNERGYCHAIN Autopilot · Distributed inference of one shared large AI model across all nodes · Mobile and desktop nodes operate in one network · Node-side storage with DeepCompress · Fiat-payment processing via integrations with banks and payment systems in Russia, the CIS, and globally · Post-quantum cryptography</span></span></p>
+</article>
+<article class="product-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Технология</span><span class="lang-copy lang-copy-en">Technology</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">DeepCompress Pro — Архиватор данных и ИИ-моделей</span><span class="lang-copy lang-copy-en">DeepCompress Pro — Data and AI-model archiver</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Технология глубокого сжатия данных и весов нейросетей. Даёт узлам блокчейна хранить большие объёмы информации и фрагменты общей ИИ-модели компактно — основа распределённого хранения сети.</span><span class="lang-copy lang-copy-en">Deep compression technology for data and neural-network weights. It enables blockchain nodes to store large volumes of information and fragments of a shared AI model compactly — a foundation for distributed network storage.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Сжатие данных и весов нейромоделей · Хранение на узлах сети — мобильных и ПК · Оптимизация под распределённый инференс общей модели · Криптографическая основа сжатия</span><span class="lang-copy lang-copy-en">Compression of data and neural-model weights · Storage on mobile and desktop network nodes · Optimization for distributed inference of the shared model · Cryptographic compression foundation</span></span></p>
+</article>
+<article class="product-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Технология</span><span class="lang-copy lang-copy-en">Technology</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SYNERGYCHAIN Smart Contracts — ИИ-токен и монетарная система</span><span class="lang-copy lang-copy-en">SYNERGYCHAIN Smart Contracts — AI token &amp; monetary system</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Собственный ИИ-токен экосистемы SYNERGYCHAIN с управляемой монетарной системой и RL-центробанком, который обучением с подкреплением регулирует эмиссию и стабильность.</span><span class="lang-copy lang-copy-en">A proprietary AI token for the SYNERGYCHAIN ecosystem with a managed monetary system and an RL central bank that uses reinforcement learning to regulate issuance and stability.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Собственный ИИ-токен с монетарной политикой · RL-центробанк: эмиссия, ставки и резервы под управлением обучения с подкреплением · Смарт-контракты токеномики, стейкинга и резервов · Аудит и защита от уязвимостей</span><span class="lang-copy lang-copy-en">Proprietary AI token with monetary policy · RL central bank: issuance, rates, and reserves managed by reinforcement learning · Smart contracts for tokenomics, staking, and reserves · Auditing and vulnerability protection</span></span></p>
+</article>
+<article class="product-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Технология</span><span class="lang-copy lang-copy-en">Technology</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SYNERGYCHAIN Rebate — Возврат до 85% спреда и комиссии</span><span class="lang-copy lang-copy-en">SYNERGYCHAIN Rebate — up to 85% spread and commission rebate</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Брокерская ребейт-платформа: возврат трейдерам до 85% от спреда и комиссии оффшорных форекс-брокеров.</span><span class="lang-copy lang-copy-en">Broker rebate platform returning up to 85% of spreads and commissions from offshore forex brokers to traders.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Возврат до 85% от спреда и комиссии · Партнёрская сеть оффшорных форекс-брокеров · Автоматический учёт оборота и начислений · Связка с экосистемой и токеном SYNERGYCHAIN</span><span class="lang-copy lang-copy-en">Up to 85% spread and commission rebate · Partner network of offshore forex brokers · Automated turnover and accrual accounting · Integration with the SYNERGYCHAIN ecosystem and token</span></span></p>
+</article>
+<article class="product-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Технология</span><span class="lang-copy lang-copy-en">Technology</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SYNERGYCHAIN Autopilot — AGI-автопилот для бизнеса</span><span class="lang-copy lang-copy-en">SYNERGYCHAIN Autopilot — AGI autopilot for business</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Локальный AGI-автопилот на Python: принимает цель на естественном языке и проводит её по циклу GOAL → PLAN → EXECUTION с контрольными точками и журналом. Объединяет SMM, продажи, код и AGI-мозг в единую систему (V5 + V3).</span><span class="lang-copy lang-copy-en">A local Python AGI autopilot that accepts a natural-language goal and runs it through GOAL → PLAN → EXECUTION with checkpoints and logging. It combines SMM, sales, coding, and an AGI brain in one system (V5 + V3).</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Движок: очередь целей, пул воркеров, пресеты-пайплайны, ретраи и авто-rollback, лимиты действий, кокпит-метрики, дневные отчёты (md/html/pdf) · Агенты V3: Cline (написание/рефакторинг кода) и OpenClaw (агентные задачи, MCP) · V5: Premium UI (14 секций) + единый System API (107 методов) + менеджер ключей · CRM: Bitrix24, 1С, AmoCRM, RetailCRM, Yandex Business · Реклама: Yandex Direct, VK Ads, Facebook Ads, MyTarget · Мессенджеры: Telegram, VK, WhatsApp, Discord; Email, управление ПК, документы · Безопасный режим dry_run по умолчанию</span><span class="lang-copy lang-copy-en">Engine: goal queue, worker pool, preset pipelines, retries and auto-rollback, action limits, cockpit metrics, daily reports (md/html/pdf) · V3 agents: Cline (code writing/refactoring) and OpenClaw (agent tasks, MCP) · V5: Premium UI (14 sections) + unified System API (107 methods) + key manager · CRM: Bitrix24, 1C, AmoCRM, RetailCRM, Yandex Business · Ads: Yandex Direct, VK Ads, Facebook Ads, MyTarget · Messengers: Telegram, VK, WhatsApp, Discord; email, PC control, documents · Safe dry_run mode by default</span></span></p>
+</article>
+<article class="product-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Технология</span><span class="lang-copy lang-copy-en">Technology</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SYNERGYCHAIN Ecosystem — Постквантовая ИИ-Web3 экосистема</span><span class="lang-copy lang-copy-en">SYNERGYCHAIN Ecosystem — Post-quantum AI/Web3 ecosystem</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Десятки взаимосвязанных продуктов в едином портале.</span><span class="lang-copy lang-copy-en">Dozens of interconnected products in a unified portal.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">MetaPay · MetaBroker · MetaShield · Meta API · PQ Messenger — защищённый мессенджер · DAO · DeGov · DeSoci — децентрализованное управление и соцсеть · AICode · DeepCompress · NavMax Dashboard · SMM</span><span class="lang-copy lang-copy-en">MetaPay · MetaBroker · MetaShield · Meta API · PQ Messenger — secure messenger · DAO · DeGov · DeSoci — decentralized governance and social network · AICode · DeepCompress · NavMax Dashboard · SMM</span></span></p>
+</article>
 
-  <main>
-    <section class="hero" id="hero">
-      <div class="container">
-        <div class="hero-shell">
-          <div class="eyebrow">CREATOR PORTFOLIO · SYSTEM-OF-SYSTEMS</div>
-          <h1>EVGENIY <span>KOSHTENKO</span></h1>
-          <div class="hero-positioning">SYSTEM ARCHITECT · QUANT · AI · FINTECH · DISTRIBUTED SYSTEMS</div>
-          <p class="hero-copy">
-            <span data-lang-copy="ru">Создатель федерации специализированных систем, где интеллект, рынки, платежи, бухгалтерия, криптографический trust, сеть и приложения разделены по полномочиям и соединены проверяемыми контрактами.</span>
-            <span data-lang-copy="en">Creator of a federation of specialized systems where intelligence, markets, payments, accounting, cryptographic trust, networking and applications are separated by authority and connected through verifiable contracts.</span>
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#registry"><span data-lang-copy="ru">Открыть полный registry</span><span data-lang-copy="en">Open full registry</span></a>
-            <a class="btn btn-secondary" href="https://github.com/Shtenco" target="_blank" rel="noopener noreferrer">GitHub / Shtenco ↗</a>
-            <a class="btn btn-secondary" href="#architecture"><span data-lang-copy="ru">Карта системы</span><span data-lang-copy="en">System map</span></a>
-          </div>
-          <div class="metric-grid" aria-label="Repository estate metrics">
-            <div class="metric"><strong data-metric="total">—</strong><span><span data-lang-copy="ru">verified repositories</span><span data-lang-copy="en">verified repositories</span></span></div>
-            <div class="metric"><strong data-metric="public">—</strong><span>public</span></div>
-            <div class="metric"><strong data-metric="private">—</strong><span>private / internal</span></div>
-            <div class="metric"><strong data-metric="canonical">—</strong><span>canonical</span></div>
-            <div class="metric"><strong data-metric="candidate">—</strong><span>candidate</span></div>
-            <div class="metric"><strong data-metric="research">—</strong><span>R&amp;D</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+<article class="product-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Продукт</span><span class="lang-copy lang-copy-en">Product</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SINERGY Finance — Личный финансовый центр</span><span class="lang-copy lang-copy-en">SINERGY Finance — Personal finance hub</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Мобильное финансовое приложение экосистемы для Android и iOS. Текущая release-линия — 8.1.0; репозиторий содержит store-ready Android/iOS проекты, общий web-интерфейс и CI/CD для сборки APK, AAB и IPA.</span><span class="lang-copy lang-copy-en">The ecosystem's mobile finance application for Android and iOS. The current release line is 8.1.0, with store-ready Android/iOS projects, shared web UI and CI/CD for APK, AAB and IPA builds.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Google Play · RuStore · App Store / TestFlight · Android target SDK 36 · общий www-интерфейс · store metadata · безопасная модель signing secrets без ключей в репозитории</span><span class="lang-copy lang-copy-en">Google Play · RuStore · App Store / TestFlight · Android target SDK 36 · shared web UI · store metadata · signing secrets kept outside the repository</span></span></p>
+</article>
+<article class="product-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Продукт</span><span class="lang-copy lang-copy-en">Product</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SYNERGY Messenger V3 — Защищённый P2P-мессенджер</span><span class="lang-copy lang-copy-en">SYNERGY Messenger V3 — Secure P2P messenger</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Local-first/serverless мессенджер с прямым WebRTC, Waku-compatible fallback, Double Ratchet для 1:1, MLS-ориентированными группами, шифрованными медиа/голосом, multi-device и Finance Bridge.</span><span class="lang-copy lang-copy-en">A local-first/serverless messenger with direct WebRTC, Waku-compatible fallback, Double Ratchet for 1:1, MLS-oriented groups, encrypted media/voice, multi-device support and a Finance Bridge.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Версия 3.0.0-alpha.9 · durable inbox/outbox · X3DH-style bootstrap · disappearing messages · encrypted replicas · replay/rate-limit controls · Android hardening overlay · alpha, не production-security claim</span><span class="lang-copy lang-copy-en">Version 3.0.0-alpha.9 · durable inbox/outbox · X3DH-style bootstrap · disappearing messages · encrypted replicas · replay/rate-limit controls · Android hardening overlay · alpha, not a production-security claim</span></span></p>
+</article>
+<article class="product-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Финтех</span><span class="lang-copy lang-copy-en">Fintech</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">MetaPay / SYNERGIA Pay — Omnichain платежи и settlement</span><span class="lang-copy lang-copy-en">MetaPay / SYNERGIA Pay — Omnichain payments & settlement</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Compliance-first ядро для fiat ↔ crypto ↔ CBDC маршрутизации, omnichain settlement, quote/routing graph, reconciliation и controlled live execution.</span><span class="lang-copy lang-copy-en">A compliance-first core for fiat ↔ crypto ↔ CBDC routing, omnichain settlement, quote/routing graphs, reconciliation and controlled live execution.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">RUB/KZT/USD/EUR/AED · CEX/DEX/bridges · Bitcoin/Lightning · EVM · Solana · TON · TRON · Cosmos/IBC · Stellar · CBDC boundaries · double-entry ledger · live-readiness gates · исполнение выключено по умолчанию</span><span class="lang-copy lang-copy-en">RUB/KZT/USD/EUR/AED · CEX/DEX/bridges · Bitcoin/Lightning · EVM · Solana · TON · TRON · Cosmos/IBC · Stellar · CBDC boundaries · double-entry ledger · live-readiness gates · live execution disabled by default</span></span></p>
+</article>
+<article class="product-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Финтех</span><span class="lang-copy lang-copy-en">Fintech</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SYNERGY Financial OS — Финансовая операционная система</span><span class="lang-copy lang-copy-en">SYNERGY Financial OS — Financial operating system</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Канонический финансово-бухгалтерский слой: double-entry accounting, HardNAV, обязательства, ликвидность, recognition внешней прибыли, accounting close и безопасная capacity для распределения капитала.</span><span class="lang-copy lang-copy-en">The canonical financial-accounting layer: double-entry accounting, HardNAV, liabilities, liquidity, external-profit recognition, accounting close and safe capital-allocation capacity.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Event-sourced ledger · append-only corrections · HardNAV / LiquidNAV / EconomicNAV · evidence → recognition → accounting · внутренний mark/mint/transfer не признаётся внешней прибылью · R&D / regulatory-sandbox candidate</span><span class="lang-copy lang-copy-en">Event-sourced ledger · append-only corrections · HardNAV / LiquidNAV / EconomicNAV · evidence → recognition → accounting · internal marks/mint/transfers are not external profit · R&D / regulatory-sandbox candidate</span></span></p>
+</article>
+<article class="product-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">AI</span><span class="lang-copy lang-copy-en">AI</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">AGI NEXUS — Канонический интеллект экосистемы</span><span class="lang-copy lang-copy-en">AGI NEXUS — Canonical ecosystem intelligence</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Ядро reasoning/inference/memory: graph & small-world reasoning, logical constraints, cybernetic control, world model, episodic/semantic memory и воспроизводимые benchmark-артефакты.</span><span class="lang-copy lang-copy-en">The reasoning/inference/memory core: graph & small-world reasoning, logical constraints, cybernetic control, world model, episodic/semantic memory and reproducible benchmark artifacts.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Versioned models · training/inference runtime · graph transformer · symbolic primitives · self-consistency layer · benchmark registry · NEXUS выдаёт inference/proposals, но не получает автоматически финансовую или deployment authority</span><span class="lang-copy lang-copy-en">Versioned models · training/inference runtime · graph transformer · symbolic primitives · self-consistency layer · benchmark registry · NEXUS produces inference/proposals but does not automatically gain financial or deployment authority</span></span></p>
+</article>
+<article class="product-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">AI / Science</span><span class="lang-copy lang-copy-en">AI / Science</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">NEXUS Science Agent — Научный агент доказательств</span><span class="lang-copy lang-copy-en">NEXUS Science Agent — Evidence-driven science agent</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Научный workflow поверх NEXUS: поиск, собственный индекс, claim extraction, evidence graph, поиск противоречий, falsification, расчёты, симуляции и экспорт воспроизводимого research package.</span><span class="lang-copy lang-copy-en">A scientific workflow on top of NEXUS: search, own index, claim extraction, evidence graphs, contradiction search, falsification, calculations, simulations and reproducible research-package export.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">QUESTION → CLAIM → SOURCE → EVIDENCE → CONTRADICTION → FALSIFICATION → REPRODUCTION · physics/materials/energy/economics/AI и другие домены · search result ≠ evidence, model output ≠ discovery</span><span class="lang-copy lang-copy-en">QUESTION → CLAIM → SOURCE → EVIDENCE → CONTRADICTION → FALSIFICATION → REPRODUCTION · physics/materials/energy/economics/AI and other domains · search result ≠ evidence, model output ≠ discovery</span></span></p>
+</article>
+<article class="product-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">AI / Business</span><span class="lang-copy lang-copy-en">AI / Business</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SYNERGY AI Company — Автономная AI-компания</span><span class="lang-copy lang-copy-en">SYNERGY AI Company — Autonomous AI company</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Контур бизнес-оркестрации, который связывает задачи компании с Autopilot, NEXUS и capability-contracts: планирование, делегирование, контроль выполнения и evidence по результатам.</span><span class="lang-copy lang-copy-en">A business-orchestration layer connecting company tasks to Autopilot, NEXUS and capability contracts for planning, delegation, execution control and result evidence.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Business orchestration · capability-based delegation · bounded execution · status/evidence trail · separation of reasoning, execution and financial authority</span><span class="lang-copy lang-copy-en">Business orchestration · capability-based delegation · bounded execution · status/evidence trail · separation of reasoning, execution and financial authority</span></span></p>
+</article>
+<article class="product-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Экономика</span><span class="lang-copy lang-copy-en">Economy</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SYNERGY EURASIAN — Real Economy OS / Project Factory</span><span class="lang-copy lang-copy-en">SYNERGY EURASIAN — Real Economy OS / Project Factory</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Евразийская интеллектуально-производственная система: превращает наблюдаемый спрос, ресурсы и ограничения в проверяемые ProjectProposal для реальных производственных и инфраструктурных проектов.</span><span class="lang-copy lang-copy-en">A Eurasian intelligent-production system that turns observed demand, resources and constraints into verifiable ProjectProposal artifacts for real industrial and infrastructure projects.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">EIIOM-v4 · Project Factory · CAPEX/OPEX · energy/grid/water/labor/logistics constraints · underwriting boundary · real settlement → goods/services → external cashflow → Financial OS · model spec ready, data calibration pending</span><span class="lang-copy lang-copy-en">EIIOM-v4 · Project Factory · CAPEX/OPEX · energy/grid/water/labor/logistics constraints · underwriting boundary · real settlement → goods/services → external cashflow → Financial OS · model spec ready, data calibration pending</span></span></p>
+</article>
+<article class="product-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Security</span><span class="lang-copy lang-copy-en">Security</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SHTTPS — Постквантовый trust и защищённый RPC</span><span class="lang-copy lang-copy-en">SHTTPS — Post-quantum trust & secure RPC</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Trust/session слой федерации: post-quantum identity, authenticated sessions, подписанный registry, caller ACL и bounded RPC между сервисами экосистемы.</span><span class="lang-copy lang-copy-en">The federation trust/session layer: post-quantum identity, authenticated sessions, signed registry, caller ACL and bounded RPC between ecosystem services.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">ML-KEM / ML-DSA research line · hybrid session design · signed trust registry · anti-rollback · delegated signer / HSM-oriented architecture · инфраструктура trust не получает бизнес-authority автоматически</span><span class="lang-copy lang-copy-en">ML-KEM / ML-DSA research line · hybrid session design · signed trust registry · anti-rollback · delegated signer / HSM-oriented architecture · trust infrastructure does not automatically receive business authority</span></span></p>
+</article>
+<article class="product-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Network</span><span class="lang-copy lang-copy-en">Network</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SynergyNet — P2P mesh и content transport</span><span class="lang-copy lang-copy-en">SynergyNet — P2P mesh & content transport</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Сетевой overlay, где узел может быть client/server/router/relay/cache: content-addressed transport, deduplication, compression policy, multipath routing и post-quantum session protection.</span><span class="lang-copy lang-copy-en">A network overlay where a node can act as client/server/router/relay/cache, combining content-addressed transport, deduplication, compression policy, multipath routing and post-quantum session protection.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">L0–L3 dedup/cache · object/chunk hashes · store-and-forward · direct/relay paths · network roles explicit · участие в сети не даёт financial/validator authority · производительность — benchmark hypothesis, не готовый claim</span><span class="lang-copy lang-copy-en">L0–L3 dedup/cache · object/chunk hashes · store-and-forward · direct/relay paths · explicit network roles · network participation grants no financial/validator authority · performance remains a benchmark hypothesis</span></span></p>
+</article>
+<article class="product-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">OS</span><span class="lang-copy lang-copy-en">OS</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SYNERGY Meta-OS — Оркестратор полного узла</span><span class="lang-copy lang-copy-en">SYNERGY Meta-OS — Full-node orchestrator</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Runtime supervisor для complete SYNERGY node: запускает и изолирует SynergyNet, blockchain roles, MetaPay, Financial OS, NEXUS, Autopilot, storage, updates и observability.</span><span class="lang-copy lang-copy-en">A runtime supervisor for a complete SYNERGY node, orchestrating SynergyNet, blockchain roles, MetaPay, Financial OS, NEXUS, Autopilot, storage, updates and observability.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Signed node manifest · attestation · capability/service graph · role profiles · resource limits · health checks · update/rollback · orchestrates authorities but never merges them</span><span class="lang-copy lang-copy-en">Signed node manifest · attestation · capability/service graph · role profiles · resource limits · health checks · update/rollback · orchestrates authorities without merging them</span></span></p>
+</article>
+<article class="product-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">OS / Kernel</span><span class="lang-copy lang-copy-en">OS / Kernel</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">TURBO Core / TURBO Linux — Capability-oriented host</span><span class="lang-copy lang-copy-en">TURBO Core / TURBO Linux — Capability-oriented host</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Clean-room kernel и host-substrate R&D: x86_64 fast paths, capability primitives, bounded IPC, O(1) priority scheduler, freestanding build checks и воспроизводимые cycle benchmarks.</span><span class="lang-copy lang-copy-en">Clean-room kernel and host-substrate R&D with x86_64 fast paths, capability primitives, bounded IPC, an O(1) priority scheduler, freestanding build checks and reproducible cycle benchmarks.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Активная линия turbo_core · isolation/capabilities · scheduler/IPC · KVM/VPS лаборатория · performance uplift не заявляется без exact artifact + matched baseline + raw samples</span><span class="lang-copy lang-copy-en">Active turbo_core line · isolation/capabilities · scheduler/IPC · KVM/VPS lab · no performance uplift claim without exact artifact + matched baseline + raw samples</span></span></p>
+</article>
+<article class="product-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Developer Tool</span><span class="lang-copy lang-copy-en">Developer Tool</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">AI Language Pro — Repository-aware coding agent</span><span class="lang-copy lang-copy-en">AI Language Pro — Repository-aware coding agent</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Python-пакет и coding agent с semantic traceability: понимает локальный репозиторий, индексирует файлы/символы/imports/calls/tests и связывает каждое изменение с нормализованными REQ-* требованиями.</span><span class="lang-copy lang-copy-en">A Python package and coding agent with semantic traceability: it understands a local repository, indexes files/symbols/imports/calls/tests and links every mutation to normalized REQ-* requirements.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">PyPI package · CLI · OpenAI Responses API · intent graph · repository graph · change/impact graph · requirement coverage · controlled commands · experimental .ailang compiler</span><span class="lang-copy lang-copy-en">PyPI package · CLI · OpenAI Responses API · intent graph · repository graph · change/impact graph · requirement coverage · controlled commands · experimental .ailang compiler</span></span></p>
+</article>
+<article class="product-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Compression</span><span class="lang-copy lang-copy-en">Compression</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">QR Compress QTC2 — Temporal/shared-model lossless compression</span><span class="lang-copy lang-copy-en">QR Compress QTC2 — Temporal/shared-model lossless compression</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Независимый lossless-проект для QR-последовательностей: shared temporal model QTD1, exact/patch/standalone режимы, residual compression и multi-frame transport.</span><span class="lang-copy lang-copy-en">An independent lossless project for QR sequences using the QTD1 shared temporal model, exact/patch/standalone modes, residual compression and multi-frame transport.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">timestamp-addressed shared model · zlib/bz2/LZMA/Zstd/Brotli/rANS/Gabriel-Horn candidates · SHA-256 integrity · QF1 frame CRC · coverage-метрика относится только к shared-model сценарию</span><span class="lang-copy lang-copy-en">timestamp-addressed shared model · zlib/bz2/LZMA/Zstd/Brotli/rANS/Gabriel-Horn candidates · SHA-256 integrity · QF1 frame CRC · coverage metric applies only to shared-model scenarios</span></span></p>
+</article>
+<article class="product-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">GovTech</span><span class="lang-copy lang-copy-en">GovTech</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SINERGY Blockchain Budget — Проверяемая трассировка бюджета</span><span class="lang-copy lang-copy-en">SINERGY Blockchain Budget — Verifiable budget traceability</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Публичный budget traceability engine: нормализует официальные данные Казначейства/ЕИС, связывает бюджетную строку, контракт и платёж по evidence-scored правилам и строит append-only commitments.</span><span class="lang-copy lang-copy-en">A public budget-traceability engine that normalizes official Treasury/procurement data, links budget lines, contracts and payments with evidence-scored rules, and builds append-only commitments.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">V0.3 · year-isolated KBK registry · no cross-year fallback · strong-ID conflict rejection · Merkle inclusion proofs · trace graph LAW → CONTRACT → PAYMENT → SINERGY:BUDGET root</span><span class="lang-copy lang-copy-en">V0.3 · year-isolated KBK registry · no cross-year fallback · strong-ID conflict rejection · Merkle inclusion proofs · trace graph LAW → CONTRACT → PAYMENT → SINERGY:BUDGET root</span></span></p>
+</article>
+<article class="product-card reveal d4 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Business OS</span><span class="lang-copy lang-copy-en">Business OS</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SINERGYCHAIN Growth OS V7 — Портал и бизнес-операционная система</span><span class="lang-copy lang-copy-en">SINERGYCHAIN Growth OS V7 — Portal & business operating system</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Единый портал экосистемы с OLGA AGI multi-agent chat и Business Expert Autopilot; объединяет AI SMM, AI CRM, AI Sales, AI CFO и защищённое управление API-интеграциями.</span><span class="lang-copy lang-copy-en">A unified ecosystem portal with OLGA AGI multi-agent chat and Business Expert Autopilot, combining AI SMM, AI CRM, AI Sales, AI CFO and protected API-integration management.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">single-model / chain / consensus / debate / AI-department modes · recursive compressed conversation memory · OpenRouter rotation · encrypted API Vault · static Pages frontend + Node.js production backend</span><span class="lang-copy lang-copy-en">single-model / chain / consensus / debate / AI-department modes · recursive compressed conversation memory · OpenRouter rotation · encrypted API Vault · static Pages frontend + Node.js production backend</span></span></p>
+</article>
+<article class="product-card reveal d1 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Trading R&D</span><span class="lang-copy lang-copy-en">Trading R&D</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">SHTENCO SEAL Sovereign Trader — LLM-native автономный трейдер</span><span class="lang-copy lang-copy-en">SHTENCO SEAL Sovereign Trader — LLM-native autonomous trader</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Исследовательская торговая система, где LLM выступает трейдером, а модели, индикаторы, retrieval и market-data adapters — его инструментами. Система хранит beliefs, hypotheses, TradeThesis и память.</span><span class="lang-copy lang-copy-en">A research trading system where the LLM acts as the trader while models, indicators, retrieval and market-data adapters are its tools, maintaining beliefs, hypotheses, TradeThesis objects and memory.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Persistent trading identity · internal trader council · event-driven cognition · shadow ledger · SEAL self-edit loop · deterministic Capital Guardian вне mutable LLM · historical/paper/canary verification обязательна до live</span><span class="lang-copy lang-copy-en">Persistent trading identity · internal trader council · event-driven cognition · shadow ledger · SEAL self-edit loop · deterministic Capital Guardian outside the mutable LLM · historical/paper/canary verification required before live use</span></span></p>
+</article>
+<article class="product-card reveal d2 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Hardware R&D</span><span class="lang-copy lang-copy-en">Hardware R&D</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Motherboard XPU / EML — Persistent dataflow computer</span><span class="lang-copy lang-copy-en">Motherboard XPU / EML — Persistent dataflow computer</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Исследовательская вычислительная архитектура persistent programmable dataflow XPU, объединяющая Value State, Graph State и Persistent State в capability-addressed fabric.</span><span class="lang-copy lang-copy-en">A research computing architecture for a persistent programmable dataflow XPU combining Value State, Graph State and Persistent State in a capability-addressed fabric.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">EML ISA/dataflow draft · аналитическая модель · 2.5D package floorplan · OpenSCAD/STL · FPGA/QEMU/RTL roadmap · цифры производительности пока model-based и не являются GPU/CPU replacement benchmark</span><span class="lang-copy lang-copy-en">EML ISA/dataflow draft · analytical model · 2.5D package floorplan · OpenSCAD/STL · FPGA/QEMU/RTL roadmap · performance figures remain model-based and are not a GPU/CPU replacement benchmark</span></span></p>
+</article>
+<article class="product-card reveal d3 card-holo depth-tile">
+<div class="card-tag"><span class="i18n-text"><span class="lang-copy lang-copy-ru">AI Research</span><span class="lang-copy lang-copy-en">AI Research</span></span></div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">Synergy GLLM NEXUS — Generalization-first research runtime</span><span class="lang-copy lang-copy-en">Synergy GLLM NEXUS — Generalization-first research runtime</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">Отдельный research runtime и реестр бенчмарков NEXUS для проверки transfer/generalization между поколениями моделей, frozen blind-наборов, OOD и stress-тестов.</span><span class="lang-copy lang-copy-en">A separate NEXUS research runtime and benchmark registry for testing transfer/generalization across model generations, frozen blind sets, OOD conditions and stress tests.</span></span></p>
+<p class="subtle"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Канонические reports/benchmarks · blind/frozen evaluation lines · generalization-first ветка · результаты публикуются вместе с типом теста и ограничениями, а не как универсальный AGI claim</span><span class="lang-copy lang-copy-en">Canonical reports/benchmarks · blind/frozen evaluation lines · generalization-first branch · results are reported with test type and limitations rather than as a universal AGI claim</span></span></p>
+</article>
+</div>
+</section>
+<div class="anchor-space" id="contacts"></div>
+<section class="section">
+<div class="section-head reveal">
+<div>
+<div class="section-kicker">SECTION 06</div>
+<h2 class="section-title"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Контакты</span><span class="lang-copy lang-copy-en">Contacts</span></span></h2>
+</div>
+<div class="section-sub"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Финальный блок в том же визуальном языке, что и основной портал: чёрный, белый, зелёный, чёткая типографика и акцент на доверии.</span><span class="lang-copy lang-copy-en">A final contact section in the same black, white, and green visual language, with precise typography and an emphasis on trust.</span></span></div>
+</div>
+<div class="footer-grid single">
+<article class="contact-card reveal card-holo depth-tile">
+<div class="card-tag">Contacts</div>
+<h3><span class="i18n-text"><span class="lang-copy lang-copy-ru">ЕВГЕНИЙ КОШТЕНКО</span><span class="lang-copy lang-copy-en">EVGENIY KOSHTENKO</span></span></h3>
+<p><span class="i18n-text"><span class="lang-copy lang-copy-ru">koshtenco@gmail.com · Костанай, Казахстан · Квалифицированный инвестор России (2023) · Квалифицированный инвестор Казахстана (2024)</span><span class="lang-copy lang-copy-en">koshtenco@gmail.com · Kostanay, Kazakhstan · Qualified investor in Russia (2023) · Qualified investor in Kazakhstan (2024)</span></span></p>
+<div class="links-row">
+<a class="link-chip" href="mailto:koshtenco@gmail.com">koshtenco@gmail.com</a>
+<a class="link-chip" href="https://www.mql5.com" rel="noopener" target="_blank">MQL5</a>
+<a class="link-chip" href="https://github.com/koshtenko" rel="noopener noreferrer" target="_blank">GitHub</a>
+<a class="link-chip" href="https://synergychain.asia" rel="noopener noreferrer" target="_blank">SYNERGYCHAIN</a>
+<a class="link-chip" href="https://vk.com/altradinger" rel="noopener noreferrer" target="_blank">VK</a>
+</div>
+</article>
+</div>
+</section>
+</div>
+</main>
+<script>
+(function(){
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    <section class="section" id="architecture">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="section-kicker">01 / SYSTEM ARCHITECTURE</div><h2 class="section-title"><span data-lang-copy="ru">Не набор репозиториев.<br>Одна федерация.</span><span data-lang-copy="en">Not a repo pile.<br>One federation.</span></h2></div>
-          <p class="section-intro"><span data-lang-copy="ru">Современная линия SYNERGY разделяет доменные истины: AI предлагает, deterministic policy ограничивает, settlement доказывается, accounting признаёт, blockchain фиксирует точные артефакты.</span><span data-lang-copy="en">The modern SYNERGY line separates domain truth: AI proposes, deterministic policy constrains, settlement is evidenced, accounting recognizes, and blockchain commits exact artifacts.</span></p>
-        </div>
-        <div class="system-map" aria-label="SYNERGY system map">
-          <div class="map-node"><strong>Applications</strong><p>SINERGY Finance · Messenger · portals · human control surfaces</p></div>
-          <div class="map-arrow" aria-hidden="true">→</div>
-          <div class="map-node"><strong>Intelligence + Execution</strong><p>AutoCompany · Autopilot · NEXUS · MIDAS · Science Agent</p></div>
-          <div class="map-arrow" aria-hidden="true">→</div>
-          <div class="map-node"><strong>Economic Spine</strong><p>MetaPay · Eurasian Project Factory · Financial OS · evidence &amp; accounting</p></div>
-        </div>
-        <div class="system-map" style="margin-top:12px">
-          <div class="map-node"><strong>SHTTPS</strong><p>Post-quantum authentication, registry and bounded RPC trust.</p></div>
-          <div class="map-arrow" aria-hidden="true">→</div>
-          <div class="map-node"><strong>SynergyNet + Meta-OS</strong><p>P2P/data plane and orchestration of the complete node runtime.</p></div>
-          <div class="map-arrow" aria-hidden="true">→</div>
-          <div class="map-node"><strong>TURBO Linux</strong><p>Capability-oriented host and kernel research substrate.</p></div>
-        </div>
-        <div class="boundary">repository ≠ federation principal ≠ trusted node ≠ capability ≠ authority</div>
-      </div>
-    </section>
+  // Reveal blocks on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  if (!reduced && 'IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      });
+    }, {threshold:.06, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(el=>obs.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
 
-    <section class="section" id="flagships">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="section-kicker">02 / FLAGSHIP SYSTEMS</div><h2 class="section-title"><span data-lang-copy="ru">Канонические и ключевые<br>системы</span><span data-lang-copy="en">Canonical and key<br>systems</span></h2></div>
-          <p class="section-intro"><span data-lang-copy="ru">Карточки ниже строятся из единого repository dataset. Статус CANONICAL означает архитектурного владельца роли, а не автоматическую production-готовность.</span><span data-lang-copy="en">Cards below are rendered from one repository dataset. CANONICAL means architectural ownership of a role, not automatic production readiness.</span></p>
-        </div>
-        <div class="card-grid" id="flagship-grid">
-          <article class="repo-card" data-fallback-flagship>
-            <div class="repo-top"><div class="repo-name">synergy_system</div><span class="status-badge" data-status="CANONICAL">CANONICAL</span></div>
-            <p class="repo-role">Architecture &amp; governance root of the SYNERGY federation.</p>
-            <p class="repo-boundary">Fallback content. Full verified cards load from the repository dataset.</p>
-          </article>
-          <article class="repo-card" data-fallback-flagship>
-            <div class="repo-top"><div class="repo-name">midas_ai</div><span class="status-badge" data-status="CANONICAL">CANONICAL</span></div>
-            <p class="repo-role">Canonical institutional trading intelligence.</p>
-            <p class="repo-boundary">Forward/OOF evidence gates promotion; backtest equity is not realized profit.</p>
-          </article>
-          <article class="repo-card" data-fallback-flagship>
-            <div class="repo-top"><div class="repo-name">agi_nexus</div><span class="status-badge" data-status="CANONICAL">CANONICAL</span></div>
-            <p class="repo-role">Canonical reasoning, inference and memory core.</p>
-            <p class="repo-boundary">Inference does not grant financial, payment or deployment authority.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+  // Scroll progress
+  const sp = document.getElementById('scroll-progress');
+  function progress(){
+    const h = document.documentElement;
+    const max = Math.max(1, h.scrollHeight - h.clientHeight);
+    sp.style.width = Math.min(100, (h.scrollTop / max) * 100) + '%';
+  }
+  progress();
+  addEventListener('scroll', progress, {passive:true});
 
-    <section class="section" id="lineage">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="section-kicker">03 / TRADING LINEAGE</div><h2 class="section-title"><span data-lang-copy="ru">От экспериментов<br>к MIDAS</span><span data-lang-copy="en">From experiments<br>to MIDAS</span></h2></div>
-          <p class="section-intro"><span data-lang-copy="ru">Quantum, computer vision, 3D market structure, carry, arbitrage, liquidity, graph и AGI-trader исследования сохраняются как provenance. Они не конкурируют с MIDAS за канонический статус.</span><span data-lang-copy="en">Quantum, computer vision, 3D market structure, carry, arbitrage, liquidity, graph and AGI-trader experiments remain as provenance. They do not compete with MIDAS for canonical status.</span></p>
-        </div>
-        <p class="collection-note"><span data-lang-copy="ru">Исторические backtest-цифры не переносятся в текущие performance-claims без современной воспроизводимой проверки.</span><span data-lang-copy="en">Historical backtest figures are not promoted into current performance claims without modern reproducible verification.</span></p>
-        <div class="card-grid" id="lineage-grid"></div>
-      </div>
-    </section>
+  // Cursor glow
+  const cg = document.getElementById('cursor-glow');
+  if(cg && !reduced){
+    document.addEventListener('mousemove', e=>{
+      cg.style.left=e.clientX+'px';
+      cg.style.top=e.clientY+'px';
+    }, {passive:true});
+  }
 
-    <section class="section" id="research">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="section-kicker">04 / FRONTIER RESEARCH</div><h2 class="section-title"><span data-lang-copy="ru">Исследовательский<br>периметр</span><span data-lang-copy="en">Frontier<br>research</span></h2></div>
-          <p class="section-intro"><span data-lang-copy="ru">Здесь отделены implemented/measured результаты, модели, кандидаты и гипотезы. Исследовательская смелость не требует подменять доказательства маркетингом.</span><span data-lang-copy="en">This section keeps implemented/measured results, models, candidates and hypotheses distinct. Ambitious research does not require replacing evidence with marketing.</span></p>
-        </div>
-        <div class="card-grid" id="research-grid"></div>
-      </div>
-    </section>
+  // Active navigation state
+  const navLinks=[...document.querySelectorAll('.nav-tab')];
+  const targets=navLinks
+    .map(a=>document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+  const updateNav=()=>{
+    let current=targets[0];
+    for(const t of targets){
+      if(t.getBoundingClientRect().top <= 150) current=t;
+    }
+    navLinks.forEach(a=>a.classList.toggle('active', current && a.getAttribute('href')==='#'+current.id));
+  };
+  updateNav();
+  addEventListener('scroll', updateNav, {passive:true});
 
-    <section class="section" id="products">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="section-kicker">05 / PRODUCTS &amp; APPLICATIONS</div><h2 class="section-title"><span data-lang-copy="ru">То, чем пользуется<br>человек</span><span data-lang-copy="en">Human-facing<br>systems</span></h2></div>
-          <p class="section-intro"><span data-lang-copy="ru">Приложения и presentation surfaces вынесены отдельно от accounting, payment и research authority.</span><span data-lang-copy="en">Applications and presentation surfaces are separated from accounting, payment and research authority.</span></p>
-        </div>
-        <div class="card-grid" id="products-grid"></div>
-      </div>
-    </section>
+  // Animated hexagonal background inspired by the portal
+  const c=document.getElementById('hex-bg');
+  if(!c || reduced) return;
+  const ctx=c.getContext('2d');
+  let W=0,H=0,t=0,dpr=1;
 
-    <section class="section" id="registry">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="section-kicker">06 / FULL REPOSITORY REGISTRY</div><h2 class="section-title"><span data-lang-copy="ru">Вся экосистема.<br>Без скрытых слоёв.</span><span data-lang-copy="en">The full estate.<br>No hidden layers.</span></h2></div>
-          <p class="section-intro"><span data-lang-copy="ru">Фильтры работают по единому dataset. Public-проекты получают прямую ссылку. Private/internal показываются как часть архитектуры без ложного публичного source URL.</span><span data-lang-copy="en">Filters use one dataset. Public projects get direct source links. Private/internal systems remain visible architecturally without fake public source URLs.</span></p>
-        </div>
-        <div class="filter-bar">
-          <div class="search-wrap">
-            <label for="repo-search"><span data-lang-copy="ru">Поиск по registry</span><span data-lang-copy="en">Search registry</span></label>
-            <input class="search-input" id="repo-search" type="search" placeholder="midas / finance / nexus / R&D">
-          </div>
-          <div class="filter-groups" aria-label="Repository filters">
-            <button class="filter-btn" type="button" data-lifecycle="ALL" aria-pressed="true">ALL</button>
-            <button class="filter-btn" type="button" data-lifecycle="CANONICAL" aria-pressed="false">CANONICAL</button>
-            <button class="filter-btn" type="button" data-lifecycle="CANDIDATE" aria-pressed="false">CANDIDATE</button>
-            <button class="filter-btn" type="button" data-lifecycle="R&D" aria-pressed="false">R&amp;D</button>
-            <button class="filter-btn" type="button" data-lifecycle="LEGACY" aria-pressed="false">LEGACY</button>
-            <button class="filter-btn" type="button" data-lifecycle="ARCHIVE" aria-pressed="false">ARCHIVE</button>
-            <button class="filter-btn" type="button" data-domain="ALL" aria-pressed="true">ANY DOMAIN</button>
-            <button class="filter-btn" type="button" data-domain="TRADING" aria-pressed="false">TRADING</button>
-            <button class="filter-btn" type="button" data-domain="FINANCE" aria-pressed="false">FINANCE</button>
-            <button class="filter-btn" type="button" data-domain="AI_RESEARCH" aria-pressed="false">AI / RESEARCH</button>
-            <button class="filter-btn" type="button" data-domain="INFRASTRUCTURE" aria-pressed="false">INFRA</button>
-            <button class="filter-btn" type="button" data-domain="APPLICATION" aria-pressed="false">APPS</button>
-            <button class="filter-btn" type="button" data-visibility="ALL" aria-pressed="true">ANY VISIBILITY</button>
-            <button class="filter-btn" type="button" data-visibility="public" aria-pressed="false">PUBLIC</button>
-            <button class="filter-btn" type="button" data-visibility="private" aria-pressed="false">PRIVATE</button>
-            <button class="filter-btn" id="flagship-only" type="button" aria-pressed="false">FLAGSHIPS</button>
-          </div>
-        </div>
-        <p class="collection-note"><span data-lang-copy="ru">Показано: </span><span data-lang-copy="en">Visible: </span><strong id="registry-count">—</strong></p>
-        <div class="registry-grid" id="registry-grid"></div>
-      </div>
-    </section>
+  function resize(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    W=innerWidth; H=innerHeight;
+    c.width=Math.floor(W*dpr);
+    c.height=Math.floor(H*dpr);
+    c.style.width=W+'px'; c.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  resize();
+  addEventListener('resize',resize,{passive:true});
 
-    <section class="section" id="principles">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="section-kicker">07 / ENGINEERING CONSTITUTION</div><h2 class="section-title"><span data-lang-copy="ru">Принципы сильнее<br>слоганов</span><span data-lang-copy="en">Principles over<br>slogans</span></h2></div>
-          <p class="section-intro"><span data-lang-copy="ru">Общая линия современных репозиториев — отделять гипотезу от доказательства, authority от presentation и внутреннее движение стоимости от внешней прибыли.</span><span data-lang-copy="en">The modern repository line separates hypothesis from evidence, authority from presentation, and internal value movement from external profit.</span></p>
-        </div>
-        <div class="principles-grid">
-          <article class="principle-card"><strong>ONE AUTHORITY PER FACT</strong><p>Accounting, settlement, inference, trust and presentation must not silently become competing sources of truth.</p></article>
-          <article class="principle-card"><strong>EVIDENCE BEFORE AUTHORITY</strong><p>Evidence precedes recognition; recognition precedes accounting; capacity precedes authorization; authorization precedes execution.</p></article>
-          <article class="principle-card"><strong>AI PROPOSES</strong><p>Deterministic policy constrains. Intelligence does not receive monetary authority merely because it can generate a confident answer.</p></article>
-          <article class="principle-card"><strong>INTERNAL ≠ EXTERNAL WEALTH</strong><p>Mint, burn, own-token marks, internal transfers and flash principal are not external profit.</p></article>
-          <article class="principle-card"><strong>BLOCKCHAIN PROVES</strong><p>Blockchain commits authoritative artifacts; it does not invent accounting or settlement truth.</p></article>
-          <article class="principle-card"><strong>CLAIMS REQUIRE EVIDENCE</strong><p>Trading, network, compression, AI and scientific claims are strongest when exact artifacts and matched baselines can be reproduced.</p></article>
-        </div>
-      </div>
-    </section>
+  function hex(x,y,r,a){
+    ctx.beginPath();
+    for(let i=0;i<6;i++){
+      const ag=Math.PI/3*i-Math.PI/6;
+      const px=x+r*Math.cos(ag), py=y+r*Math.sin(ag);
+      i?ctx.lineTo(px,py):ctx.moveTo(px,py);
+    }
+    ctx.closePath();
+    ctx.strokeStyle=`rgba(0,230,100,${a})`;
+    ctx.lineWidth=.75;
+    ctx.stroke();
+  }
 
-    <section class="section" id="contacts">
-      <div class="container">
-        <div class="contact-panel">
-          <div>
-            <div class="section-kicker">08 / COLLABORATION</div>
-            <h2><span data-lang-copy="ru">СТРОИМ СИСТЕМЫ,<br>А НЕ ДЕМО.</span><span data-lang-copy="en">BUILD SYSTEMS,<br>NOT DEMOS.</span></h2>
-            <p class="section-intro"><span data-lang-copy="ru">Интерес: количественные системы, AI-агенты, fintech/payment infrastructure, distributed systems, applied research, licensing и технологические партнёрства.</span><span data-lang-copy="en">Focus areas: quantitative systems, AI agents, fintech/payment infrastructure, distributed systems, applied research, licensing and technology partnerships.</span></p>
-          </div>
-          <div class="contact-links">
-            <a href="mailto:koshtenco@gmail.com">koshtenco@gmail.com</a>
-            <a href="https://github.com/Shtenco" target="_blank" rel="noopener noreferrer">GitHub / Shtenco ↗</a>
-            <a href="https://vk.com/altradinger" target="_blank" rel="noopener noreferrer">VK ↗</a>
-            <a href="https://www.mql5.com/ru/users/koshtenko" target="_blank" rel="noopener noreferrer">MQL5 ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">Evgeniy Koshtenko · Portfolio architecture snapshot · Repository metrics are loaded from the verified local registry.</div>
-  </footer>
-  <script src="assets/portfolio.js" defer></script>
-</body>
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const sz=52;
+    const rows=Math.ceil(H/(sz*1.73))+2;
+    const cols=Math.ceil(W/(sz*1.5))+2;
+    for(let row=-1;row<rows;row++){
+      for(let col=-1;col<cols;col++){
+        const x=col*sz*1.5;
+        const y=row*sz*1.73+(col%2?sz*.865:0);
+        const d=Math.hypot(x-W/2,y-H/2);
+        const wave=Math.sin(d/82-t*.62);
+        const alpha=Math.max(0,(wave+1)/2*.055);
+        if(alpha>.003) hex(x,y,sz*.43+wave*1.8,alpha);
+      }
+    }
+    t+=.027;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script></body>
 </html>
