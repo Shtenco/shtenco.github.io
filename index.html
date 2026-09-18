@@ -479,7 +479,51 @@ img{max-width:100%;display:block}
 .lang-btn:hover{color:var(--w)}
 .lang-btn.active{background:var(--g);color:#000;box-shadow:0 0 18px rgba(0,230,100,.24)}
 @media(max-width:780px){.nav-row{gap:10px}.lang-switch{margin-left:auto}}
-</style><meta content="Evgeniy Koshtenko — qualified investor, algorithmic trader, AI/ML and blockchain developer. Portfolio, articles and technology projects." name="description"/><meta content="Evgeniy Koshtenko — Quant · AI · Web3 · Blockchain" property="og:title"/><meta content="Qualified investor, algorithmic trader, AI/ML and blockchain developer. 100+ articles and technology projects." property="og:description"/><meta content="website" property="og:type"/><meta content="https://shtenco.github.io/" property="og:url"/><meta content="summary" name="twitter:card"/></head>
+</style><meta content="Evgeniy Koshtenko — qualified investor, algorithmic trader, AI/ML and blockchain developer. Portfolio, articles and technology projects." name="description"/><meta content="Evgeniy Koshtenko — Quant · AI · Web3 · Blockchain" property="og:title"/><meta content="Qualified investor, algorithmic trader, AI/ML and blockchain developer. 100+ articles and technology projects." property="og:description"/><meta content="website" property="og:type"/><meta content="https://shtenco.github.io/" property="og:url"/><meta content="summary" name="twitter:card"/>
+<style id="hero-name-fit-fix">
+/* Definitive name fit fix */
+.hero h1.hero-name{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:22px 0 14px !important;
+  font-family:var(--display) !important;
+  font-size:clamp(54px,8.4vw,124px) !important;
+  line-height:.82 !important;
+  letter-spacing:.01em !important;
+  overflow:visible !important;
+}
+.hero h1.hero-name > span{
+  display:block !important;
+  width:auto !important;
+  max-width:100% !important;
+  white-space:nowrap !important;
+}
+.hero h1.hero-name .hero-name-first{
+  color:var(--w) !important;
+}
+.hero h1.hero-name .hero-name-last{
+  color:var(--g) !important;
+  margin-top:.055em !important;
+}
+@media (min-width:1440px){
+  .hero h1.hero-name{font-size:124px !important;}
+}
+@media (max-width:700px){
+  .hero h1.hero-name{
+    font-size:clamp(48px,16vw,82px) !important;
+    line-height:.84 !important;
+    margin-top:18px !important;
+  }
+}
+@media (max-width:390px){
+  .hero h1.hero-name{font-size:47px !important;}
+}
+</style>
+
+</head>
 <body><canvas aria-hidden="true" id="hex-bg"></canvas><div aria-hidden="true" id="cursor-glow"></div><div aria-hidden="true" class="scan-line"></div><div aria-hidden="true" id="scroll-progress"></div>
 <nav id="nav">
 <div class="container nav-row">
@@ -501,7 +545,7 @@ img{max-width:100%;display:block}
 <div class="hero-grid">
 <div class="hero-left reveal">
 <div class="eyebrow">Quant · AI · Web3 · Blockchain</div>
-<h1><span class="i18n-text" data-en="EVGENIY" data-ru="ЕВГЕНИЙ">ЕВГЕНИЙ</span><span><span class="i18n-text" data-en="KOSHTENKO" data-ru="КОШТЕНКО">КОШТЕНКО</span></span></h1>
+<h1 class="hero-name"><span class="hero-name-first i18n-text" data-en="EVGENIY" data-ru="ЕВГЕНИЙ">ЕВГЕНИЙ</span><span class="hero-name-last i18n-text" data-en="KOSHTENKO" data-ru="КОШТЕНКО">КОШТЕНКО</span></h1>
 <div class="subtitle"><span class="i18n-text" data-en="Algorithmic trading · machine learning · AI systems · smart contracts · institutional AI" data-ru="Алготрейдинг · машинное обучение · ИИ-системы · смарт-контракты · институциональный ИИ">Алготрейдинг · машинное обучение · ИИ-системы · смарт-контракты · институциональный ИИ</span></div>
 <p class="bio"><span class="i18n-text" data-en="Qualified investor in Russia (2023). Qualified investor in Kazakhstan (2024). From discretionary trading to institutional AI systems for hedge funds and a proprietary AI blockchain. I build EAs, trading robots, indicators, smart contracts, tokens, AI models, and end-to-end business automation systems. Author of 100+ international articles." data-ru="Квалифицированный инвестор России (2023). Квалифицированный инвестор Казахстана (2024). Путь от ручной торговли до разработки институциональной ИИ-системы для хэдж-фонда и собственного ИИ-блокчейна. Создаю советников, торговых роботов, индикаторы, смарт-контракты, токены, ИИ-модели и системы автоматизации бизнеса под ключ. Автор 100+ международных статей.">Квалифицированный инвестор России (2023). Квалифицированный инвестор Казахстана (2024). Путь от ручной торговли до разработки институциональной ИИ-системы для хэдж-фонда и собственного ИИ-блокчейна. Создаю советников, торговых роботов, индикаторы, смарт-контракты, токены, ИИ-модели и системы автоматизации бизнеса под ключ. Автор 100+ международных статей.</span></p>
 <div class="hero-actions">
