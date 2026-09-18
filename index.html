@@ -523,7 +523,47 @@ img{max-width:100%;display:block}
 @media(min-width:1440px){.hero h1.hero-name{font-size:124px!important}}
 @media(max-width:700px){.hero h1.hero-name{font-size:clamp(48px,16vw,82px)!important;line-height:.84!important;margin-top:18px!important}}
 @media(max-width:390px){.hero h1.hero-name{font-size:47px!important}}
-</style></head>
+</style>
+<style id="nav-click-fix">
+/* ===== DEFINITIVE CLICKABILITY FIX ===== */
+#nav{
+  position:fixed !important;
+  top:0 !important;
+  left:0 !important;
+  right:0 !important;
+  z-index:50000 !important;
+  pointer-events:auto !important;
+  isolation:isolate;
+}
+#nav .container,
+#nav .nav-row,
+#nav .nav-tabs,
+#nav .nav-tab,
+#nav .lang-switch,
+#nav .lang-btn,
+#nav label{
+  position:relative;
+  z-index:50001 !important;
+  pointer-events:auto !important;
+}
+.main{
+  position:relative !important;
+  z-index:1 !important;
+}
+#hex-bg,
+#cursor-glow,
+.scan-line,
+#scroll-progress{
+  pointer-events:none !important;
+}
+.nav-tab,
+.lang-btn{
+  cursor:pointer !important;
+  touch-action:manipulation;
+}
+</style>
+
+</head>
 <body><input checked="checked" class="lang-radio" id="portfolio-lang-ru" name="portfolio-language" type="radio" value="ru"/><input class="lang-radio" id="portfolio-lang-en" name="portfolio-language" type="radio" value="en"/><canvas aria-hidden="true" id="hex-bg"></canvas><div aria-hidden="true" id="cursor-glow"></div><div aria-hidden="true" class="scan-line"></div><div aria-hidden="true" id="scroll-progress"></div>
 <nav id="nav">
 <div class="container nav-row">
