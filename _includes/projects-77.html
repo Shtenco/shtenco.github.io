@@ -1,0 +1,66 @@
+<section class="section projects77-section">
+  <div class="section-head reveal">
+    <div>
+      <div class="section-kicker">SECTION 05 · ПОЛНОЕ ИНЖЕНЕРНОЕ ПОРТФОЛИО</div>
+      <h2 class="section-title"><span class="i18n-text"><span class="lang-copy lang-copy-ru">ВСЕ 77 ПРОЕКТОВ</span><span class="lang-copy lang-copy-en">ALL 77 PROJECTS</span></span></h2>
+    </div>
+    <div class="section-sub"><span class="lang-copy lang-copy-ru">Все проекты показаны сразу, без поиска и скрытых каталогов. Каждый объяснён через задачу, результат, компетенцию и ценность для компании.</span><span class="lang-copy lang-copy-en">All projects are shown directly. Each is explained through purpose, function, demonstrated competence and practical company value.</span></div>
+  </div>
+
+  <div class="project-structure panel reveal">
+    <div class="project-formula">24 + 9 + 6 + 10 + 10 + 5 + 5 + 8 = <strong>77</strong></div>
+    <div class="project-counts">
+      <span><b>24</b> Трейдинг и рынок</span><span><b>9</b> ИИ и агенты</span><span><b>6</b> Финансы</span><span><b>10</b> Блокчейн</span>
+      <span><b>10</b> Вычисления / сеть / безопасность</span><span><b>5</b> Наука</span><span><b>5</b> Архитектура</span><span><b>8</b> Приложения</span>
+    </div>
+  </div>
+
+  {% assign project_keys = "projects-01|projects-02|projects-03|projects-04|projects-05|projects-06|projects-07|projects-08" | split: "|" %}
+  {% for key in project_keys %}
+    {% assign group = site.data[key] %}
+    {% case group.section %}
+      {% when "Торговые системы и анализ рынка" %}
+        {% assign competence = "Алгоритмическая торговля, количественные исследования, рыночные данные, портфельная логика и независимый контроль риска." %}
+        {% assign company_value = "Могу построить торговый контур от данных и исследования гипотезы до модели, портфеля, риска и подключения к исполнению." %}
+      {% when "Искусственный интеллект и ИИ-агенты" %}
+        {% assign competence = "Архитектура ИИ, многошаговая автоматизация, агентные системы, работа с инструментами, памятью и проверяемыми ограничениями." %}
+        {% assign company_value = "Могу создавать ИИ-системы, которые не только отвечают текстом, а выполняют сложную работу, взаимодействуют с сервисами и оставляют проверяемую историю действий." %}
+      {% when "Финансовые системы и экономика" %}
+        {% assign competence = "Финансовая архитектура, учёт, платежи, ликвидность, капитал, обязательства и разделение финансовых полномочий." %}
+        {% assign company_value = "Могу проектировать финансовые сервисы, где расчёты, риск, бухгалтерская логика, платежи и управление капиталом разделены и проверяемы." %}
+      {% when "Блокчейн и денежные модели" %}
+        {% assign competence = "Распределённые системы, цифровые активы, смарт-контракты, проверяемые переходы состояния и моделирование денежных механизмов." %}
+        {% assign company_value = "Могу разрабатывать и исследовать блокчейн- и Web3-системы с понятными правилами состояния, расчётов, резервов и цифровой экономики." %}
+      {% when "Вычисления, сеть и безопасность" %}
+        {% assign competence = "Системная разработка, оптимизация вычислений, сети, сжатие, защищённый транспорт и инженерная безопасность." %}
+        {% assign company_value = "Могу разрабатывать инфраструктурные компоненты и оптимизировать вычислительный путь от алгоритма до сети и системного слоя." %}
+      {% when "Научные и математические исследования" %}
+        {% assign competence = "Формализация сложных гипотез, численные эксперименты, воспроизводимость, контрольные тесты и строгие границы выводов." %}
+        {% assign company_value = "Могу превращать сложную исследовательскую идею в программу экспериментов с кодом, метриками, проверками и воспроизводимым результатом." %}
+      {% when "Архитектура больших систем" %}
+        {% assign competence = "Декомпозиция крупных платформ, интерфейсы между модулями, зависимости, полномочия, источники истины и жизненный цикл системы." %}
+        {% assign company_value = "Могу собрать большую многомодульную платформу и определить, как сервисы взаимодействуют, кто за что отвечает и как система проверяется целиком." %}
+      {% else %}
+        {% assign competence = "Продуктовая интеграция, пользовательские интерфейсы и превращение сложной внутренней системы в понятный рабочий сценарий." %}
+        {% assign company_value = "Могу построить клиентский слой над сложной технологической системой и связать пользовательский сценарий с внутренними сервисами." %}
+    {% endcase %}
+
+    <div class="project-direction reveal">
+      <div><div class="section-kicker">{{ group.projects | size }} ПРОЕКТОВ</div><h3>{{ group.section }}</h3></div>
+      <p>{{ group.intro }}</p>
+    </div>
+    <div class="products-grid projects77-grid">
+      {% for p in group.projects %}
+      <article class="product-card project77-card reveal card-holo depth-tile">
+        <div class="card-tag">#{{ p.n }} · {{ p.repo }}</div>
+        <h3>{{ p.title }}</h3>
+        <div class="project77-block"><b>Зачем создан</b><p>{{ p.why }}</p></div>
+        <div class="project77-block"><b>Что делает</b><p>{{ p.does }}</p></div>
+        <div class="project77-block"><b>Что показывает о моей компетенции</b><p>{{ competence }}</p></div>
+        <div class="project77-value"><b>Практическая ценность для компании</b><p>{{ company_value }}</p></div>
+        {% if p.public %}<a class="project77-link" href="https://github.com/Shtenco/{{ p.repo }}" target="_blank" rel="noopener noreferrer">Открыть код на GitHub →</a>{% else %}<div class="project77-private">Закрытая разработка · описание основано на аудите проекта</div>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</section>
