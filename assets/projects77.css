@@ -1,0 +1,39 @@
+/* 77-project section: extends the original portal visual language */
+.projects77-section{padding-top:68px}
+.project-structure{margin-bottom:30px;padding:22px 24px}
+.project-formula{font-family:var(--display);font-size:clamp(34px,5vw,64px);line-height:1;color:var(--w);letter-spacing:.025em}
+.project-formula strong{color:var(--g);font-weight:400;text-shadow:0 0 24px rgba(0,230,100,.22)}
+.project-counts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:18px}
+.project-counts span{border:1px solid var(--bdr2);border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.02);font-size:12px;line-height:1.45;color:var(--w3)}
+.project-counts b{font-family:var(--display);font-size:22px;color:var(--g);font-weight:400;margin-right:5px}
+.project-direction{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr);gap:22px;align-items:end;margin:44px 0 16px;padding-top:22px;border-top:1px solid var(--bdr)}
+.project-direction h3{font-family:var(--display);font-size:clamp(30px,3.8vw,48px);line-height:.95}
+.project-direction p{color:var(--w3);font-size:14px;line-height:1.7;max-width:760px}
+.projects77-grid{align-items:stretch}
+.project77-card{display:flex;flex-direction:column;gap:0}
+.project77-card>.card-tag{word-break:break-word;overflow-wrap:anywhere}
+.project77-card>h3{font-size:25px;margin-bottom:18px}
+.project77-block,.project77-value{padding:14px 0;border-top:1px solid rgba(255,255,255,.07)}
+.project77-block b,.project77-value b{display:block;font-family:var(--mono);font-size:10px;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:7px}
+.project77-block p,.project77-value p{font-size:14px;line-height:1.72;color:var(--w3);margin:0}
+.project77-value{margin-top:2px;padding:15px 14px;border:1px solid rgba(0,230,100,.18);border-radius:15px;background:linear-gradient(180deg,rgba(0,230,100,.065),rgba(255,255,255,.012))}
+.project77-value p{color:var(--w2)}
+.project77-link,.project77-private{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07);font-family:var(--mono);font-size:11px;line-height:1.5}
+.project77-link{color:var(--g)}
+.project77-link:hover{text-shadow:0 0 16px rgba(0,230,100,.3)}
+.project77-private{color:var(--w4)}
+@media(max-width:980px){
+  .project-counts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project-direction{grid-template-columns:1fr;gap:8px;margin-top:36px}
+}
+@media(max-width:650px){
+  .projects77-section{padding-top:44px}
+  .project-structure{padding:17px;margin-bottom:22px}
+  .project-formula{font-size:34px;line-height:1.06}
+  .project-counts{grid-template-columns:1fr;gap:7px}
+  .project-direction{margin-top:32px;padding-top:18px}
+  .project-direction h3{font-size:32px}
+  .project77-card>h3{font-size:21px}
+  .project77-block p,.project77-value p{font-size:14px;line-height:1.66}
+  .project77-value{padding:13px}
+}
