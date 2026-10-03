@@ -2,4 +2,15 @@
 layout: null
 ---
 {% capture original_source %}{% include_relative original-source.html %}{% endcapture %}
-{{ original_source | replace: '</head>', '<link rel="stylesheet" href="assets/mobile.css?v=20261003"></head>' }}
+{% assign source_parts = original_source | split: '<div class="anchor-space" id="products"></div>' %}
+{% assign before_projects = source_parts | first %}
+{% assign after_products_raw = source_parts | last %}
+{% assign contact_parts = after_products_raw | split: '<div class="anchor-space" id="contacts"></div>' %}
+{% assign after_contacts = contact_parts | last %}
+{% capture rebuilt %}{{ before_projects }}<div class="anchor-space" id="products"></div>{% include projects-77.html %}<div class="anchor-space" id="contacts"></div>{{ after_contacts }}{% endcapture %}
+{% assign rebuilt = rebuilt | replace: '</head>', '<link rel="stylesheet" href="assets/mobile.css?v=20261003"><link rel="stylesheet" href="assets/projects77.css?v=20261003"></head>' %}
+{% assign rebuilt = rebuilt | replace: '<span class="lang-copy lang-copy-ru">Продукты</span><span class="lang-copy lang-copy-en">Products</span>', '<span class="lang-copy lang-copy-ru">77 проектов</span><span class="lang-copy lang-copy-en">77 Projects</span>' %}
+{% assign rebuilt = rebuilt | replace: '<span class="lang-copy lang-copy-ru">Открыть продукты</span><span class="lang-copy lang-copy-en">View products</span>', '<span class="lang-copy lang-copy-ru">Все 77 проектов</span><span class="lang-copy lang-copy-en">All 77 projects</span>' %}
+{% assign rebuilt = rebuilt | replace: '<div class="section-sub"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Оформлено в стиле портала : тёмная технологичная эстетика, белая типографика, фирменный зелёный акцент и карточная система блоков.</span><span class="lang-copy lang-copy-en">A dark technology-first visual system with white typography, a signature green accent, and modular card-based layout.</span></span></div>', '' %}
+{% assign rebuilt = rebuilt | replace: '<div class="section-sub"><span class="i18n-text"><span class="lang-copy lang-copy-ru">Финальный блок в том же визуальном языке, что и основной портал: чёрный, белый, зелёный, чёткая типографика и акцент на доверии.</span><span class="lang-copy lang-copy-en">A final contact section in the same black, white, and green visual language, with precise typography and an emphasis on trust.</span></span></div>', '' %}
+{{ rebuilt }}
